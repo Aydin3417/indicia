@@ -115,8 +115,8 @@ const tr: Record<SceneStringKey, string> = {
   'scene.tool.dust': 'Toz',
   'scene.tool.camera': 'Kamera',
   'scene.toolIn.uv': 'UV ışığında',
-  'scene.toolIn.dust': 'tozlayarak',
-  'scene.toolIn.camera': 'fotoğrafla',
+  'scene.toolIn.dust': 'Tozlayarak',
+  'scene.toolIn.camera': 'Fotoğrafla',
 
   'scene.hint.torch': 'Işığı gezdir. Gözüne takılana dokun.',
   'scene.hint.uv': 'UV ile bakmak istediğin yere dokun.',

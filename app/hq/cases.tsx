@@ -40,6 +40,7 @@ export default function CaseLibrary() {
             </View>
             <View style={[s.row, { marginTop: space.md, justifyContent: 'flex-start', gap: space.sm, flexWrap: 'wrap' }]}>
               {c.tutorial ? <Tag label={t('cases.tutorial')} tint={color.amber} /> : null}
+              {c.locked ? <Tag label={t('hq.planPlusName')} tint={color.amber} /> : null}
               {c.session?.status === 'active' ? <Tag label={t('hq.inProgress')} tint={color.burgundyBright} /> : null}
               {c.session?.status === 'closed' ? <Tag label={t('cases.closed')} tint={color.greenBright} /> : null}
               <Tag label={difficultyLabel(c.difficulty)} />

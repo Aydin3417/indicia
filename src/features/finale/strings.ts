@@ -20,7 +20,7 @@ const en = {
   'finale.intro.choose': 'Choose the accused',
   'finale.intro.later': 'Not yet, keep investigating',
   'finale.intro.fileFirst': 'First, file what you can',
-  'finale.intro.late': 'Your days are over, but the file is still open on your desk: {n} questions can still be filed, and the overnight results are in. The prosecutor will wait that long.',
+  'finale.intro.late': 'Your days are over, but the file is still open on your desk (questions you can still file: {n}), and the overnight results are in. The prosecutor will wait that long.',
 
   'finale.choose.eyebrow': 'The charge',
   'finale.choose.title': 'Who did it?',

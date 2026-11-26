@@ -18,8 +18,8 @@ export const meta: CaseDefinition['meta'] = {
   synopsis: L(
     'A fire guts the drying room of Agnes Vos’s pottery in Fennick Yard. The crew blames the kiln that was still hot when they arrived; ' +
       'their own investigator will not sign it. Nobody was hurt — but eleven months of work are gone, and three people had a reason to be at the yard that night.',
-    'Fennick Avlusu’ndaki Agnes Vos atölyesinin kurutma odası yanıp kül oluyor. Ekip, vardıklarında hâlâ sıcak olan fırını suçluyor; ' +
-      'kendi yangın uzmanları ise raporu imzalamıyor. Yaralanan yok — ama on bir aylık emek gitti ve o gece avluda olmak için üç kişinin bir sebebi vardı.',
+    'Fennick Avlusu’nda, Agnes Vos’un çömlek atölyesindeki kurutma odası yanıp kül oldu. İtfaiye ekibi, vardıklarında hâlâ sıcak olan fırını suçluyor; ' +
+      'kendi yangın uzmanları ise raporu imzalamıyor. Yaralanan yok — ama on bir aylık emek gitti ve o gece avluda olmak için üç kişinin sebebi vardı.',
   ),
   // PLAN_V2 §4: the first case and the tutorial are free; new cases come with Detective Plus
   tier: 'plus',
@@ -46,13 +46,13 @@ export const briefing: CaseDefinition['briefing'] = {
   incidentReport: [
     L(
       'At 01:58 on Saturday 4 October, Ruth Ekdal, the night baker at Unit 1, called the fire service: smoke and flame at the back of Unit 4. The first crew arrived at 02:07 and had the fire out by 02:40.',
-      '4 Ekim Cumartesi saat 01:58’de, 1 numaradaki fırının gece ustası Ruth Ekdal itfaiyeyi aradı: 4 numaranın arkasında duman ve alev. İlk ekip 02:07’de geldi, yangını 02:40’ta söndürdü.',
+      '4 Ekim Cumartesi saat 01:58’de, 1 numaradaki ekmek fırınının gece ustası Ruth Ekdal itfaiyeyi aradı: 4 numaranın arkasında duman ve alev. İlk ekip 02:07’de geldi, yangını 02:40’ta söndürdü.',
     ),
     L(
       'The drying room and the glaze room are burnt out. Nobody was inside and nobody was hurt. The studio’s smoke alarm, which reports to a monitoring company, never went off.',
       'Kurutma odasıyla sır odası tamamen yandı. İçeride kimse yoktu, yaralanan olmadı. Atölyenin bir izleme şirketine bağlı duman alarmı hiç ötmedi.',
     ),
-    L('The crew’s first note reads: probable kiln fault.', 'Ekibin ilk notunda “muhtemelen fırın arızası” yazıyor.'),
+    L('The crew’s first note reads: probable kiln fault.', 'İtfaiye ekibinin ilk notunda “muhtemelen fırın arızası” yazıyor.'),
   ],
   preliminaryFindings: [
     L(

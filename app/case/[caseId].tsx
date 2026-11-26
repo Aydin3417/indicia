@@ -94,7 +94,11 @@ export default function CaseDetail() {
 
       <Divider />
       {c.locked ? (
-        <T v="bodyDim">{t('case.plusOnly')}</T>
+        // wave 8: a locked Plus file used to end in a sentence with no way forward — the paywall is one tap away
+        <View style={{ gap: space.md }}>
+          <T v="bodyDim">{t('case.plusOnly')}</T>
+          <Button label={t('dossier.seePlus')} icon="lock" onPress={() => router.push(`/premium?source=case&case=${c.id}`)} />
+        </View>
       ) : (
         <View style={{ gap: space.sm }}>
           <Button

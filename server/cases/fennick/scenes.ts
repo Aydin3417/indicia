@@ -18,8 +18,8 @@ export const scenes: SceneDef[] = [
           ),
         },
         details: [
-          { id: 'd-fy-vee', label: L('The point of the V', 'V’nin ucu'), text: L('The V starts at floor level under the middle rack — the lowest, deepest burn in the room. The kiln is four metres away.', 'V, ortadaki rafın altında, yer hizasında başlıyor — odadaki en alçak, en derin yanık. Fırın dört metre ötede.'), x: 0.5, y: 0.72, facts: ['f-v-pattern'] },
-          { id: 'd-fy-straw', label: L('Under the racks', 'Rafların altı'), text: L('Charred straw and the curled black leaves of wrapping paper. Whatever burned first, burned here.', 'Kömürleşmiş saman ve kıvrılmış, kapkara ambalaj kâğıtları. İlk ne yandıysa burada yandı.'), x: 0.28, y: 0.86, facts: ['f-straw'] },
+          { id: 'd-fy-vee', label: L('The point of the V', 'V’nin ucu'), text: L('The V starts at floor level under the middle rack — the lowest, deepest burn in the room. The kiln is four metres away.', 'V, ortadaki rafın altında, yer hizasında başlıyor — odadaki en alçak, en derin yanık. Fırın dört metre ötede.'), x: 0.47, y: 0.66, facts: ['f-v-pattern'] },
+          { id: 'd-fy-straw', label: L('Under the racks', 'Rafların altı'), text: L('Charred straw and the curled black leaves of wrapping paper. Whatever burned first, burned here.', 'Kömürleşmiş saman ve kıvrılmış, kapkara ambalaj kâğıtları. İlk ne yandıysa burada yandı.'), x: 0.2, y: 0.72, facts: ['f-straw'] },
         ],
       },
       {
@@ -29,8 +29,8 @@ export const scenes: SceneDef[] = [
           text: L('A front-loading electric kiln, its door shut. Paint blistered on one side only — the side facing the racks.', 'Önden yüklemeli elektrikli bir fırın, kapağı kapalı. Boya yalnızca tek yanda kabarmış — raflara bakan yanda.'),
         },
         details: [
-          { id: 'd-fy-controller', label: L('Controller', 'Kumanda paneli'), text: L('The last programme: started 21:31, ended 00:55. “COMPLETE”. No error code, no over-temperature.', 'Son program: başlangıç 21:31, bitiş 00:55. “TAMAMLANDI”. Hata kodu yok, aşırı ısınma yok.'), x: 0.74, y: 0.3, facts: ['f-kiln-0055'] },
-          { id: 'd-fy-load', label: L('Inside the kiln', 'Fırının içi'), text: L('Six small celadon vessels, perfectly fired. On each foot: S.A. Agnes’s exhibition list has no such pieces.', 'Kusursuz pişmiş altı küçük seladon kap. Her birinin dibinde: S.A. Agnes’in sergi listesinde böyle parçalar yok.'), x: 0.42, y: 0.62, facts: ['f-sa-pots'] },
+          { id: 'd-fy-controller', label: L('Controller', 'Kumanda paneli'), text: L('The last programme: started 21:31, ended 00:55. “COMPLETE”. No error code, no over-temperature.', 'Son program: başlangıç 21:31, bitiş 00:55. “TAMAMLANDI”. Hata kodu yok, aşırı ısınma yok.'), x: 0.86, y: 0.47, facts: ['f-kiln-0055'] },
+          { id: 'd-fy-load', label: L('Inside the kiln', 'Fırının içi'), text: L('Six small celadon vessels, perfectly fired. On each foot: S.A. Agnes’s exhibition list has no such pieces.', 'Kusursuz pişmiş altı küçük seladon kap. Her birinin dibinde: S.A. Agnes’in sergi listesinde böyle parçalar yok.'), x: 0.66, y: 0.5, facts: ['f-sa-pots'] },
         ],
       },
       {
@@ -40,8 +40,8 @@ export const scenes: SceneDef[] = [
           text: L('An old oil-filled heater pushed right up against the racks, scorched on that side. Its cord runs to a socket on the wall.', 'Eski bir yağlı radyatör, rafların tam dibine itilmiş; o yanı kavrulmuş. Kablosu duvardaki bir prize gidiyor.'),
         },
         details: [
-          { id: 'd-fy-plug', label: L('Dial and plug', 'Düğme ve fiş'), text: L('Plugged in. The dial is turned to the highest setting.', 'Fişe takılı. Düğmesi en yüksek kademeye çevrilmiş.'), x: 0.3, y: 0.55, facts: ['f-heater-plugged'] },
-          { id: 'd-fy-socket', label: L('Wall switch', 'Duvardaki anahtar'), text: L('The socket has its own switch. It is off — and soot lies undisturbed on the rocker. It was off all night.', 'Prizin kendi anahtarı var. Kapalı — ve düğmenin üstündeki is hiç bozulmamış. Bütün gece kapalıymış.'), x: 0.78, y: 0.32, facts: ['f-socket-off'] },
+          { id: 'd-fy-plug', label: L('Dial and plug', 'Düğme ve fiş'), text: L('Plugged in. The dial is turned to the highest setting.', 'Fişe takılı. Düğmesi en yüksek kademeye çevrilmiş.'), x: 0.55, y: 0.38, facts: ['f-heater-plugged'] },
+          { id: 'd-fy-socket', label: L('Wall switch', 'Duvardaki anahtar'), text: L('The socket has its own switch. It is off — and soot lies undisturbed on the rocker. It was off all night.', 'Prizin kendi anahtarı var. Kapalı — ve düğmenin üstündeki is hiç bozulmamış. Bütün gece kapalıymış.'), x: 0.81, y: 0.58, facts: ['f-socket-off'] },
         ],
       },
       {
@@ -51,8 +51,8 @@ export const scenes: SceneDef[] = [
           text: L('A ceiling smoke alarm above the glaze bench, its cover hanging open on the hinge.', 'Sır tezgâhının üstünde, tavanda bir duman alarmı; kapağı menteşesinden sarkıyor.'),
         },
         details: [
-          { id: 'd-fy-slot', label: L('Battery slot', 'Pil yuvası'), text: L('Empty. The contacts are clean and bright — the battery was not burned out of it; it was taken.', 'Boş. Kontaklar temiz ve parlak — pil yanıp gitmemiş; çıkarılmış.'), x: 0.5, y: 0.5, facts: ['f-no-battery'] },
-          { id: 'd-fy-cover', label: L('Cover clip (dusted)', 'Kapak mandalı (tozlanmış)'), tool: 'dust', text: L('Powder brings up one clear set of large prints on the clip — recent, and nobody else’s.', 'Toz, mandalda tek ve net bir set iri parmak izi çıkarıyor — taze, ve başka kimseninki yok.'), x: 0.24, y: 0.3, r: 0.1, facts: ['f-alarm-prints'], evidence: ['ev-alarmlift'] },
+          { id: 'd-fy-slot', label: L('Battery slot', 'Pil yuvası'), text: L('Empty. The contacts are clean and bright — the battery was not burned out of it; it was taken.', 'Boş. Kontaklar temiz ve parlak — pil yanıp gitmemiş; çıkarılmış.'), x: 0.6, y: 0.44, facts: ['f-no-battery'] },
+          { id: 'd-fy-cover', label: L('Cover clip (dusted)', 'Kapak mandalı (tozlanmış)'), tool: 'dust', text: L('Powder brings up one clear set of large prints on the clip — recent, and nobody else’s.', 'Toz, mandalda tek ve net bir set iri parmak izi çıkarıyor — taze, ve başka kimseninki yok.'), x: 0.4, y: 0.6, r: 0.1, facts: ['f-alarm-prints'], evidence: ['ev-alarmlift'] },
         ],
       },
       {
@@ -62,8 +62,8 @@ export const scenes: SceneDef[] = [
           text: L('A steel door onto the yard. The lock is whole and the frame unmarked. A typed notice is taped to the inside.', 'Avluya açılan çelik bir kapı. Kilit sağlam, kasada tek çizik yok. İç tarafına daktiloyla yazılmış bir duyuru yapıştırılmış.'),
         },
         details: [
-          { id: 'd-fy-lock', label: L('The lock', 'Kilit'), text: L('Not forced, not picked. Whoever came in had a key.', 'Ne zorlanmış ne kurcalanmış. Giren her kimse anahtarı vardı.'), x: 0.62, y: 0.52, facts: ['f-backdoor-key'] },
-          { id: 'd-fy-handle', label: L('Inside handle (UV)', 'İç kol (UV)'), tool: 'uv', text: L('Under the lamp the inside handle glows: an oily hand closed this door on the way out.', 'Lambanın altında iç kol ışıyor: yağlı bir el, çıkarken bu kapıyı kapatmış.'), x: 0.3, y: 0.46, r: 0.08, facts: ['f-handle-oil'] },
+          { id: 'd-fy-lock', label: L('The lock', 'Kilit'), text: L('Not forced, not picked. Whoever came in had a key.', 'Ne zorlanmış ne kurcalanmış. Giren her kimse anahtarı vardı.'), x: 0.31, y: 0.19, facts: ['f-backdoor-key'] },
+          { id: 'd-fy-handle', label: L('Inside handle (UV)', 'İç kol (UV)'), tool: 'uv', text: L('Under the lamp the inside handle glows: an oily hand closed this door on the way out.', 'Lambanın altında iç kol ışıyor: yağlı bir el, çıkarken bu kapıyı kapatmış.'), x: 0.26, y: 0.36, r: 0.08, facts: ['f-handle-oil'] },
         ],
       },
       {
@@ -73,7 +73,7 @@ export const scenes: SceneDef[] = [
           text: L('Shelves of pieces Agnes marked as seconds — a chalk cross on each — waiting for the yearly smashing. Untouched by the fire.', 'Agnes’in ıskartaya ayırdığı parçaların rafları — her birinde tebeşirle bir çarpı — yıllık kırımı bekliyor. Yangın buraya ulaşmamış.'),
         },
         details: [
-          { id: 'd-fy-gap', label: L('Middle shelf', 'Orta raf'), text: L('A clean rectangle in the dust where a whole crate stood until a day or two ago.', 'Tozda temiz bir dikdörtgen: bir iki gün öncesine kadar burada koca bir kasa duruyormuş.'), x: 0.5, y: 0.5, facts: ['f-crate-gap'] },
+          { id: 'd-fy-gap', label: L('Middle shelf', 'Orta raf'), text: L('A clean rectangle in the dust where a whole crate stood until a day or two ago.', 'Tozda temiz bir dikdörtgen: bir iki gün öncesine kadar burada koca bir kasa duruyormuş.'), x: 0.46, y: 0.6, facts: ['f-crate-gap'] },
         ],
       },
       {
@@ -125,7 +125,7 @@ export const scenes: SceneDef[] = [
           text: L('A camera on a bracket over the gate, looking down the yard. Its cable runs up into the office window above.', 'Kapının üstünde bir ayağa takılı, avluya bakan bir kamera. Kablosu yukarıdaki ofis penceresine çıkıyor.'),
         },
         details: [
-          { id: 'd-fy-cable', label: L('The cable', 'Kablo'), text: L('One cable, one recorder: the box in the landlord’s office. Nothing goes to the cloud.', 'Tek kablo, tek cihaz: ev sahibinin ofisindeki kutu. Hiçbir şey internete gitmiyor.'), x: 0.6, y: 0.3, facts: ['f-camera-cable'] },
+          { id: 'd-fy-cable', label: L('The cable', 'Kablo'), text: L('One cable, one recorder: the box in the landlord’s office. Nothing goes to the cloud.', 'Tek kablo, tek cihaz: ev sahibinin ofisindeki kutu. Hiçbir şey internete gitmiyor.'), x: 0.69, y: 0.42, facts: ['f-camera-cable'] },
         ],
       },
       {
@@ -135,8 +135,8 @@ export const scenes: SceneDef[] = [
           text: L('The drain gutter past Unit 4’s back door, full of black water from the hoses. Two things are caught in the grating.', '4 numaranın arka kapısının önünden geçen oluk; hortumlardan gelen kara suyla dolu. Izgaraya iki şey takılmış.'),
         },
         details: [
-          { id: 'd-fy-cap', label: L('Red cap', 'Kırmızı kapak'), text: L('A half-melted screw cap. The thread and the red are the lamp-oil bottles’ — the kind the yard lanterns use.', 'Yarısı erimiş bir vidalı kapak. Dişi de rengi de gaz yağı şişelerininki — avlu fenerlerinde kullanılanlardan.'), x: 0.3, y: 0.56, facts: ['f-cap'] },
-          { id: 'd-fy-matchbook', label: L('Matchbook', 'Kibrit kutusu'), text: L('A soaked paper matchbook. An anchor on the cover; three matches torn out.', 'Islanmış kâğıt bir kibrit kutusu. Kapağında bir çapa; üç çöpü koparılmış.'), x: 0.7, y: 0.62, facts: ['f-matchbook'] },
+          { id: 'd-fy-cap', label: L('Red cap', 'Kırmızı kapak'), text: L('A half-melted screw cap. The thread and the red are the lamp-oil bottles’ — the kind the yard lanterns use.', 'Yarısı erimiş bir vidalı kapak. Dişi de rengi de gaz yağı şişelerininki — avlu fenerlerinde kullanılanlardan.'), x: 0.72, y: 0.52, facts: ['f-cap'] },
+          { id: 'd-fy-matchbook', label: L('Matchbook', 'Kibrit kutusu'), text: L('A soaked paper matchbook. An anchor on the cover; three matches torn out.', 'Islanmış kâğıt bir kibrit kutusu. Kapağında bir çapa; üç çöpü koparılmış.'), x: 0.37, y: 0.47, facts: ['f-matchbook'] },
         ],
       },
       {
@@ -148,8 +148,8 @@ export const scenes: SceneDef[] = [
         },
         details: [
           { id: 'd-fy-oilshelf', label: L('Lamp-oil shelf', 'Gaz yağı rafı'), text: L('Six one-litre bottles in a row, red caps. One gap, dust-free.', 'Kırmızı kapaklı altı adet bir litrelik şişe yan yana. Biri eksik; yeri tozsuz.'), x: 0.68, y: 0.34, facts: ['f-shed-gap'] },
-          { id: 'd-fy-shedfloor', label: L('Floor by the shelf (UV)', 'Rafın önündeki zemin (UV)'), tool: 'uv', text: L('Under the lamp, fresh drips glow on the boards below the gap — and lead out of the door.', 'Lambanın altında, boşluğun altındaki tahtalarda taze damlalar ışıyor — ve kapıya doğru gidiyor.'), x: 0.7, y: 0.72, r: 0.08, facts: ['f-shed-drips'] },
-          { id: 'd-fy-battery', label: L('On the bench', 'Tezgâhın üstünde'), text: L('A 9-volt battery with tape round it: “SMOKE ALARM — June”, in Agnes’s hand.', 'Üstüne bant sarılmış 9 voltluk bir pil: “DUMAN ALARMI — Haziran”, Agnes’in el yazısıyla.'), x: 0.3, y: 0.7, facts: ['f-battery-found'] },
+          { id: 'd-fy-shedfloor', label: L('Floor by the shelf (UV)', 'Rafın önündeki zemin (UV)'), tool: 'uv', text: L('Under the lamp, fresh drips glow on the boards below the gap — and lead out of the door.', 'Lambanın altında, boşluğun altındaki tahtalarda taze damlalar ışıyor — ve kapıya doğru gidiyor.'), x: 0.69, y: 0.56, r: 0.08, facts: ['f-shed-drips'] },
+          { id: 'd-fy-battery', label: L('On the bench', 'Tezgâhın üstünde'), text: L('A 9-volt battery with tape round it: “SMOKE ALARM — June”, in Agnes’s hand.', 'Üstüne bant sarılmış 9 voltluk bir pil: “DUMAN ALARMI — Haziran”, Agnes’in el yazısıyla.'), x: 0.75, y: 0.72, facts: ['f-battery-found'] },
         ],
       },
       {
@@ -216,8 +216,8 @@ export const scenes: SceneDef[] = [
         id: 'z-hc-bar', label: L('Bar', 'Bar'), shape: { kind: 'rect', x: 0.4, y: 0.08, w: 0.5, h: 0.12 },
         closeUp: { art: 'fennick/bar', text: L('The long bar. A bowl of club matchbooks; the barman’s spike of closed tabs.', 'Uzun bar. Kulübün kibrit kutularıyla dolu bir kâse; barmenin kapanmış hesapları taktığı şiş.') },
         details: [
-          { id: 'd-hc-matches', label: L('Matchbooks', 'Kibrit kutuları'), text: L('Paper matchbooks, an anchor on every cover. The club hands them out at the bar.', 'Kâğıt kibrit kutuları, her birinin kapağında bir çapa. Kulüp onları barda dağıtıyor.'), x: 0.24, y: 0.6, facts: ['f-club-matches'] },
-          { id: 'd-hc-tab', label: L('Tab spike', 'Hesap şişi'), text: L('Dahl’s tab: one brandy, closed at 01:02, the signature shaky.', 'Dahl’ın hesabı: bir konyak, 01:02’de kapatılmış, imza titrek.'), x: 0.78, y: 0.4, facts: ['f-tab-0102'] },
+          { id: 'd-hc-matches', label: L('Matchbooks', 'Kibrit kutuları'), text: L('Paper matchbooks, an anchor on every cover. The club hands them out at the bar.', 'Kâğıt kibrit kutuları, her birinin kapağında bir çapa. Kulüp onları barda dağıtıyor.'), x: 0.3, y: 0.48, facts: ['f-club-matches'] },
+          { id: 'd-hc-tab', label: L('Tab spike', 'Hesap şişi'), text: L('Dahl’s tab: one brandy, closed at 01:02, the signature shaky.', 'Dahl’ın hesabı: bir konyak, 01:02’de kapatılmış, imza titrek.'), x: 0.58, y: 0.62, facts: ['f-tab-0102'] },
         ],
       },
       {
@@ -231,7 +231,7 @@ export const scenes: SceneDef[] = [
         id: 'z-hc-corridor', label: L('Corridor by the cloakroom', 'Vestiyerin yanındaki koridor'), shape: { kind: 'rect', x: 0.06, y: 0.36, w: 0.2, h: 0.12 },
         closeUp: { art: 'fennick/corridor', text: L('A quiet corridor between the cloakroom and the cellar stairs, a bench, the club’s router blinking on a shelf.', 'Vestiyerle mahzen merdiveni arasında sessiz bir koridor; bir bank, rafta yanıp sönen kulüp modemi.') },
         details: [
-          { id: 'd-hc-wifi', label: L('Guest wifi log', 'Misafir ağı kaydı'), text: L('The manager prints the router’s log for you: Dahl’s phone, on this corridor’s router, 00:58 to 01:03.', 'Müdür modemin kaydını yazdırıp veriyor: Dahl’ın telefonu, bu koridordaki modemde, 00:58 ile 01:03 arası.'), x: 0.7, y: 0.36, facts: ['f-club-wifi'] },
+          { id: 'd-hc-wifi', label: L('Guest wifi log', 'Misafir ağı kaydı'), text: L('The manager prints the router’s log for you: Dahl’s phone, on this corridor’s router, 00:58 to 01:03.', 'Müdür modemin kaydını yazdırıp veriyor: Dahl’ın telefonu, bu koridordaki modemde, 00:58 ile 01:03 arası.'), x: 0.48, y: 0.48, facts: ['f-club-wifi'] },
         ],
       },
       {
@@ -253,7 +253,7 @@ export const scenes: SceneDef[] = [
         id: 'z-kr-crate', label: L('The crate', 'Kasa'), shape: { kind: 'rect', x: 0.1, y: 0.56, w: 0.2, h: 0.16 },
         closeUp: { art: 'fennick/kranz-crate', text: L('A wooden crate of pots in straw, each one wrapped in newspaper.', 'Saman içinde, her biri gazeteye sarılmış çömleklerle dolu tahta bir kasa.') },
         details: [
-          { id: 'd-kr-stamps', label: L('Under the newspaper', 'Gazetenin altı'), text: L('Twenty-three pieces, each with Agnes’s stamp and her chalk cross. The seconds from the studio shelf.', 'Yirmi üç parça; her birinde Agnes’in damgası ve tebeşirle çarpısı. Atölyedeki ıskarta rafından gelenler.'), x: 0.5, y: 0.5, facts: ['f-crate-23'] },
+          { id: 'd-kr-stamps', label: L('Under the newspaper', 'Gazetenin altı'), text: L('Twenty-three pieces, each with Agnes’s stamp and her chalk cross. The seconds from the studio shelf.', 'Yirmi üç parça; her birinde Agnes’in damgası ve tebeşirle çarpısı. Atölyedeki ıskarta rafından gelenler.'), x: 0.53, y: 0.57, facts: ['f-crate-23'] },
         ],
       },
     ],
@@ -267,7 +267,7 @@ export const scenes: SceneDef[] = [
         evidence: ['ev-coat'],
         details: [
           { id: 'd-hh-coat', label: L('Cuff and hem (UV)', 'Kol ağzı ve etek (UV)'), tool: 'uv', text: L('Under the lamp the right cuff and the hem glow with small splashes.', 'Lambanın altında sağ kol ağzı ve etek küçük sıçramalarla ışıyor.'), x: 0.62, y: 0.58, facts: ['f-coat-oil'] },
-          { id: 'd-hh-rack', label: L('Shoe rack', 'Ayakkabılık'), text: L('A gap on the top shelf, size 44, where a pair of black dress shoes belongs.', 'Üst rafta bir boşluk; 44 numara bir çift siyah kunduranın yeri.'), x: 0.3, y: 0.82, facts: ['f-shoe-gap'] },
+          { id: 'd-hh-rack', label: L('Shoe rack', 'Ayakkabılık'), text: L('A gap on the top shelf, size 44, where a pair of black dress shoes belongs.', 'Üst rafta bir boşluk; 44 numara bir çift siyah kunduranın yeri.'), x: 0.35, y: 0.83, facts: ['f-shoe-gap'] },
         ],
       },
       {
@@ -279,7 +279,7 @@ export const scenes: SceneDef[] = [
         id: 'z-hh-garage', label: L('Garage', 'Garaj'), shape: { kind: 'rect', x: 0.4, y: 0.7, w: 0.2, h: 0.18 },
         closeUp: { art: 'fennick/garage', text: L('A dark saloon car in a tidy garage.', 'Derli toplu bir garajda koyu renk bir sedan.') },
         details: [
-          { id: 'd-hh-bonnet', label: L('Bonnet and tyres', 'Kaput ve lastikler'), text: L('Cold, with a film of dust on the bonnet; the tyres are dry. It did not go out on Friday night.', 'Soğuk, kaputun üstünde ince bir toz tabakası; lastikler kuru. Cuma gecesi dışarı çıkmamış.'), x: 0.5, y: 0.42, facts: ['f-car-home'] },
+          { id: 'd-hh-bonnet', label: L('Bonnet and tyres', 'Kaput ve lastikler'), text: L('Cold, with a film of dust on the bonnet; the tyres are dry. It did not go out on Friday night.', 'Soğuk, kaputun üstünde ince bir toz tabakası; lastikler kuru. Cuma gecesi dışarı çıkmamış.'), x: 0.38, y: 0.5, facts: ['f-car-home'] },
         ],
       },
       {
@@ -287,7 +287,7 @@ export const scenes: SceneDef[] = [
         closeUp: { art: 'fennick/incinerator', text: L('A galvanised incinerator, still faintly warm, ash to the rim. Leaves on top; something heavier underneath.', 'Galvanizli bir yakma sobası, hâlâ hafif ılık, ağzına kadar kül. Üstte yapraklar; altında daha ağır bir şey.') },
         evidence: ['ev-ashes'],
         details: [
-          { id: 'd-hh-ash', label: L('Under the leaves', 'Yaprakların altı'), text: L('The heel of a leather dress shoe, its nails in a ring, crusted with pale clay.', 'Deri bir kunduranın topuğu; çivileri halka hâlinde, üstü açık renk çamurla kaplı.'), x: 0.46, y: 0.66, facts: ['f-ash-sole'] },
+          { id: 'd-hh-ash', label: L('Under the leaves', 'Yaprakların altı'), text: L('The heel of a leather dress shoe, its nails in a ring, crusted with pale clay.', 'Deri bir kunduranın topuğu; çivileri halka hâlinde, üstü açık renk çamurla kaplı.'), x: 0.6, y: 0.36, facts: ['f-ash-sole'] },
         ],
       },
     ],

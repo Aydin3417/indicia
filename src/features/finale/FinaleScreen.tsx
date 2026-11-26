@@ -663,9 +663,9 @@ function Debrief({ view, t, onDone }: { view: InvestigationView; t: Translate; o
   );
 }
 
-/** The debrief's lie lines often already start with the speaker's first name ("Clara: …"). */
+/** The debrief's lie lines often already start with the speaker's first or last name ("Clara: …", "Dahl: …"). */
 const lieText = (l: { speaker: string; text: string }) =>
-  l.text.startsWith(`${l.speaker.split(' ')[0]}:`) ? l.text : `${l.speaker}: ${l.text}`;
+  l.speaker.split(' ').some((n) => n && l.text.startsWith(`${n}:`)) ? l.text : `${l.speaker}: ${l.text}`;
 
 function Line({ ok, text }: { ok?: boolean; text: string }) {
   return (

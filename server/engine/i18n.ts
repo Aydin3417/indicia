@@ -168,6 +168,8 @@ const S = {
   act_finale: { en: 'began the confrontation with {0}', tr: 'yüzleşmeyi başlattı: {0}' },
   act_hint: { en: 'asked the desk sergeant for a pointer', tr: 'nöbetçi komiserden ipucu istedi' },
   former_member: { en: 'Former member', tr: 'Eski üye' },
+  // wave 8: the default display name every new profile gets, shown in the viewer's language (co-op rooms, team, log)
+  default_investigator: { en: 'Investigator', tr: 'Müfettiş' },
   act_open: { en: 'opened the room', tr: 'odayı açtı' },
   act_join: { en: 'joined the investigation', tr: 'soruşturmaya katıldı' },
   act_left: { en: 'left the room', tr: 'odadan ayrıldı' },

@@ -50,7 +50,10 @@ const EVIDENCE_FALLBACK: Record<string, string> = {
   'ev-cloakbook': 'doc:ledger', 'ev-taxibook': 'doc:ledger', 'ev-loan': 'doc:bank-record',
   'ev-ruth': 'doc:statement', 'ev-agnes': 'doc:statement', 'ev-teo': 'doc:statement', 'ev-kranz': 'doc:statement',
   'ev-nyberg': 'doc:statement',
-  'ev-firereport': 'doc:folder', 'ev-notice': 'doc:folder', 'ev-warning': 'doc:folder', 'ev-salvage': 'doc:folder',
+  'ev-firereport': 'doc:folder', 'ev-warning': 'doc:folder', 'ev-salvage': 'doc:folder', 'ev-camreq': 'doc:folder',
+  // wave 8 (T's request): items with a painted spot of their own show that close-up instead of a generic drawing
+  'ev-notice': 'zone:z-fy-backdoor', 'ev-burnpattern': 'zone:z-fy-racks', 'ev-debris': 'zone:z-fy-racks',
+  'ev-alarmlift': 'zone:z-fy-alarm', 'ev-shoeprint': 'zone:z-fy-slip', 'ev-dvr': 'zone:z-ho-recorder',
 };
 /** By evidence kind when the id is unknown (a new case before its art). Physical objects get nothing (icon box). */
 const KIND_FALLBACK: Record<string, string> = {
@@ -129,6 +132,9 @@ export function nightArt(caseKey: string | undefined, day: number, night: { titl
 const FACE: Record<string, [number, number]> = {
   clara: [0.52, 0.32], jonas: [0.6, 0.34], miriam: [0.6, 0.31], leo: [0.5, 0.31], ada: [0.55, 0.33], nils: [0.62, 0.34],
   'p-thomas': [0.6, 0.35], 'p-varga': [0.58, 0.39], 'p-okafor': [0.55, 0.38], 'p-lind': [0.55, 0.36], 'p-saar': [0.55, 0.37],
+  // Ash and Glaze (T's measurements, checked against the composed portraits in wave 8; the face thumbnails use the same)
+  selma: [0.6, 0.44], bram: [0.54, 0.38], oskar: [0.52, 0.41],
+  'p-agnes': [0.48, 0.39], 'p-ruth': [0.5, 0.39], 'p-holm': [0.58, 0.39], 'p-teo': [0.5, 0.44], 'p-kranz': [0.54, 0.42], 'p-nyberg': [0.58, 0.38],
 };
 export const faceCentre = (id: string | undefined): [number, number] => (id && FACE[id]) || [0.55, 0.32];
 

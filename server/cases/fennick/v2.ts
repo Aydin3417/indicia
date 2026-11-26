@@ -18,7 +18,7 @@ export const fennickV2Layer: CaseV2 = {
     startLocationId: null,
     availability: {
       selma: [
-        { day: 1, to: 330, note: L('Helping the fire crew carry out what is left, until 14:30', '14.30’a kadar itfaiyeyle birlikte geriye kalanları taşıyor') },
+        { day: 1, to: 330, note: L('At the yard until 14:30, helping the fire crew carry out what is left', '14.30’a kadar avluda; itfaiyeyle birlikte enkazı taşıyor') },
         { day: 2, from: 120, note: L('Sunday morning at the prize office, begging for an extension; free from 11:00', 'Pazar sabahı ödül ofisinde süre uzatımı için yalvarıyor; 11.00’den sonra müsait') },
         { day: 3 },
       ],
@@ -194,7 +194,7 @@ export const fennickV2Layer: CaseV2 = {
         options: [
           {
             id: 'fk-seal', label: L('Holm keeps it for your lab', 'Holm senin laboratuvarına ayırsın'),
-            text: L('You sleep. The heater goes to your lab at eight; one of your lines is busy until about eleven.', 'Uyursun. Isıtıcı sabah sekizde laboratuvarına gider; hatlarından biri on bire kadar meşgul.'),
+            text: L('You sleep. The heater goes to your lab in the morning; one of your lines is busy until about noon.', 'Uyursun. Isıtıcı sabah laboratuvarına gider; hatlarından biri öğlene kadar meşgul.'),
             lab: 'a-heater',
           },
           {

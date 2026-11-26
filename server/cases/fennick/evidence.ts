@@ -125,7 +125,7 @@ export const evidence: CaseDefinition['evidence'] = [
   // ── the yard
   {
     id: 'ev-gatelog', code: 'F-12', name: L('Gate controller printout', 'Kapı kumandası dökümü'), kind: 'document', role: 'decisive', reliability: 'confirmed', locationId: 'loc-yard',
-    foundAt: L('Gate keypad', 'Kapı tuş takımı'), relatedPeople: ['oskar', 'bram', 'selma'],
+    foundAt: L('Gate keypad', 'Kapı tuş takımı'), relatedPeople: ['selma', 'bram'],
     description: L('Every opening of the gate on Friday night. Codes are per unit, not per person.', 'Cuma gecesi kapının her açılışı. Şifreler kişiye değil, birime ait.'),
     body: [
       L('{{f-gate-2115|21:15  UNIT 4 — OPEN}}', '{{f-gate-2115|21:15  BİRİM 4 — AÇILDI}}'),
@@ -145,7 +145,7 @@ export const evidence: CaseDefinition['evidence'] = [
   },
   {
     id: 'ev-cap', code: 'F-14', name: L('Melted bottle cap', 'Erimiş şişe kapağı'), kind: 'physical', role: 'decisive', reliability: 'confirmed', locationId: 'loc-yard',
-    foundAt: L('Gutter outside Unit 4', '4 numaranın önündeki oluk'), relatedPeople: ['oskar'],
+    foundAt: L('Gutter outside Unit 4', '4 numaranın önündeki oluk'), relatedPeople: [],
     description: L('The red cap of a one-litre lamp-oil bottle, half melted.', 'Bir litrelik bir gaz yağı şişesinin yarı erimiş kırmızı kapağı.'),
   },
   {
@@ -247,7 +247,7 @@ export const evidence: CaseDefinition['evidence'] = [
   // ── lab and witnesses
   {
     id: 'ev-ostkai', code: 'F-24', name: L('Ostkai junction camera', 'Ostkai kavşak kamerası'), kind: 'footage', role: 'supporting', reliability: 'confirmed',
-    foundAt: L('Traffic authority', 'Trafik müdürlüğü'), relatedPeople: ['bram', 'selma', 'oskar'],
+    foundAt: L('Traffic authority', 'Trafik müdürlüğü'), relatedPeople: ['bram', 'selma'],
     description: L('Everything that passed into or out of Fennick Lane between 23:00 and 02:10.', 'Fennick Sokağı’na 23:00 ile 02:10 arasında girip çıkan her şey.'),
     body: [
       L('{{f-van-in|23:16  white van, VOS CERAMICS on the side, into Fennick Lane}}', '{{f-van-in|23:16  yanında VOS SERAMİK yazan beyaz minibüs, Fennick Sokağı’na giriyor}}'),
@@ -270,7 +270,7 @@ export const evidence: CaseDefinition['evidence'] = [
     body: [
       L(
         '{{f-kranz|Bram Vos came to my back door at twenty past twelve with a crate of his mother’s seconds and stayed until five past two}} — we counted, we argued, we had a drink.',
-        '{{f-kranz|Bram Vos biri yirmi geçe annesinin ıskarta işleriyle dolu bir kasayla arka kapıma geldi, ikiyi beş geçeye kadar kaldı}} — saydık, pazarlık ettik, bir kadeh içtik.',
+        '{{f-kranz|Bram Vos gece yarısını yirmi geçe annesinin ıskarta işleriyle dolu bir kasayla arka kapıma geldi, ikiyi beş geçeye kadar kaldı}} — saydık, pazarlık ettik, bir kadeh içtik.',
       ),
       L('My door camera has him arriving and leaving. I paid him eleven hundred in cash.', 'Kapı kameram gelişini de gidişini de kaydetti. Ona bin yüz avro nakit verdim.'),
     ],
@@ -347,7 +347,7 @@ export const analyses: CaseDefinition['analyses'] = [
   {
     id: 'a-debris', evidenceId: 'ev-debris', discipline: 'trace', name: L('Fire debris (accelerant test)', 'Yangın enkazı (hızlandırıcı testi)'),
     result: [L('Gas chromatography of the ash under the middle rack: a medium petroleum distillate.', 'Orta raf altındaki külün gaz kromatografisi: orta ağırlıkta bir petrol damıtığı.')],
-    conclusion: L('Lamp oil. Nothing in a pottery is made of it.', 'Gaz yağı. Bir seramik atölyesinde bundan yapılmış hiçbir şey yoktur.'),
+    conclusion: L('Lamp oil. Nothing in a pottery runs on it.', 'Gaz yağı. Bir seramik atölyesinde gaz yağıyla çalışan hiçbir şey yoktur.'),
     v2: { minutes: 240, facts: ['f-lampoil'] },
   },
   {

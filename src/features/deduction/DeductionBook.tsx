@@ -1,6 +1,7 @@
 // The deduction book (PLAN §3.5): open questions with typed blanks, filled from chips; a timeline variant;
 // confirmed deductions stay readable as the case's reasoning so far.
-import { useEffect, useMemo, useRef, useState, type ComponentRef } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type ComponentRef } from 'react';
+import { useFocusEffect } from 'expo-router';
 import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { GestureDetector, usePanGesture } from 'react-native-gesture-handler';
@@ -25,6 +26,11 @@ export function DeductionBook({ view, act, t, initialDeductionId, onEvent }: Ded
   // questions announced by the last action (they also carry isNew in the view)
   const [announced, setAnnounced] = useState<string[]>([]);
   const open = openId ? view.deductions.find((d) => d.id === openId) : undefined;
+  // wave 8: a question that is already confirmed is a result page, not a place to come back to — leaving the tab
+  // with one open returns to the book, so the next visit (often the next morning) starts at the open questions
+  const openConfirmed = useRef(false);
+  openConfirmed.current = open?.status === 'confirmed';
+  useFocusEffect(useCallback(() => () => { if (openConfirmed.current) setOpenId(null); }, []));
 
   const run: Act = async (path, body) => {
     const r = await act(path, body);
@@ -177,6 +183,8 @@ function Question({ view, d, act, t, onBack, onOpen }: {
   const [confirming, setConfirming] = useState(false);
   const [busy, setBusy] = useState(false);
   const [outcome, setOutcome] = useState<Outcome | null>(null);
+  // wave 8: the arrangement the server just refused — filing it again unchanged would only cost another 30 min
+  const [refused, setRefused] = useState<string | null>(null);
   const [personFilter, setPersonFilter] = useState<string | null>(null);
   const { style: shakeStyle, shake } = useShake();
   const slotRefs = useRef<Record<string, ViewRef | null>>({});
@@ -233,6 +241,11 @@ function Question({ view, d, act, t, onBack, onOpen }: {
     ? order.length > 0 && (!d.hasOutlier || !!outlier)
     : blanks.every((b) => !!fills[b.id]);
 
+  const attempt = d.kind === 'timeline'
+    ? JSON.stringify({ order, outlier: d.hasOutlier ? outlier : null })
+    : JSON.stringify(blanks.map((b) => fills[b.id] ?? null));
+  const sameAsRefused = complete && refused === attempt;
+
   const place = (blankId: string, value: string) => {
     setOutcome(null);
     setConfirming(false);
@@ -273,6 +286,7 @@ function Question({ view, d, act, t, onBack, onOpen }: {
       feel('warning');
       shake();
       setOutcome({ kind: 'wrong', message: e.message, cost: e.cost, timeline: d.kind === 'timeline' });
+      setRefused(attempt);
     }
   };
 
@@ -430,9 +444,9 @@ function Question({ view, d, act, t, onBack, onOpen }: {
           ) : (
             <>
               <Text style={s.costLine}>
-                {complete ? (late || short ? triesLine : fmt(t('deduction.costLine'), { cost: duration(t, 'deduction', wrongCost) })) : t(d.kind === 'timeline' ? 'deduction.setAsideFirst' : 'deduction.fillAll')}
+                {sameAsRefused ? t('deduction.sameAsRefused') : complete ? (late || short ? triesLine : fmt(t('deduction.costLine'), { cost: duration(t, 'deduction', wrongCost) })) : t(d.kind === 'timeline' ? 'deduction.setAsideFirst' : 'deduction.fillAll')}
               </Text>
-              <Btn label={t('deduction.file')} onPress={() => { setConfirming(true); feel('medium'); }} disabled={!complete || busy} busy={busy} />
+              <Btn label={t('deduction.file')} onPress={() => { setConfirming(true); feel('medium'); }} disabled={!complete || busy || sameAsRefused} busy={busy} />
             </>
           )}
         </View>

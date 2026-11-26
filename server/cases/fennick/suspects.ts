@@ -27,7 +27,7 @@ export const selma: SuspectDef = {
   doesNotKnow: ['Who came at 01:36', 'That the alarm had no battery'],
   baseline: { trust: 45, stress: 40 },
   shutdownStress: 85,
-  opening: L('I’ve been up since three carrying out what’s left with the crew. Ask quickly.', 'Saat üçten beri ekiple birlikte geriye kalanları taşıyorum. Çabuk sorun.'),
+  opening: L('I haven’t slept since the fire. Ask quickly.', 'Yangından beri gözümü kırpmadım. Çabuk sorun.'),
   deflections: [L('I don’t know what you mean.', 'Ne demek istediğinizi anlamadım.'), L('Ask me about the studio. That I know.', 'Bana atölyeyi sorun. Onu bilirim.')],
   dismissals: [
     L('That has nothing to do with me.', 'Bunun benimle ilgisi yok.'),
@@ -80,7 +80,7 @@ export const selma: SuspectDef = {
             {
               id: 'c-selma-perfect', text: L('The kiln was perfect when I left at twenty to one.', 'Biri yirmi kala çıktığımda fırın kusursuzdu.'),
               anchor: L('I left at twenty to one. The kiln was perfect.', 'biri yirmi kala çıktım. Fırın kusursuzdu.'),
-              press: { line: L('Programme ending at five to one, door shut, vents closed. I know that kiln better than she does.', 'Program biri beş geçe bitecekti, kapak kapalı, hava delikleri kapalı. O fırını ondan iyi bilirim.'), facts: ['f-selma-programme'] },
+              press: { line: L('Programme ending at five to one, door shut, vents closed. I know that kiln better than she does.', 'Program biri beş kala bitecekti, kapak kapalı, hava delikleri kapalı. O fırını ondan iyi bilirim.'), facts: ['f-selma-programme'] },
             },
             {
               id: 'c-selma-touched', text: L('I didn’t touch anything else in the studio.', 'Atölyede başka hiçbir şeye dokunmadım.'),
@@ -273,12 +273,12 @@ export const bram: SuspectDef = {
           stance: 'truth', emotion: 'resigned', statements: ['s-bram-seconds'], revealsEvidence: ['ev-kranzcard'], stress: 15,
           line: L(
             '(He rubs his face.) Mum marks the pieces she won’t sell as seconds and smashes them once a year. I took a crate. Kranz on Ostkai pays cash for anything with her stamp. I was at his back table from twenty past twelve until two, counting and haggling. Here — his card. Ring him.',
-            '(Yüzünü ovuşturur.) Annem satmayacağı işleri ıskartaya ayırır, yılda bir de hepsini kırar. Bir kasa aldım. Ostkai’deki Kranz, altında annemin damgası olan her şeye nakit öder. Biri yirmi geçeden ikiye kadar onun arka masasındaydım; saydık, pazarlık ettik. Buyurun, kartviziti. Arayın.',
+            '(Yüzünü ovuşturur.) Annem satmayacağı işleri ıskartaya ayırır, yılda bir de hepsini kırar. Bir kasa aldım. Ostkai’deki Kranz, altında annemin damgası olan her şeye nakit öder. Gece yarısını yirmi geçeden ikiye kadar onun arka masasındaydım; saydık, pazarlık ettik. Buyurun, kartviziti. Arayın.',
           ),
           facts: ['Took a crate of seconds to sell to Kranz; at Kranz’s 00:20–02:00'],
           claims: [{
             id: 'c-bram-crate', text: L('I took a crate of seconds to Kranz and stayed there until two.', 'Bir kasa ıskartayı Kranz’a götürdüm, ikiye kadar oradaydım.'),
-            anchor: L('I was at his back table from twenty past twelve until two, counting and haggling.', 'Biri yirmi geçeden ikiye kadar onun arka masasındaydım; saydık, pazarlık ettik.'),
+            anchor: L('I was at his back table from twenty past twelve until two, counting and haggling.', 'Gece yarısını yirmi geçeden ikiye kadar onun arka masasındaydım; saydık, pazarlık ettik.'),
             facts: ['f-bram-seconds'],
           }],
         },

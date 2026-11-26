@@ -25,7 +25,10 @@ export function availabilityLine(t: Translate, s: SuspectV2View, clock: ClockVie
   const today = s.availability.filter((w) => w.day === clock.day);
   const current = today.find((w) => toMin(w.from) <= nowMin && nowMin < toMin(w.to));
   if (s.availableNow || current) {
-    return { text: current?.note ? t('desk.people.nowWithNote', { note: current.note }) : t('desk.people.now'), now: true };
+    // a window's note explains the edge that is not the day's own: "until 14:30" for one that ends early, "with his
+    // mother until noon" for one that opens late. Once a late window is open its note is stale (wave 8): say "now".
+    const endsEarly = !!current && toMin(current.to) < toMin(clock.dayEnd);
+    return { text: current?.note && endsEarly ? t('desk.people.nowWithNote', { note: current.note }) : t('desk.people.now'), now: true };
   }
   const later = today.find((w) => toMin(w.from) > nowMin);
   if (later) return { text: t('desk.people.from', { time: later.from }) + (later.note ? ` · ${later.note}` : ''), now: false };

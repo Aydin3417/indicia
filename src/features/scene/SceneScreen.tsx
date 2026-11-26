@@ -23,6 +23,7 @@ import { Torch, BEAM } from './Torch';
 import { ToolRail, toolAccent } from './ToolRail';
 import { isFailure, type ActFailure, type ActionResult, type SceneScreenProps, type SceneTool } from './types';
 import { playSound } from '../../sound';
+import { ToastGuard } from '../../components/Toasts';
 
 const IDLE_MS = 20_000;
 /** before the first close-up of a case the glow comes much earlier (PLAYTEST_V2 §7.8) */
@@ -624,7 +625,9 @@ export function SceneScreen(props: SceneScreenProps) {
 
   return (
     <View style={st.root} onLayout={(e) => setRootSize({ w: e.nativeEvent.layout.width, h: e.nativeEvent.layout.height })} testID="scene-root">
-      {/* top: way out, place, clock, notebook */}
+      {/* top: way out, place, clock, notebook — toasts land under it, over the room (wave 8: they used to cover the
+          clock and the notebook count they were talking about) */}
+      <ToastGuard edge="top">
       <View style={[st.top, { paddingTop: insets.top + 6 }]}>
         <Pressable onPress={onExit} hitSlop={10} style={st.exit} accessibilityRole="button" accessibilityLabel={tt('scene.exit')} testID="scene-exit">
           <ExitIcon />
@@ -656,6 +659,7 @@ export function SceneScreen(props: SceneScreenProps) {
           <Text style={st.bookCount}>{view.notebook.facts.length}</Text>
         </View>
       </View>
+      </ToastGuard>
 
       {/* the dark room */}
       <View style={st.area} onLayout={onArea}>

@@ -31,13 +31,26 @@ export function peopleForBlank(view: InvestigationView, seed: string): AnyChip[]
   return [...keyed.map((x) => x.p), ...dead];
 }
 
+/**
+ * Times in the order the night ran (wave 8): the server sorts "HH:MM" as text, so a case whose night crosses
+ * midnight listed 00:40 before 21:15. When the set holds both evening (≥ 18:00) and small hours (< 12:00), the
+ * morning half counts as the next day.
+ */
+function nightOrder<T extends { id: string }>(times: T[]): T[] {
+  const h = (id: string) => Number(id.slice(0, 2)) * 60 + Number(id.slice(3, 5));
+  const all = times.map((x) => h(x.id)).filter((m) => Number.isFinite(m));
+  if (!(all.some((m) => m >= 18 * 60) && all.some((m) => m < 12 * 60))) return times;
+  const key = (id: string) => { const m = h(id); return m < 12 * 60 ? m + 24 * 60 : m; };
+  return [...times].sort((a, b) => key(a.id) - key(b.id));
+}
+
 /** Chips that fit a blank (`seed`: the question's id, for a per-question order of people). */
 export function chipsForBlank(view: InvestigationView, blank: DeductionBlankView, seed = ''): AnyChip[] {
   switch (blank.type) {
     case 'fact': return view.chips.facts;
     case 'evidence': return view.chips.evidence;
     case 'person': return peopleForBlank(view, `${seed}:${blank.id}`);
-    case 'time': return view.chips.times;
+    case 'time': return nightOrder(view.chips.times);
     case 'place': return view.chips.places;
     case 'choice': return (blank.options ?? []).map((o) => ({ type: 'choice' as ChipType, id: o.id, label: o.text }));
   }

@@ -10,7 +10,7 @@ accused. Three stars per case: Truth, Proof, Clock.
 * Design and build plan: [docs/PLAN_V2.md](docs/PLAN_V2.md) (Turkish)
 * Client/server contract: [docs/CONTRACT_V2.md](docs/CONTRACT_V2.md)
 * Architecture: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
-* Playtest report: [docs/PLAYTEST_V4.md](docs/PLAYTEST_V4.md) (earlier: V2, V3)
+* Playtest report: [docs/PLAYTEST_V5.md](docs/PLAYTEST_V5.md) (earlier: V2, V3, V4)
 * Agent handoffs: [docs/handoff/](docs/handoff/)
 
 ## Cases
@@ -19,6 +19,7 @@ accused. Three stars per case: Truth, Proof, Clock.
 |---|---|---|
 | *First Watch / İlk Nöbet* (`first-watch`, `meta.tutorial`) | 1 night, 5 game hours, ~8–12 real minutes | The tutorial the app opens with: one scene, two people, one deduction, one breakthrough, a four-round confrontation. |
 | *The Kessler Workshop / Kessler Atölyesi* (`kessler-workshop`) | 3 days × 8 game hours, ~60–90 real minutes | The full case: 4 suspects, 4 places, 81 findings, 10 deductions incl. a timeline, 5 night events, a five-round finale. |
+| *Ash and Glaze / Kül ve Sır* (`fennick-yard`, Detective Plus) | 3 days × 7 game hours, ~50–80 real minutes | An arson: 3 suspects, 6 places, 87 findings, 12 deductions incl. a 7-card timeline, 2 night forks, a five-round finale. |
 
 ## Run locally
 

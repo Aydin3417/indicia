@@ -42,7 +42,9 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
   const team = teamOf(def, st);
   const notes = notesOf(st, viewerId);
   const others = team ? membersOf(st).filter((id) => id !== viewerId && team.clocks[id]) : [];
-  const nameOfMember = (id: string) => st.players[id]?.name ?? sys('former_member', locale);
+  // a member who never chose a name is stored as 'Investigator' (service.ts); show it in the viewer's language
+  const shown = (name: string) => (name === 'Investigator' ? sys('default_investigator', locale) : name);
+  const nameOfMember = (id: string) => (st.players[id] ? shown(st.players[id]!.name) : sys('former_member', locale));
   const who = (id: string) => ({ id, name: nameOfMember(id), you: id === viewerId });
   const isOnline = (id: string) => id === viewerId || online.includes(id);
   const req = (r: Parameters<typeof meets>[0]) => meets(r, st);
@@ -471,8 +473,9 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
     sessionId, status: st.status, version: st.version, mode: st.mode, you: viewerId,
     room: room ? {
       ...room,
+      players: room.players.map((p) => ({ ...p, name: shown(p.name) })),
       activity: st.activity.slice(-30).reverse().map((a) => ({
-        at: a.at, actor: st.players[a.actorId]?.name ?? sys('former_member', locale),
+        at: a.at, actor: nameOfMember(a.actorId),
         text: a.key ? sys(a.key as SysKey, locale, ...(a.args ?? []).map((x) => refText(def, x, locale))) : a.text,
       })),
     } : undefined,

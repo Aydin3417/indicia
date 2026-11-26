@@ -70,7 +70,7 @@ export default function DeskRoom() {
 
       {/* wave 6: a friend arriving by invite link from first launch has no name yet — every unnamed member would
           read "Investigator" to the others. Ask once, here, where the names matter. */}
-      {active && room.players.find((p) => p.id === view.you)?.name === 'Investigator' ? (
+      {active && ['Investigator', t('desk.room.investigator')].includes(room.players.find((p) => p.id === view.you)?.name ?? '') ? (
         <Card accent={color.amber} style={{ marginTop: space.lg, gap: space.sm }}>
           <T v="heading">{t('desk.room.nameTitle')}</T>
           <T v="small">{t('desk.room.nameText')}</T>
