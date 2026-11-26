@@ -40,6 +40,24 @@ export const portraits: Record<string, Staged> = {
     "strained": { src: require("../../assets/art/portraits/nils/strained.webp"), w: 720, h: 960, alt: { en: "Portrait of Nils Brekke, strained.", tr: "Nils Brekke portresi, gergin." } },
     "breaking": { src: require("../../assets/art/portraits/nils/breaking.webp"), w: 720, h: 960, alt: { en: "Portrait of Nils Brekke, breaking.", tr: "Nils Brekke portresi, çözülüyor." } },
   },
+  "selma": {
+    "composed": { src: require("../../assets/art/portraits/selma/composed.webp"), w: 720, h: 960, alt: { en: "Portrait of Selma Aydın, composed.", tr: "Selma Aydın portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/portraits/selma/uneasy.webp"), w: 720, h: 960, alt: { en: "Portrait of Selma Aydın, uneasy.", tr: "Selma Aydın portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/portraits/selma/strained.webp"), w: 720, h: 960, alt: { en: "Portrait of Selma Aydın, strained.", tr: "Selma Aydın portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/portraits/selma/breaking.webp"), w: 720, h: 960, alt: { en: "Portrait of Selma Aydın, breaking.", tr: "Selma Aydın portresi, çözülüyor." } },
+  },
+  "bram": {
+    "composed": { src: require("../../assets/art/portraits/bram/composed.webp"), w: 720, h: 960, alt: { en: "Portrait of Bram Vos, composed.", tr: "Bram Vos portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/portraits/bram/uneasy.webp"), w: 720, h: 960, alt: { en: "Portrait of Bram Vos, uneasy.", tr: "Bram Vos portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/portraits/bram/strained.webp"), w: 720, h: 960, alt: { en: "Portrait of Bram Vos, strained.", tr: "Bram Vos portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/portraits/bram/breaking.webp"), w: 720, h: 960, alt: { en: "Portrait of Bram Vos, breaking.", tr: "Bram Vos portresi, çözülüyor." } },
+  },
+  "oskar": {
+    "composed": { src: require("../../assets/art/portraits/oskar/composed.webp"), w: 720, h: 960, alt: { en: "Portrait of Oskar Dahl, composed.", tr: "Oskar Dahl portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/portraits/oskar/uneasy.webp"), w: 720, h: 960, alt: { en: "Portrait of Oskar Dahl, uneasy.", tr: "Oskar Dahl portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/portraits/oskar/strained.webp"), w: 720, h: 960, alt: { en: "Portrait of Oskar Dahl, strained.", tr: "Oskar Dahl portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/portraits/oskar/breaking.webp"), w: 720, h: 960, alt: { en: "Portrait of Oskar Dahl, breaking.", tr: "Oskar Dahl portresi, çözülüyor." } },
+  },
 };
 
 export const witnessPortraits: Record<string, ArtImage> = {
@@ -48,6 +66,12 @@ export const witnessPortraits: Record<string, ArtImage> = {
   "p-okafor": { src: require("../../assets/art/portraits/p-okafor/portrait.webp"), w: 720, h: 960, alt: { en: "Ruben Okafor, bartender at The Anchor.", tr: "The Anchor'ın barmeni Ruben Okafor." } },
   "p-lind": { src: require("../../assets/art/portraits/p-lind/portrait.webp"), w: 720, h: 960, alt: { en: "Dr Hanne Lind, forensic pathologist.", tr: "Adli tıp uzmanı Dr. Hanne Lind." } },
   "p-saar": { src: require("../../assets/art/portraits/p-saar/portrait.webp"), w: 720, h: 960, alt: { en: "Hendrik Saar, museum director.", tr: "Müze müdürü Hendrik Saar." } },
+  "p-agnes": { src: require("../../assets/art/portraits/p-agnes/portrait.webp"), w: 720, h: 960, alt: { en: "Agnes Vos, the potter whose studio burned.", tr: "Atölyesi yanan seramikçi Agnes Vos." } },
+  "p-ruth": { src: require("../../assets/art/portraits/p-ruth/portrait.webp"), w: 720, h: 960, alt: { en: "Ruth Ekdal, night baker in Unit 1.", tr: "1 numaradaki gece fırıncısı Ruth Ekdal." } },
+  "p-holm": { src: require("../../assets/art/portraits/p-holm/portrait.webp"), w: 720, h: 960, alt: { en: "Ingvar Holm, fire investigator.", tr: "Yangın inceleme uzmanı Ingvar Holm." } },
+  "p-teo": { src: require("../../assets/art/portraits/p-teo/portrait.webp"), w: 720, h: 960, alt: { en: "Teo Varela, doorman at the Harbour Club.", tr: "Harbour Club’ın kapı görevlisi Teo Varela." } },
+  "p-kranz": { src: require("../../assets/art/portraits/p-kranz/portrait.webp"), w: 720, h: 960, alt: { en: "Emil Kranz, antiques dealer on Ostkai.", tr: "Ostkai’deki antikacı Emil Kranz." } },
+  "p-nyberg": { src: require("../../assets/art/portraits/p-nyberg/portrait.webp"), w: 720, h: 960, alt: { en: "Karl Nyberg, property developer.", tr: "Gayrimenkul geliştiricisi Karl Nyberg." } },
 };
 
 export const scenes: Record<string, Layered> = {
@@ -60,6 +84,12 @@ export const scenes: Record<string, Layered> = {
   "kessler/clara-flat": { base: { src: require("../../assets/art/scenes/kessler/clara-flat.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of Clara’s flat: desk by the window, bedside table with a china dish, a camel coat in the hall.", tr: "Clara’nın dairesinin kuşbakışı görünümü: penceredeki çalışma masası, porselen tabaklı komodin, antrede deve tüyü palto." } }, uv: { src: require("../../assets/art/scenes/kessler/clara-flat-uv.webp"), w: 2000, h: 1640, alt: { en: "The same room under ultraviolet light.", tr: "Aynı oda morötesi ışık altında." } } },
   "kessler/bank": { base: { src: require("../../assets/art/scenes/kessler/bank.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of the bank’s business desk after hours: an open loan file, an archive box on the side table.", tr: "Kapanıştan sonra bankanın ticari kredi masasının kuşbakışı görünümü: açık bir kredi dosyası, yan masada bir arşiv kutusu." } }, uv: { src: require("../../assets/art/scenes/kessler/bank-uv.webp"), w: 2000, h: 1640, alt: { en: "The same room under ultraviolet light.", tr: "Aynı oda morötesi ışık altında." } } },
   "kessler/pawn": { base: { src: require("../../assets/art/scenes/kessler/pawn.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of the pawnshop: shelves of pledged goods, the pledge book open on the glass counter.", tr: "Rehincinin kuşbakışı görünümü: rehin eşya dolu raflar, cam tezgâhta açık rehin defteri." } }, uv: { src: require("../../assets/art/scenes/kessler/pawn-uv.webp"), w: 2000, h: 1640, alt: { en: "The same room under ultraviolet light.", tr: "Aynı oda morötesi ışık altında." } } },
+  "fennick/studio": { base: { src: require("../../assets/art/scenes/fennick/studio.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of the burnt pottery studio: buckled racks in soot, the kiln, the glaze bench, the back door.", tr: "Yanmış seramik atölyesinin kuşbakışı görünümü: isin içinde eğrilmiş raflar, fırın, sır tezgâhı, arka kapı." } }, uv: { src: require("../../assets/art/scenes/fennick/studio-uv.webp"), w: 2000, h: 1640, alt: { en: "Under ultraviolet light: a broken pale trail from the back door to the racks.", tr: "Morötesi ışıkta: arka kapıdan raflara uzanan kesik kesik soluk bir iz." } } },
+  "fennick/yard": { base: { src: require("../../assets/art/scenes/fennick/yard.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of Fennick Yard: wet cobbles, the iron gate, the bakery, the shed and Unit 4’s sooty back wall.", tr: "Fennick Avlusu’nun kuşbakışı görünümü: ıslak arnavutkaldırımı, demir kapı, fırın, kulübe ve 4 numaranın isli arka duvarı." } }, uv: { src: require("../../assets/art/scenes/fennick/yard-uv.webp"), w: 2000, h: 1640, alt: { en: "Under ultraviolet light: pale drips across the cobbles from the shed to Unit 4.", tr: "Morötesi ışıkta: kulübeden 4 numaraya arnavutkaldırımını geçen soluk damlalar." } } },
+  "fennick/office": { base: { src: require("../../assets/art/scenes/fennick/office.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of the yard office: camera recorder, key cabinet, oak desk, box files.", tr: "Avlu ofisinin kuşbakışı görünümü: kamera kayıt cihazı, anahtar dolabı, meşe masa, dosya kutuları." } }, uv: { src: require("../../assets/art/scenes/fennick/office-uv.webp"), w: 2000, h: 1640, alt: { en: "The same room under ultraviolet light.", tr: "Aynı oda morötesi ışık altında." } } },
+  "fennick/club": { base: { src: require("../../assets/art/scenes/fennick/club.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of the Harbour Club: cloakroom, long bar, seating plan, corridor, doorman’s lectern.", tr: "Harbour Club’ın kuşbakışı görünümü: vestiyer, uzun bar, oturma planı, koridor, kapı görevlisinin kürsüsü." } }, uv: { src: require("../../assets/art/scenes/fennick/club-uv.webp"), w: 2000, h: 1640, alt: { en: "The same room under ultraviolet light.", tr: "Aynı oda morötesi ışık altında." } } },
+  "fennick/kranz": { base: { src: require("../../assets/art/scenes/fennick/kranz.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of Kranz Antiques: crammed shelves, a crate in straw, the back card table.", tr: "Kranz Antika’nın kuşbakışı görünümü: tıka basa raflar, saman dolu bir kasa, arkadaki iskambil masası." } }, uv: { src: require("../../assets/art/scenes/fennick/kranz-uv.webp"), w: 2000, h: 1640, alt: { en: "The same room under ultraviolet light.", tr: "Aynı oda morötesi ışık altında." } } },
+  "fennick/house": { base: { src: require("../../assets/art/scenes/fennick/house.webp"), w: 2000, h: 1640, alt: { en: "Top-down view of Dahl’s villa: hall stand, study, garage, a garden going down to the water.", tr: "Dahl’ın villasının kuşbakışı görünümü: portmanto, çalışma odası, garaj, denize inen bahçe." } }, uv: { src: require("../../assets/art/scenes/fennick/house-uv.webp"), w: 2000, h: 1640, alt: { en: "The same room under ultraviolet light.", tr: "Aynı oda morötesi ışık altında." } } },
 };
 
 export const closeUps: Record<string, Layered> = {
@@ -94,6 +124,35 @@ export const closeUps: Record<string, Layered> = {
   "z-pw-book": { base: { src: require("../../assets/art/closeups/kessler/z-pw-book.webp"), w: 1024, h: 1024, alt: { en: "The pawnbroker’s pledge book open on the glass counter, a bell and a loupe beside it.", tr: "Cam tezgâhta açık rehin defteri; yanında bir zil ve bir büyüteç." } } },
   "z-bk-file": { base: { src: require("../../assets/art/closeups/kessler/z-bk-file.webp"), w: 1024, h: 1024, alt: { en: "An open loan file on the adviser’s desk, every page initialled in the corner.", tr: "Uzmanın masasında açık bir kredi dosyası; her sayfanın köşesinde paraf." } } },
   "z-bk-ledger": { base: { src: require("../../assets/art/closeups/kessler/z-bk-ledger.webp"), w: 1024, h: 1024, alt: { en: "An archive box from the back office, a ledger with a settlement slip clipped to it.", tr: "Arka ofisten gelen bir arşiv kutusu; üstünde kapatma dekontu iliştirilmiş bir defter." } } },
+  "z-fy-racks": { base: { src: require("../../assets/art/closeups/fennick/z-fy-racks.webp"), w: 1024, h: 1024, alt: { en: "Buckled drying racks, grey ash where the pots stood, a V of soot on the wall.", tr: "Eğrilmiş kurutma rafları, çömleklerin yerinde gri kül, duvarda V biçiminde is." } } },
+  "z-fy-kiln": { base: { src: require("../../assets/art/closeups/fennick/z-fy-kiln.webp"), w: 1024, h: 1024, alt: { en: "The big kiln, door shut, paint blistered on one side.", tr: "Büyük fırın, kapağı kapalı, boyası tek yanda kabarmış." } } },
+  "z-fy-heater": { base: { src: require("../../assets/art/closeups/fennick/z-fy-heater.webp"), w: 1024, h: 1024, alt: { en: "An oil-filled heater scorched on one side, its socket switched off.", tr: "Tek yanı kavrulmuş yağlı radyatör; prizinin anahtarı kapalı." } } },
+  "z-fy-alarm": { base: { src: require("../../assets/art/closeups/fennick/z-fy-alarm.webp"), w: 1024, h: 1024, alt: { en: "A ceiling smoke alarm, cover open, battery slot empty.", tr: "Tavanda duman alarmı; kapağı açık, pil yuvası boş." } } },
+  "z-fy-backdoor": { base: { src: require("../../assets/art/closeups/fennick/z-fy-backdoor.webp"), w: 1024, h: 1024, alt: { en: "The steel back door from inside: lock intact, a notice taped on.", tr: "Çelik arka kapı içeriden: kilit sağlam, üstüne bir duyuru yapıştırılmış." } }, uv: { src: require("../../assets/art/closeups/fennick/z-fy-backdoor-uv.webp"), w: 1024, h: 1024, alt: { en: "Under UV the inside handle glows pale green.", tr: "UV altında iç kol soluk yeşil ışıyor." } } },
+  "z-fy-shelves": { base: { src: require("../../assets/art/closeups/fennick/z-fy-shelves.webp"), w: 1024, h: 1024, alt: { en: "Shelves of seconds with chalk crosses, a clean gap where a crate stood.", tr: "Tebeşir çarpılı ıskarta rafları; bir kasanın durduğu yerde temiz bir boşluk." } } },
+  "z-fy-sink": { base: { src: require("../../assets/art/closeups/fennick/z-fy-sink.webp"), w: 1024, h: 1024, alt: { en: "The sink corner: buckets of clay, a broom, marks in the dust.", tr: "Lavabo köşesi: çamur kovaları, süpürge, tozda izler." } } },
+  "z-fy-slip": { base: { src: require("../../assets/art/closeups/fennick/z-fy-slip.webp"), w: 1024, h: 1024, alt: { en: "Dried slip under powder: smooth leather soles with a ring of heel nails.", tr: "Toz altında kurumuş çamur: düz deri tabanlar, topukta halka hâlinde çiviler." } } },
+  "z-fy-trail": { base: { src: require("../../assets/art/closeups/fennick/z-fy-trail.webp"), w: 1024, h: 1024, alt: { en: "Wet floor between the back door and the racks.", tr: "Arka kapıyla raflar arasındaki ıslak zemin." } }, uv: { src: require("../../assets/art/closeups/fennick/z-fy-trail-uv.webp"), w: 1024, h: 1024, alt: { en: "Under UV a broken trail of splashes glows from the door to the racks.", tr: "UV altında kapıdan raflara kesik kesik sıçramalar ışıyor." } } },
+  "z-fy-gate": { base: { src: require("../../assets/art/closeups/fennick/z-fy-gate.webp"), w: 1024, h: 1024, alt: { en: "The gate keypad, its controller open, a printout hanging out.", tr: "Kapının tuş takımı; kumanda kutusu açık, bir döküm sarkıyor." } } },
+  "z-fy-camera": { base: { src: require("../../assets/art/closeups/fennick/z-fy-camera.webp"), w: 1024, h: 1024, alt: { en: "The yard camera on its bracket, the cable running up to the office window.", tr: "Ayağındaki avlu kamerası; kablosu ofis penceresine çıkıyor." } } },
+  "z-fy-gutter": { base: { src: require("../../assets/art/closeups/fennick/z-fy-gutter.webp"), w: 1024, h: 1024, alt: { en: "The drain grating: a melted red cap and a soaked matchbook with an anchor.", tr: "Oluk ızgarası: erimiş kırmızı bir kapak ve çapalı, ıslak bir kibrit kutusu." } } },
+  "z-fy-shed": { base: { src: require("../../assets/art/closeups/fennick/z-fy-shed.webp"), w: 1024, h: 1024, alt: { en: "Inside the shed: lamp-oil bottles with one gap, a taped battery on the bench.", tr: "Kulübenin içi: biri eksik gaz yağı şişeleri, tezgâhta bantlı bir pil." } }, uv: { src: require("../../assets/art/closeups/fennick/z-fy-shed-uv.webp"), w: 1024, h: 1024, alt: { en: "Under UV fresh drips glow below the gap and lead to the door.", tr: "UV altında boşluğun altındaki taze damlalar ışıyor ve kapıya gidiyor." } } },
+  "z-fy-path": { base: { src: require("../../assets/art/closeups/fennick/z-fy-path.webp"), w: 1024, h: 1024, alt: { en: "Wet cobbles between the shed and Unit 4.", tr: "Kulübeyle 4 numara arasındaki ıslak arnavutkaldırımı." } }, uv: { src: require("../../assets/art/closeups/fennick/z-fy-path-uv.webp"), w: 1024, h: 1024, alt: { en: "Under UV a line of pale drips crosses the cobbles.", tr: "UV altında arnavutkaldırımını soluk damlalardan bir çizgi geçiyor." } } },
+  "z-ho-recorder": { base: { src: require("../../assets/art/closeups/fennick/z-ho-recorder.webp"), w: 1024, h: 1024, alt: { en: "The grey camera recorder under the window.", tr: "Pencerenin altındaki gri kamera kayıt cihazı." } } },
+  "z-ho-keys": { base: { src: require("../../assets/art/closeups/fennick/z-ho-keys.webp"), w: 1024, h: 1024, alt: { en: "The glass-fronted key cabinet, every spare on its hook.", tr: "Camlı anahtar dolabı; her yedek kancasında." } } },
+  "z-ho-desk": { base: { src: require("../../assets/art/closeups/fennick/z-ho-desk.webp"), w: 1024, h: 1024, alt: { en: "The opened drawer: a blue folder and a list clipped behind it.", tr: "Açılan çekmece: mavi bir dosya ve arkasına iliştirilmiş bir liste." } } },
+  "z-ho-files": { base: { src: require("../../assets/art/closeups/fennick/z-ho-files.webp"), w: 1024, h: 1024, alt: { en: "Box files, Unit 4’s pulled out with a pencil inside.", tr: "Dosya kutuları; 4 numaranınki dışarı çekilmiş, içinde bir kalem." } } },
+  "z-hc-cloak": { base: { src: require("../../assets/art/closeups/fennick/z-hc-cloak.webp"), w: 1024, h: 1024, alt: { en: "Brass coat hooks and the open cloakroom book.", tr: "Pirinç askılar ve açık vestiyer defteri." } } },
+  "z-hc-bar": { base: { src: require("../../assets/art/closeups/fennick/z-hc-bar.webp"), w: 1024, h: 1024, alt: { en: "The bar: a bowl of anchor matchbooks, a spike of tabs, a brandy glass.", tr: "Bar: çapalı kibrit kutularıyla dolu bir kâse, hesap şişi, bir konyak kadehi." } } },
+  "z-hc-plan": { base: { src: require("../../assets/art/closeups/fennick/z-hc-plan.webp"), w: 1024, h: 1024, alt: { en: "The dinner seating plan on its easel.", tr: "Şövalesindeki yemek oturma planı." } } },
+  "z-hc-corridor": { base: { src: require("../../assets/art/closeups/fennick/z-hc-corridor.webp"), w: 1024, h: 1024, alt: { en: "A quiet panelled corridor, a bench, the router on a shelf.", tr: "Sessiz, ahşap kaplı bir koridor; bank ve raftaki modem." } } },
+  "z-hc-door": { base: { src: require("../../assets/art/closeups/fennick/z-hc-door.webp"), w: 1024, h: 1024, alt: { en: "The doorman’s lectern: taxi book, radio, umbrella stand.", tr: "Kapı görevlisinin kürsüsü: taksi defteri, telsiz, şemsiyelik." } } },
+  "z-kr-table": { base: { src: require("../../assets/art/closeups/fennick/z-kr-table.webp"), w: 1024, h: 1024, alt: { en: "Kranz’s card table: two glasses, a receipt book, the door-camera screen.", tr: "Kranz’ın iskambil masası: iki kadeh, makbuz defteri, kapı kamerası ekranı." } } },
+  "z-kr-crate": { base: { src: require("../../assets/art/closeups/fennick/z-kr-crate.webp"), w: 1024, h: 1024, alt: { en: "A crate of newspaper-wrapped pots, one showing a chalk cross.", tr: "Gazeteye sarılı çömleklerle dolu kasa; birinde tebeşirle çarpı." } } },
+  "z-hh-hall": { base: { src: require("../../assets/art/closeups/fennick/z-hh-hall.webp"), w: 1024, h: 1024, alt: { en: "A long dark overcoat on the hall stand, the shoe rack below.", tr: "Portmantoda uzun, koyu bir palto; altında ayakkabılık." } }, uv: { src: require("../../assets/art/closeups/fennick/z-hh-hall-uv.webp"), w: 1024, h: 1024, alt: { en: "Under UV small splashes glow on the right cuff and the hem.", tr: "UV altında sağ kol ağzında ve etekte küçük sıçramalar ışıyor." } } },
+  "z-hh-study": { base: { src: require("../../assets/art/closeups/fennick/z-hh-study.webp"), w: 1024, h: 1024, alt: { en: "Bank letters squared under a brass weight.", tr: "Pirinç bir ağırlığın altında düzgünce dizilmiş banka mektupları." } } },
+  "z-hh-garage": { base: { src: require("../../assets/art/closeups/fennick/z-hh-garage.webp"), w: 1024, h: 1024, alt: { en: "A dark saloon in a tidy garage, dust on the bonnet.", tr: "Derli toplu garajda koyu renk bir sedan; kaputta toz." } } },
+  "z-hh-garden": { base: { src: require("../../assets/art/closeups/fennick/z-hh-garden.webp"), w: 1024, h: 1024, alt: { en: "A garden incinerator full of ash, a nailed shoe heel showing.", tr: "Kül dolu bahçe yakma sobası; çivili bir ayakkabı topuğu görünüyor." } } },
 };
 
 export const evidence: Record<string, ArtImage> = {
@@ -107,11 +166,20 @@ export const evidence: Record<string, ArtImage> = {
   "ev-case": { src: require("../../assets/art/evidence/first-watch/ev-case.webp"), w: 768, h: 768, alt: { en: "The empty chronometer case.", tr: "Boş kronometre vitrini." } },
   "ev-glasses": { src: require("../../assets/art/evidence/first-watch/ev-glasses.webp"), w: 768, h: 768, alt: { en: "Spectacle case with reading glasses.", tr: "Okuma gözlüklü gözlük kutusu." } },
   "ev-logbook": { src: require("../../assets/art/evidence/first-watch/ev-logbook.webp"), w: 768, h: 768, alt: { en: "Night visitor log.", tr: "Gece ziyaretçi defteri." } },
+  "ev-cap": { src: require("../../assets/art/evidence/fennick/ev-cap.webp"), w: 768, h: 768, alt: { en: "Half-melted red screw cap.", tr: "Yarısı erimiş kırmızı vidalı kapak." } },
+  "ev-matchbook": { src: require("../../assets/art/evidence/fennick/ev-matchbook.webp"), w: 768, h: 768, alt: { en: "Soaked matchbook with an anchor, three matches torn out.", tr: "Çapalı, ıslak kibrit kutusu; üç çöpü koparılmış." } },
+  "ev-battery": { src: require("../../assets/art/evidence/fennick/ev-battery.webp"), w: 768, h: 768, alt: { en: "9-volt battery wrapped in scribbled tape.", tr: "Üstü karalanmış bantla sarılı 9 voltluk pil." } },
+  "ev-kilnpots": { src: require("../../assets/art/evidence/fennick/ev-kilnpots.webp"), w: 768, h: 768, alt: { en: "Six small celadon vessels from the kiln.", tr: "Fırından çıkan altı küçük seladon kap." } },
+  "ev-heater": { src: require("../../assets/art/evidence/fennick/ev-heater.webp"), w: 768, h: 768, alt: { en: "Oil-filled heater, scorched on one side.", tr: "Tek yanı kavrulmuş yağlı radyatör." } },
+  "ev-coat": { src: require("../../assets/art/evidence/fennick/ev-coat.webp"), w: 768, h: 768, alt: { en: "Long dark wool overcoat.", tr: "Uzun, koyu yün palto." } },
+  "ev-ashes": { src: require("../../assets/art/evidence/fennick/ev-ashes.webp"), w: 768, h: 768, alt: { en: "Evidence tin of ash with a charred, nailed heel.", tr: "İçinde kömürleşmiş, çivili bir topuk olan kül kutusu." } },
+  "ev-kranzcard": { src: require("../../assets/art/evidence/fennick/ev-kranzcard.webp"), w: 768, h: 768, alt: { en: "Dealer’s card with pencil on the back.", tr: "Arkasında kurşun kalem yazı olan antikacı kartı." } },
 };
 
 export const covers: Record<string, ArtImage> = {
   "kessler-workshop": { src: require("../../assets/art/covers/kessler.webp"), w: 900, h: 1200, alt: { en: "Key art: a dark violin workshop, fallen ladder, UV lamp and a torch beam.", tr: "Kapak: karanlık keman atölyesi, devrilmiş merdiven, UV lambası ve fener ışığı." } },
   "first-watch": { src: require("../../assets/art/covers/first-watch.webp"), w: 900, h: 1200, alt: { en: "Key art: an empty museum case in torchlight and a guard's shadow.", tr: "Kapak: fener ışığında boş müze vitrini ve bekçinin gölgesi." } },
+  "fennick-yard": { src: require("../../assets/art/covers/fennick.webp"), w: 900, h: 1200, alt: { en: "Key art: a drying rack of pots turned to ash in a torch beam, a thread of smoke.", tr: "Kapak: fener ışığında küle dönmüş çömleklerle dolu bir kurutma rafı, ince bir duman." } },
 };
 
 export const textures: Record<string, ArtImage> = {
@@ -159,6 +227,9 @@ export const reports: Record<string, ArtImage> = {
   "kessler/2": { src: require("../../assets/art/reports/kessler-day2.webp"), w: 1080, h: 784, alt: { en: "A detective’s desk late at night, the case file open, rain on the window.", tr: "Gece geç saatte bir komiserin masası; dosya açık, camda yağmur." } },
   "kessler/3": { src: require("../../assets/art/reports/kessler-day3.webp"), w: 1080, h: 784, alt: { en: "An empty corridor at first light outside the prosecutor’s door.", tr: "Şafakta savcının kapısının önündeki boş koridor." } },
   "first-watch/1": { src: require("../../assets/art/reports/first-watch-day1.webp"), w: 1080, h: 784, alt: { en: "The maritime museum on the quay at dawn, one window still lit.", tr: "Şafakta rıhtımdaki denizcilik müzesi; tek bir pencere hâlâ yanıyor." } },
+  "fennick/1": { src: require("../../assets/art/reports/fennick-day1.webp"), w: 1080, h: 784, alt: { en: "Fennick Yard at dusk, the burnt studio door boarded up, one lit window.", tr: "Akşam karanlığında Fennick Avlusu; yanan atölyenin kapısı tahtayla kapatılmış, tek bir pencere yanıyor." } },
+  "fennick/2": { src: require("../../assets/art/reports/fennick-day2.webp"), w: 1080, h: 784, alt: { en: "A detective’s desk at night: the gate printout and a cloakroom ticket under the lamp.", tr: "Gece bir komiserin masası: lambanın altında kapı dökümü ve bir vestiyer fişi." } },
+  "fennick/3": { src: require("../../assets/art/reports/fennick-day3.webp"), w: 1080, h: 784, alt: { en: "A salvage lorry waiting at an iron gate at first light.", tr: "Şafakta demir bir kapının önünde bekleyen hurda kamyonu." } },
 };
 
 /** wave 4: night-event illustrations, keyed "<case art prefix>/<night event id>" */
@@ -169,4 +240,102 @@ export const nights: Record<string, ArtImage> = {
   "kessler/n-day1": { src: require("../../assets/art/nights/kessler/n-day1.webp"), w: 1080, h: 784, alt: { en: "A note against a mug on an empty desk; the lab’s windows still lit outside.", tr: "Boş bir masada kupaya yaslanmış bir not; dışarıda laboratuvarın pencereleri hâlâ yanıyor." } },
   "kessler/n2-ruben": { src: require("../../assets/art/nights/kessler/n2-ruben.webp"), w: 1080, h: 784, alt: { en: "A bartender in his apron hands a till receipt across the night desk.", tr: "Önlüklü bir barmen gece bankosunda bir kasa fişi uzatıyor." } },
   "kessler/n-day2": { src: require("../../assets/art/nights/kessler/n-day2.webp"), w: 1080, h: 783, alt: { en: "The prosecutor’s office at night, three case files and a receiver off the hook.", tr: "Gece savcının odası: üç dosya ve kaldırılmış bir telefon ahizesi." } },
+  "fennick/n1-teo": { src: require("../../assets/art/nights/fennick/n1-teo.webp"), w: 1080, h: 784, alt: { en: "A packed suitcase by a kitchen table at night, a doorman’s cap on top.", tr: "Gece mutfak masasının yanında hazır bir bavul; üstünde bir kapı görevlisi kasketi." } },
+  "fennick/n1-kranz": { src: require("../../assets/art/nights/fennick/n1-kranz.webp"), w: 1080, h: 784, alt: { en: "A carrier bag on the station front desk, a wrapped pot peeking out.", tr: "Karakolun ön masasında bir torba; içinden sarılı bir çömlek görünüyor." } },
+  "fennick/n1-solicitor": { src: require("../../assets/art/nights/fennick/n1-solicitor.webp"), w: 1080, h: 784, alt: { en: "A desk phone just put down beside a solicitor’s card.", tr: "Bir avukat kartının yanında az önce kapatılmış masa telefonu." } },
+  "fennick/n-day1": { src: require("../../assets/art/nights/fennick/n-day1.webp"), w: 1080, h: 784, alt: { en: "A note propped on an empty desk beside two sealed evidence tins.", tr: "Boş bir masada, mühürlü iki delil kutusunun yanında dikilmiş bir not." } },
+  "fennick/n2-salvage": { src: require("../../assets/art/nights/fennick/n2-salvage.webp"), w: 1080, h: 784, alt: { en: "The old heater on a trestle in the wet yard at dawn, an insurer’s clipboard beside it.", tr: "Şafakta ıslak avluda sehpa üstündeki eski radyatör; yanında sigortacının kâğıtları." } },
+  "fennick/n2-nyberg": { src: require("../../assets/art/nights/fennick/n2-nyberg.webp"), w: 1080, h: 784, alt: { en: "A developer’s brochure of harbour flats open on a desk at night.", tr: "Gece bir masada açık duran liman konutları broşürü." } },
+  "fennick/n-day2": { src: require("../../assets/art/nights/fennick/n-day2.webp"), w: 1080, h: 784, alt: { en: "The prosecutor’s office at night: three case files, the receiver off the hook.", tr: "Gece savcılık odası: üç dosya, ahizesi kalkık telefon." } },
+};
+
+/** wave 7 (T): 192 px face thumbnails for the small circles, keyed person id → stage (suspects) or "portrait" (witnesses) */
+export const faces: Record<string, Record<string, ArtImage>> = {
+  "clara": {
+    "composed": { src: require("../../assets/art/faces/clara/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Clara Kessler, composed.", tr: "Clara Kessler portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/clara/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Clara Kessler, uneasy.", tr: "Clara Kessler portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/clara/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Clara Kessler, strained.", tr: "Clara Kessler portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/clara/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Clara Kessler, breaking.", tr: "Clara Kessler portresi, çözülüyor." } },
+  },
+  "jonas": {
+    "composed": { src: require("../../assets/art/faces/jonas/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Jonas Feld, composed.", tr: "Jonas Feld portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/jonas/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Jonas Feld, uneasy.", tr: "Jonas Feld portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/jonas/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Jonas Feld, strained.", tr: "Jonas Feld portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/jonas/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Jonas Feld, breaking.", tr: "Jonas Feld portresi, çözülüyor." } },
+  },
+  "miriam": {
+    "composed": { src: require("../../assets/art/faces/miriam/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Miriam Achterberg, composed.", tr: "Miriam Achterberg portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/miriam/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Miriam Achterberg, uneasy.", tr: "Miriam Achterberg portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/miriam/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Miriam Achterberg, strained.", tr: "Miriam Achterberg portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/miriam/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Miriam Achterberg, breaking.", tr: "Miriam Achterberg portresi, çözülüyor." } },
+  },
+  "leo": {
+    "composed": { src: require("../../assets/art/faces/leo/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Leo Brandt, composed.", tr: "Leo Brandt portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/leo/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Leo Brandt, uneasy.", tr: "Leo Brandt portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/leo/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Leo Brandt, strained.", tr: "Leo Brandt portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/leo/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Leo Brandt, breaking.", tr: "Leo Brandt portresi, çözülüyor." } },
+  },
+  "ada": {
+    "composed": { src: require("../../assets/art/faces/ada/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Ada Lund, composed.", tr: "Ada Lund portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/ada/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Ada Lund, uneasy.", tr: "Ada Lund portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/ada/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Ada Lund, strained.", tr: "Ada Lund portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/ada/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Ada Lund, breaking.", tr: "Ada Lund portresi, çözülüyor." } },
+  },
+  "nils": {
+    "composed": { src: require("../../assets/art/faces/nils/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Nils Brekke, composed.", tr: "Nils Brekke portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/nils/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Nils Brekke, uneasy.", tr: "Nils Brekke portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/nils/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Nils Brekke, strained.", tr: "Nils Brekke portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/nils/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Nils Brekke, breaking.", tr: "Nils Brekke portresi, çözülüyor." } },
+  },
+  "selma": {
+    "composed": { src: require("../../assets/art/faces/selma/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Selma Aydın, composed.", tr: "Selma Aydın portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/selma/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Selma Aydın, uneasy.", tr: "Selma Aydın portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/selma/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Selma Aydın, strained.", tr: "Selma Aydın portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/selma/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Selma Aydın, breaking.", tr: "Selma Aydın portresi, çözülüyor." } },
+  },
+  "bram": {
+    "composed": { src: require("../../assets/art/faces/bram/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Bram Vos, composed.", tr: "Bram Vos portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/bram/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Bram Vos, uneasy.", tr: "Bram Vos portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/bram/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Bram Vos, strained.", tr: "Bram Vos portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/bram/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Bram Vos, breaking.", tr: "Bram Vos portresi, çözülüyor." } },
+  },
+  "oskar": {
+    "composed": { src: require("../../assets/art/faces/oskar/composed.webp"), w: 192, h: 192, alt: { en: "Portrait of Oskar Dahl, composed.", tr: "Oskar Dahl portresi, soğukkanlı." } },
+    "uneasy": { src: require("../../assets/art/faces/oskar/uneasy.webp"), w: 192, h: 192, alt: { en: "Portrait of Oskar Dahl, uneasy.", tr: "Oskar Dahl portresi, tedirgin." } },
+    "strained": { src: require("../../assets/art/faces/oskar/strained.webp"), w: 192, h: 192, alt: { en: "Portrait of Oskar Dahl, strained.", tr: "Oskar Dahl portresi, gergin." } },
+    "breaking": { src: require("../../assets/art/faces/oskar/breaking.webp"), w: 192, h: 192, alt: { en: "Portrait of Oskar Dahl, breaking.", tr: "Oskar Dahl portresi, çözülüyor." } },
+  },
+  "p-thomas": {
+    "portrait": { src: require("../../assets/art/faces/p-thomas/portrait.webp"), w: 192, h: 192, alt: { en: "Thomas Kessler, the victim, in life.", tr: "Maktul Thomas Kessler, hayattayken." } },
+  },
+  "p-varga": {
+    "portrait": { src: require("../../assets/art/faces/p-varga/portrait.webp"), w: 192, h: 192, alt: { en: "Ilse Varga, the neighbour.", tr: "Komşu Ilse Varga." } },
+  },
+  "p-okafor": {
+    "portrait": { src: require("../../assets/art/faces/p-okafor/portrait.webp"), w: 192, h: 192, alt: { en: "Ruben Okafor, bartender at The Anchor.", tr: "The Anchor'ın barmeni Ruben Okafor." } },
+  },
+  "p-lind": {
+    "portrait": { src: require("../../assets/art/faces/p-lind/portrait.webp"), w: 192, h: 192, alt: { en: "Dr Hanne Lind, forensic pathologist.", tr: "Adli tıp uzmanı Dr. Hanne Lind." } },
+  },
+  "p-saar": {
+    "portrait": { src: require("../../assets/art/faces/p-saar/portrait.webp"), w: 192, h: 192, alt: { en: "Hendrik Saar, museum director.", tr: "Müze müdürü Hendrik Saar." } },
+  },
+  "p-agnes": {
+    "portrait": { src: require("../../assets/art/faces/p-agnes/portrait.webp"), w: 192, h: 192, alt: { en: "Agnes Vos, the potter whose studio burned.", tr: "Atölyesi yanan seramikçi Agnes Vos." } },
+  },
+  "p-ruth": {
+    "portrait": { src: require("../../assets/art/faces/p-ruth/portrait.webp"), w: 192, h: 192, alt: { en: "Ruth Ekdal, night baker in Unit 1.", tr: "1 numaradaki gece fırıncısı Ruth Ekdal." } },
+  },
+  "p-holm": {
+    "portrait": { src: require("../../assets/art/faces/p-holm/portrait.webp"), w: 192, h: 192, alt: { en: "Ingvar Holm, fire investigator.", tr: "Yangın inceleme uzmanı Ingvar Holm." } },
+  },
+  "p-teo": {
+    "portrait": { src: require("../../assets/art/faces/p-teo/portrait.webp"), w: 192, h: 192, alt: { en: "Teo Varela, doorman at the Harbour Club.", tr: "Harbour Club’ın kapı görevlisi Teo Varela." } },
+  },
+  "p-kranz": {
+    "portrait": { src: require("../../assets/art/faces/p-kranz/portrait.webp"), w: 192, h: 192, alt: { en: "Emil Kranz, antiques dealer on Ostkai.", tr: "Ostkai’deki antikacı Emil Kranz." } },
+  },
+  "p-nyberg": {
+    "portrait": { src: require("../../assets/art/faces/p-nyberg/portrait.webp"), w: 192, h: 192, alt: { en: "Karl Nyberg, property developer.", tr: "Gayrimenkul geliştiricisi Karl Nyberg." } },
+  },
 };

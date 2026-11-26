@@ -69,6 +69,9 @@ export const reports: Record<string, ArtImage> = ${map(manifest.reports, img)};
 
 /** wave 4: night-event illustrations, keyed "<case art prefix>/<night event id>" */
 export const nights: Record<string, ArtImage> = ${map(manifest.nights, img)};
+
+/** wave 7 (T): 192 px face thumbnails for the small circles, keyed person id → stage (suspects) or "portrait" (witnesses) */
+export const faces: Record<string, Record<string, ArtImage>> = ${map(manifest.faces, (v) => { const b = map(v, img, '    '); return b === '{\n\n}' ? null : b.replace(/\n}$/, '\n  }'); })};
 `;
 
 writeFileSync(out, src);

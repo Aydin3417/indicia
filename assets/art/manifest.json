@@ -277,6 +277,144 @@
           }
         }
       }
+    },
+    "selma": {
+      "caseId": "fennick-yard",
+      "personId": "selma",
+      "stages": {
+        "composed": {
+          "file": "portraits/selma/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 138174,
+          "alt": {
+            "en": "Portrait of Selma Aydın, composed.",
+            "tr": "Selma Aydın portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/selma/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 131786,
+          "alt": {
+            "en": "Portrait of Selma Aydın, uneasy.",
+            "tr": "Selma Aydın portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/selma/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 126592,
+          "alt": {
+            "en": "Portrait of Selma Aydın, strained.",
+            "tr": "Selma Aydın portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/selma/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 127876,
+          "alt": {
+            "en": "Portrait of Selma Aydın, breaking.",
+            "tr": "Selma Aydın portresi, çözülüyor."
+          }
+        }
+      }
+    },
+    "bram": {
+      "caseId": "fennick-yard",
+      "personId": "bram",
+      "stages": {
+        "composed": {
+          "file": "portraits/bram/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 163410,
+          "alt": {
+            "en": "Portrait of Bram Vos, composed.",
+            "tr": "Bram Vos portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/bram/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 151630,
+          "alt": {
+            "en": "Portrait of Bram Vos, uneasy.",
+            "tr": "Bram Vos portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/bram/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 144540,
+          "alt": {
+            "en": "Portrait of Bram Vos, strained.",
+            "tr": "Bram Vos portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/bram/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 143180,
+          "alt": {
+            "en": "Portrait of Bram Vos, breaking.",
+            "tr": "Bram Vos portresi, çözülüyor."
+          }
+        }
+      }
+    },
+    "oskar": {
+      "caseId": "fennick-yard",
+      "personId": "oskar",
+      "stages": {
+        "composed": {
+          "file": "portraits/oskar/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 153010,
+          "alt": {
+            "en": "Portrait of Oskar Dahl, composed.",
+            "tr": "Oskar Dahl portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/oskar/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 137540,
+          "alt": {
+            "en": "Portrait of Oskar Dahl, uneasy.",
+            "tr": "Oskar Dahl portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/oskar/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 133400,
+          "alt": {
+            "en": "Portrait of Oskar Dahl, strained.",
+            "tr": "Oskar Dahl portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/oskar/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 128996,
+          "alt": {
+            "en": "Portrait of Oskar Dahl, breaking.",
+            "tr": "Oskar Dahl portresi, çözülüyor."
+          }
+        }
+      }
     }
   },
   "witnessPortraits": {
@@ -338,6 +476,78 @@
       "alt": {
         "en": "Hendrik Saar, museum director.",
         "tr": "Müze müdürü Hendrik Saar."
+      }
+    },
+    "p-agnes": {
+      "caseId": "fennick-yard",
+      "personId": "p-agnes",
+      "file": "portraits/p-agnes/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 165984,
+      "alt": {
+        "en": "Agnes Vos, the potter whose studio burned.",
+        "tr": "Atölyesi yanan seramikçi Agnes Vos."
+      }
+    },
+    "p-ruth": {
+      "caseId": "fennick-yard",
+      "personId": "p-ruth",
+      "file": "portraits/p-ruth/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 160576,
+      "alt": {
+        "en": "Ruth Ekdal, night baker in Unit 1.",
+        "tr": "1 numaradaki gece fırıncısı Ruth Ekdal."
+      }
+    },
+    "p-holm": {
+      "caseId": "fennick-yard",
+      "personId": "p-holm",
+      "file": "portraits/p-holm/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 164788,
+      "alt": {
+        "en": "Ingvar Holm, fire investigator.",
+        "tr": "Yangın inceleme uzmanı Ingvar Holm."
+      }
+    },
+    "p-teo": {
+      "caseId": "fennick-yard",
+      "personId": "p-teo",
+      "file": "portraits/p-teo/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 152194,
+      "alt": {
+        "en": "Teo Varela, doorman at the Harbour Club.",
+        "tr": "Harbour Club’ın kapı görevlisi Teo Varela."
+      }
+    },
+    "p-kranz": {
+      "caseId": "fennick-yard",
+      "personId": "p-kranz",
+      "file": "portraits/p-kranz/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 141802,
+      "alt": {
+        "en": "Emil Kranz, antiques dealer on Ostkai.",
+        "tr": "Ostkai’deki antikacı Emil Kranz."
+      }
+    },
+    "p-nyberg": {
+      "caseId": "fennick-yard",
+      "personId": "p-nyberg",
+      "file": "portraits/p-nyberg/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 138458,
+      "alt": {
+        "en": "Karl Nyberg, property developer.",
+        "tr": "Gayrimenkul geliştiricisi Karl Nyberg."
       }
     }
   },
@@ -561,6 +771,156 @@
         "width": 2000,
         "height": 1640,
         "bytes": 96968,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "fennick/studio": {
+      "locationId": "loc-studio",
+      "art": "fennick/studio",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/fennick/studio.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 288640,
+        "alt": {
+          "en": "Top-down view of the burnt pottery studio: buckled racks in soot, the kiln, the glaze bench, the back door.",
+          "tr": "Yanmış seramik atölyesinin kuşbakışı görünümü: isin içinde eğrilmiş raflar, fırın, sır tezgâhı, arka kapı."
+        }
+      },
+      "uv": {
+        "file": "scenes/fennick/studio-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 130728,
+        "alt": {
+          "en": "Under ultraviolet light: a broken pale trail from the back door to the racks.",
+          "tr": "Morötesi ışıkta: arka kapıdan raflara uzanan kesik kesik soluk bir iz."
+        }
+      }
+    },
+    "fennick/yard": {
+      "locationId": "loc-yard",
+      "art": "fennick/yard",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/fennick/yard.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 337712,
+        "alt": {
+          "en": "Top-down view of Fennick Yard: wet cobbles, the iron gate, the bakery, the shed and Unit 4’s sooty back wall.",
+          "tr": "Fennick Avlusu’nun kuşbakışı görünümü: ıslak arnavutkaldırımı, demir kapı, fırın, kulübe ve 4 numaranın isli arka duvarı."
+        }
+      },
+      "uv": {
+        "file": "scenes/fennick/yard-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 145374,
+        "alt": {
+          "en": "Under ultraviolet light: pale drips across the cobbles from the shed to Unit 4.",
+          "tr": "Morötesi ışıkta: kulübeden 4 numaraya arnavutkaldırımını geçen soluk damlalar."
+        }
+      }
+    },
+    "fennick/office": {
+      "locationId": "loc-office",
+      "art": "fennick/office",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/fennick/office.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 194868,
+        "alt": {
+          "en": "Top-down view of the yard office: camera recorder, key cabinet, oak desk, box files.",
+          "tr": "Avlu ofisinin kuşbakışı görünümü: kamera kayıt cihazı, anahtar dolabı, meşe masa, dosya kutuları."
+        }
+      },
+      "uv": {
+        "file": "scenes/fennick/office-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 94150,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "fennick/club": {
+      "locationId": "loc-club",
+      "art": "fennick/club",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/fennick/club.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 190452,
+        "alt": {
+          "en": "Top-down view of the Harbour Club: cloakroom, long bar, seating plan, corridor, doorman’s lectern.",
+          "tr": "Harbour Club’ın kuşbakışı görünümü: vestiyer, uzun bar, oturma planı, koridor, kapı görevlisinin kürsüsü."
+        }
+      },
+      "uv": {
+        "file": "scenes/fennick/club-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 67388,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "fennick/kranz": {
+      "locationId": "loc-kranz",
+      "art": "fennick/kranz",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/fennick/kranz.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 295080,
+        "alt": {
+          "en": "Top-down view of Kranz Antiques: crammed shelves, a crate in straw, the back card table.",
+          "tr": "Kranz Antika’nın kuşbakışı görünümü: tıka basa raflar, saman dolu bir kasa, arkadaki iskambil masası."
+        }
+      },
+      "uv": {
+        "file": "scenes/fennick/kranz-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 128942,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "fennick/house": {
+      "locationId": "loc-house",
+      "art": "fennick/house",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/fennick/house.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 198060,
+        "alt": {
+          "en": "Top-down view of Dahl’s villa: hall stand, study, garage, a garden going down to the water.",
+          "tr": "Dahl’ın villasının kuşbakışı görünümü: portmanto, çalışma odası, garaj, denize inen bahçe."
+        }
+      },
+      "uv": {
+        "file": "scenes/fennick/house-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 90070,
         "alt": {
           "en": "The same room under ultraviolet light.",
           "tr": "Aynı oda morötesi ışık altında."
@@ -1053,6 +1413,491 @@
         }
       },
       "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-racks": {
+      "zoneId": "z-fy-racks",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-racks.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 204186,
+        "alt": {
+          "en": "Buckled drying racks, grey ash where the pots stood, a V of soot on the wall.",
+          "tr": "Eğrilmiş kurutma rafları, çömleklerin yerinde gri kül, duvarda V biçiminde is."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-kiln": {
+      "zoneId": "z-fy-kiln",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-kiln.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 158932,
+        "alt": {
+          "en": "The big kiln, door shut, paint blistered on one side.",
+          "tr": "Büyük fırın, kapağı kapalı, boyası tek yanda kabarmış."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-heater": {
+      "zoneId": "z-fy-heater",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-heater.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 151248,
+        "alt": {
+          "en": "An oil-filled heater scorched on one side, its socket switched off.",
+          "tr": "Tek yanı kavrulmuş yağlı radyatör; prizinin anahtarı kapalı."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-alarm": {
+      "zoneId": "z-fy-alarm",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-alarm.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 149338,
+        "alt": {
+          "en": "A ceiling smoke alarm, cover open, battery slot empty.",
+          "tr": "Tavanda duman alarmı; kapağı açık, pil yuvası boş."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-backdoor": {
+      "zoneId": "z-fy-backdoor",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-backdoor.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 177356,
+        "alt": {
+          "en": "The steel back door from inside: lock intact, a notice taped on.",
+          "tr": "Çelik arka kapı içeriden: kilit sağlam, üstüne bir duyuru yapıştırılmış."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate",
+      "uv": {
+        "file": "closeups/fennick/z-fy-backdoor-uv.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 63692,
+        "alt": {
+          "en": "Under UV the inside handle glows pale green.",
+          "tr": "UV altında iç kol soluk yeşil ışıyor."
+        }
+      }
+    },
+    "z-fy-shelves": {
+      "zoneId": "z-fy-shelves",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-shelves.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 156358,
+        "alt": {
+          "en": "Shelves of seconds with chalk crosses, a clean gap where a crate stood.",
+          "tr": "Tebeşir çarpılı ıskarta rafları; bir kasanın durduğu yerde temiz bir boşluk."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-sink": {
+      "zoneId": "z-fy-sink",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-sink.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 166818,
+        "alt": {
+          "en": "The sink corner: buckets of clay, a broom, marks in the dust.",
+          "tr": "Lavabo köşesi: çamur kovaları, süpürge, tozda izler."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-slip": {
+      "zoneId": "z-fy-slip",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-slip.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 210248,
+        "alt": {
+          "en": "Dried slip under powder: smooth leather soles with a ring of heel nails.",
+          "tr": "Toz altında kurumuş çamur: düz deri tabanlar, topukta halka hâlinde çiviler."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-trail": {
+      "zoneId": "z-fy-trail",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-trail.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 183780,
+        "alt": {
+          "en": "Wet floor between the back door and the racks.",
+          "tr": "Arka kapıyla raflar arasındaki ıslak zemin."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate",
+      "uv": {
+        "file": "closeups/fennick/z-fy-trail-uv.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 77242,
+        "alt": {
+          "en": "Under UV a broken trail of splashes glows from the door to the racks.",
+          "tr": "UV altında kapıdan raflara kesik kesik sıçramalar ışıyor."
+        }
+      }
+    },
+    "z-fy-gate": {
+      "zoneId": "z-fy-gate",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-gate.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 173638,
+        "alt": {
+          "en": "The gate keypad, its controller open, a printout hanging out.",
+          "tr": "Kapının tuş takımı; kumanda kutusu açık, bir döküm sarkıyor."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-camera": {
+      "zoneId": "z-fy-camera",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-camera.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 168058,
+        "alt": {
+          "en": "The yard camera on its bracket, the cable running up to the office window.",
+          "tr": "Ayağındaki avlu kamerası; kablosu ofis penceresine çıkıyor."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-gutter": {
+      "zoneId": "z-fy-gutter",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-gutter.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 161564,
+        "alt": {
+          "en": "The drain grating: a melted red cap and a soaked matchbook with an anchor.",
+          "tr": "Oluk ızgarası: erimiş kırmızı bir kapak ve çapalı, ıslak bir kibrit kutusu."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-fy-shed": {
+      "zoneId": "z-fy-shed",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-shed.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 160448,
+        "alt": {
+          "en": "Inside the shed: lamp-oil bottles with one gap, a taped battery on the bench.",
+          "tr": "Kulübenin içi: biri eksik gaz yağı şişeleri, tezgâhta bantlı bir pil."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate",
+      "uv": {
+        "file": "closeups/fennick/z-fy-shed-uv.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 50882,
+        "alt": {
+          "en": "Under UV fresh drips glow below the gap and lead to the door.",
+          "tr": "UV altında boşluğun altındaki taze damlalar ışıyor ve kapıya gidiyor."
+        }
+      }
+    },
+    "z-fy-path": {
+      "zoneId": "z-fy-path",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-fy-path.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 181900,
+        "alt": {
+          "en": "Wet cobbles between the shed and Unit 4.",
+          "tr": "Kulübeyle 4 numara arasındaki ıslak arnavutkaldırımı."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate",
+      "uv": {
+        "file": "closeups/fennick/z-fy-path-uv.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 59558,
+        "alt": {
+          "en": "Under UV a line of pale drips crosses the cobbles.",
+          "tr": "UV altında arnavutkaldırımını soluk damlalardan bir çizgi geçiyor."
+        }
+      }
+    },
+    "z-ho-recorder": {
+      "zoneId": "z-ho-recorder",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-ho-recorder.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 149472,
+        "alt": {
+          "en": "The grey camera recorder under the window.",
+          "tr": "Pencerenin altındaki gri kamera kayıt cihazı."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-ho-keys": {
+      "zoneId": "z-ho-keys",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-ho-keys.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 168432,
+        "alt": {
+          "en": "The glass-fronted key cabinet, every spare on its hook.",
+          "tr": "Camlı anahtar dolabı; her yedek kancasında."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-ho-desk": {
+      "zoneId": "z-ho-desk",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-ho-desk.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 193958,
+        "alt": {
+          "en": "The opened drawer: a blue folder and a list clipped behind it.",
+          "tr": "Açılan çekmece: mavi bir dosya ve arkasına iliştirilmiş bir liste."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-ho-files": {
+      "zoneId": "z-ho-files",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-ho-files.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 160960,
+        "alt": {
+          "en": "Box files, Unit 4’s pulled out with a pencil inside.",
+          "tr": "Dosya kutuları; 4 numaranınki dışarı çekilmiş, içinde bir kalem."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-hc-cloak": {
+      "zoneId": "z-hc-cloak",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hc-cloak.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 161584,
+        "alt": {
+          "en": "Brass coat hooks and the open cloakroom book.",
+          "tr": "Pirinç askılar ve açık vestiyer defteri."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-hc-bar": {
+      "zoneId": "z-hc-bar",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hc-bar.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 128632,
+        "alt": {
+          "en": "The bar: a bowl of anchor matchbooks, a spike of tabs, a brandy glass.",
+          "tr": "Bar: çapalı kibrit kutularıyla dolu bir kâse, hesap şişi, bir konyak kadehi."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-hc-plan": {
+      "zoneId": "z-hc-plan",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hc-plan.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 134248,
+        "alt": {
+          "en": "The dinner seating plan on its easel.",
+          "tr": "Şövalesindeki yemek oturma planı."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-hc-corridor": {
+      "zoneId": "z-hc-corridor",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hc-corridor.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 136240,
+        "alt": {
+          "en": "A quiet panelled corridor, a bench, the router on a shelf.",
+          "tr": "Sessiz, ahşap kaplı bir koridor; bank ve raftaki modem."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-hc-door": {
+      "zoneId": "z-hc-door",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hc-door.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 209718,
+        "alt": {
+          "en": "The doorman’s lectern: taxi book, radio, umbrella stand.",
+          "tr": "Kapı görevlisinin kürsüsü: taksi defteri, telsiz, şemsiyelik."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-kr-table": {
+      "zoneId": "z-kr-table",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-kr-table.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 139762,
+        "alt": {
+          "en": "Kranz’s card table: two glasses, a receipt book, the door-camera screen.",
+          "tr": "Kranz’ın iskambil masası: iki kadeh, makbuz defteri, kapı kamerası ekranı."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-kr-crate": {
+      "zoneId": "z-kr-crate",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-kr-crate.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 199462,
+        "alt": {
+          "en": "A crate of newspaper-wrapped pots, one showing a chalk cross.",
+          "tr": "Gazeteye sarılı çömleklerle dolu kasa; birinde tebeşirle çarpı."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-hh-hall": {
+      "zoneId": "z-hh-hall",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hh-hall.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 148568,
+        "alt": {
+          "en": "A long dark overcoat on the hall stand, the shoe rack below.",
+          "tr": "Portmantoda uzun, koyu bir palto; altında ayakkabılık."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate",
+      "uv": {
+        "file": "closeups/fennick/z-hh-hall-uv.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 50112,
+        "alt": {
+          "en": "Under UV small splashes glow on the right cuff and the hem.",
+          "tr": "UV altında sağ kol ağzında ve etekte küçük sıçramalar ışıyor."
+        }
+      }
+    },
+    "z-hh-study": {
+      "zoneId": "z-hh-study",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hh-study.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 145478,
+        "alt": {
+          "en": "Bank letters squared under a brass weight.",
+          "tr": "Pirinç bir ağırlığın altında düzgünce dizilmiş banka mektupları."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-hh-garage": {
+      "zoneId": "z-hh-garage",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hh-garage.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 168294,
+        "alt": {
+          "en": "A dark saloon in a tidy garage, dust on the bonnet.",
+          "tr": "Derli toplu garajda koyu renk bir sedan; kaputta toz."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-hh-garden": {
+      "zoneId": "z-hh-garden",
+      "caseFolder": "fennick",
+      "base": {
+        "file": "closeups/fennick/z-hh-garden.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 213268,
+        "alt": {
+          "en": "A garden incinerator full of ash, a nailed shoe heel showing.",
+          "tr": "Kül dolu bahçe yakma sobası; çivili bir ayakkabı topuğu görünüyor."
+        }
+      },
+      "detailsNote": "wave 7 (T): details[].x/y were authored before the art; positions are approximate"
     }
   },
   "evidence": {
@@ -1175,6 +2020,102 @@
         "tr": "Gece ziyaretçi defteri."
       },
       "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-cap": {
+      "evidenceId": "ev-cap",
+      "file": "evidence/fennick/ev-cap.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 29250,
+      "alt": {
+        "en": "Half-melted red screw cap.",
+        "tr": "Yarısı erimiş kırmızı vidalı kapak."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-matchbook": {
+      "evidenceId": "ev-matchbook",
+      "file": "evidence/fennick/ev-matchbook.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 28192,
+      "alt": {
+        "en": "Soaked matchbook with an anchor, three matches torn out.",
+        "tr": "Çapalı, ıslak kibrit kutusu; üç çöpü koparılmış."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-battery": {
+      "evidenceId": "ev-battery",
+      "file": "evidence/fennick/ev-battery.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 28526,
+      "alt": {
+        "en": "9-volt battery wrapped in scribbled tape.",
+        "tr": "Üstü karalanmış bantla sarılı 9 voltluk pil."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-kilnpots": {
+      "evidenceId": "ev-kilnpots",
+      "file": "evidence/fennick/ev-kilnpots.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 18484,
+      "alt": {
+        "en": "Six small celadon vessels from the kiln.",
+        "tr": "Fırından çıkan altı küçük seladon kap."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-heater": {
+      "evidenceId": "ev-heater",
+      "file": "evidence/fennick/ev-heater.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 33528,
+      "alt": {
+        "en": "Oil-filled heater, scorched on one side.",
+        "tr": "Tek yanı kavrulmuş yağlı radyatör."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-coat": {
+      "evidenceId": "ev-coat",
+      "file": "evidence/fennick/ev-coat.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 33748,
+      "alt": {
+        "en": "Long dark wool overcoat.",
+        "tr": "Uzun, koyu yün palto."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-ashes": {
+      "evidenceId": "ev-ashes",
+      "file": "evidence/fennick/ev-ashes.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 51168,
+      "alt": {
+        "en": "Evidence tin of ash with a charred, nailed heel.",
+        "tr": "İçinde kömürleşmiş, çivili bir topuk olan kül kutusu."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-kranzcard": {
+      "evidenceId": "ev-kranzcard",
+      "file": "evidence/fennick/ev-kranzcard.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 29586,
+      "alt": {
+        "en": "Dealer’s card with pencil on the back.",
+        "tr": "Arkasında kurşun kalem yazı olan antikacı kartı."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
     }
   },
   "covers": {
@@ -1197,6 +2138,17 @@
       "alt": {
         "en": "Key art: an empty museum case in torchlight and a guard's shadow.",
         "tr": "Kapak: fener ışığında boş müze vitrini ve bekçinin gölgesi."
+      },
+      "titleSafeArea": "top 30% is dark and empty"
+    },
+    "fennick-yard": {
+      "file": "covers/fennick.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 158494,
+      "alt": {
+        "en": "Key art: a drying rack of pots turned to ash in a torch beam, a thread of smoke.",
+        "tr": "Kapak: fener ışığında küle dönmüş çömleklerle dolu bir kurutma rafı, ince bir duman."
       },
       "titleSafeArea": "top 30% is dark and empty"
     }
@@ -1502,6 +2454,36 @@
         "en": "The maritime museum on the quay at dawn, one window still lit.",
         "tr": "Şafakta rıhtımdaki denizcilik müzesi; tek bir pencere hâlâ yanıyor."
       }
+    },
+    "fennick/1": {
+      "file": "reports/fennick-day1.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 157646,
+      "alt": {
+        "en": "Fennick Yard at dusk, the burnt studio door boarded up, one lit window.",
+        "tr": "Akşam karanlığında Fennick Avlusu; yanan atölyenin kapısı tahtayla kapatılmış, tek bir pencere yanıyor."
+      }
+    },
+    "fennick/2": {
+      "file": "reports/fennick-day2.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 126192,
+      "alt": {
+        "en": "A detective’s desk at night: the gate printout and a cloakroom ticket under the lamp.",
+        "tr": "Gece bir komiserin masası: lambanın altında kapı dökümü ve bir vestiyer fişi."
+      }
+    },
+    "fennick/3": {
+      "file": "reports/fennick-day3.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 143952,
+      "alt": {
+        "en": "A salvage lorry waiting at an iron gate at first light.",
+        "tr": "Şafakta demir bir kapının önünde bekleyen hurda kamyonu."
+      }
     }
   },
   "nights": {
@@ -1563,6 +2545,588 @@
       "alt": {
         "en": "The prosecutor’s office at night, three case files and a receiver off the hook.",
         "tr": "Gece savcının odası: üç dosya ve kaldırılmış bir telefon ahizesi."
+      }
+    },
+    "fennick/n1-teo": {
+      "file": "nights/fennick/n1-teo.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 111028,
+      "alt": {
+        "en": "A packed suitcase by a kitchen table at night, a doorman’s cap on top.",
+        "tr": "Gece mutfak masasının yanında hazır bir bavul; üstünde bir kapı görevlisi kasketi."
+      }
+    },
+    "fennick/n1-kranz": {
+      "file": "nights/fennick/n1-kranz.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 130732,
+      "alt": {
+        "en": "A carrier bag on the station front desk, a wrapped pot peeking out.",
+        "tr": "Karakolun ön masasında bir torba; içinden sarılı bir çömlek görünüyor."
+      }
+    },
+    "fennick/n1-solicitor": {
+      "file": "nights/fennick/n1-solicitor.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 102548,
+      "alt": {
+        "en": "A desk phone just put down beside a solicitor’s card.",
+        "tr": "Bir avukat kartının yanında az önce kapatılmış masa telefonu."
+      }
+    },
+    "fennick/n-day1": {
+      "file": "nights/fennick/n-day1.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 112274,
+      "alt": {
+        "en": "A note propped on an empty desk beside two sealed evidence tins.",
+        "tr": "Boş bir masada, mühürlü iki delil kutusunun yanında dikilmiş bir not."
+      }
+    },
+    "fennick/n2-salvage": {
+      "file": "nights/fennick/n2-salvage.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 153948,
+      "alt": {
+        "en": "The old heater on a trestle in the wet yard at dawn, an insurer’s clipboard beside it.",
+        "tr": "Şafakta ıslak avluda sehpa üstündeki eski radyatör; yanında sigortacının kâğıtları."
+      }
+    },
+    "fennick/n2-nyberg": {
+      "file": "nights/fennick/n2-nyberg.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 104466,
+      "alt": {
+        "en": "A developer’s brochure of harbour flats open on a desk at night.",
+        "tr": "Gece bir masada açık duran liman konutları broşürü."
+      }
+    },
+    "fennick/n-day2": {
+      "file": "nights/fennick/n-day2.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 130816,
+      "alt": {
+        "en": "The prosecutor’s office at night: three case files, the receiver off the hook.",
+        "tr": "Gece savcılık odası: üç dosya, ahizesi kalkık telefon."
+      }
+    }
+  },
+  "faces": {
+    "clara": {
+      "composed": {
+        "file": "faces/clara/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7564,
+        "alt": {
+          "en": "Portrait of Clara Kessler, composed.",
+          "tr": "Clara Kessler portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/clara/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7380,
+        "alt": {
+          "en": "Portrait of Clara Kessler, uneasy.",
+          "tr": "Clara Kessler portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/clara/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7442,
+        "alt": {
+          "en": "Portrait of Clara Kessler, strained.",
+          "tr": "Clara Kessler portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/clara/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7328,
+        "alt": {
+          "en": "Portrait of Clara Kessler, breaking.",
+          "tr": "Clara Kessler portresi, çözülüyor."
+        }
+      }
+    },
+    "jonas": {
+      "composed": {
+        "file": "faces/jonas/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9688,
+        "alt": {
+          "en": "Portrait of Jonas Feld, composed.",
+          "tr": "Jonas Feld portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/jonas/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9206,
+        "alt": {
+          "en": "Portrait of Jonas Feld, uneasy.",
+          "tr": "Jonas Feld portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/jonas/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8940,
+        "alt": {
+          "en": "Portrait of Jonas Feld, strained.",
+          "tr": "Jonas Feld portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/jonas/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 10246,
+        "alt": {
+          "en": "Portrait of Jonas Feld, breaking.",
+          "tr": "Jonas Feld portresi, çözülüyor."
+        }
+      }
+    },
+    "miriam": {
+      "composed": {
+        "file": "faces/miriam/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7608,
+        "alt": {
+          "en": "Portrait of Miriam Achterberg, composed.",
+          "tr": "Miriam Achterberg portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/miriam/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7502,
+        "alt": {
+          "en": "Portrait of Miriam Achterberg, uneasy.",
+          "tr": "Miriam Achterberg portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/miriam/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7384,
+        "alt": {
+          "en": "Portrait of Miriam Achterberg, strained.",
+          "tr": "Miriam Achterberg portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/miriam/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7542,
+        "alt": {
+          "en": "Portrait of Miriam Achterberg, breaking.",
+          "tr": "Miriam Achterberg portresi, çözülüyor."
+        }
+      }
+    },
+    "leo": {
+      "composed": {
+        "file": "faces/leo/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 11518,
+        "alt": {
+          "en": "Portrait of Leo Brandt, composed.",
+          "tr": "Leo Brandt portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/leo/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 11224,
+        "alt": {
+          "en": "Portrait of Leo Brandt, uneasy.",
+          "tr": "Leo Brandt portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/leo/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 11118,
+        "alt": {
+          "en": "Portrait of Leo Brandt, strained.",
+          "tr": "Leo Brandt portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/leo/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 11034,
+        "alt": {
+          "en": "Portrait of Leo Brandt, breaking.",
+          "tr": "Leo Brandt portresi, çözülüyor."
+        }
+      }
+    },
+    "ada": {
+      "composed": {
+        "file": "faces/ada/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7884,
+        "alt": {
+          "en": "Portrait of Ada Lund, composed.",
+          "tr": "Ada Lund portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/ada/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7764,
+        "alt": {
+          "en": "Portrait of Ada Lund, uneasy.",
+          "tr": "Ada Lund portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/ada/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7798,
+        "alt": {
+          "en": "Portrait of Ada Lund, strained.",
+          "tr": "Ada Lund portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/ada/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7832,
+        "alt": {
+          "en": "Portrait of Ada Lund, breaking.",
+          "tr": "Ada Lund portresi, çözülüyor."
+        }
+      }
+    },
+    "nils": {
+      "composed": {
+        "file": "faces/nils/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8840,
+        "alt": {
+          "en": "Portrait of Nils Brekke, composed.",
+          "tr": "Nils Brekke portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/nils/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8422,
+        "alt": {
+          "en": "Portrait of Nils Brekke, uneasy.",
+          "tr": "Nils Brekke portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/nils/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8372,
+        "alt": {
+          "en": "Portrait of Nils Brekke, strained.",
+          "tr": "Nils Brekke portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/nils/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8082,
+        "alt": {
+          "en": "Portrait of Nils Brekke, breaking.",
+          "tr": "Nils Brekke portresi, çözülüyor."
+        }
+      }
+    },
+    "selma": {
+      "composed": {
+        "file": "faces/selma/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 6938,
+        "alt": {
+          "en": "Portrait of Selma Aydın, composed.",
+          "tr": "Selma Aydın portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/selma/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 6876,
+        "alt": {
+          "en": "Portrait of Selma Aydın, uneasy.",
+          "tr": "Selma Aydın portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/selma/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7056,
+        "alt": {
+          "en": "Portrait of Selma Aydın, strained.",
+          "tr": "Selma Aydın portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/selma/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7468,
+        "alt": {
+          "en": "Portrait of Selma Aydın, breaking.",
+          "tr": "Selma Aydın portresi, çözülüyor."
+        }
+      }
+    },
+    "bram": {
+      "composed": {
+        "file": "faces/bram/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9988,
+        "alt": {
+          "en": "Portrait of Bram Vos, composed.",
+          "tr": "Bram Vos portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/bram/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9756,
+        "alt": {
+          "en": "Portrait of Bram Vos, uneasy.",
+          "tr": "Bram Vos portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/bram/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9782,
+        "alt": {
+          "en": "Portrait of Bram Vos, strained.",
+          "tr": "Bram Vos portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/bram/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9618,
+        "alt": {
+          "en": "Portrait of Bram Vos, breaking.",
+          "tr": "Bram Vos portresi, çözülüyor."
+        }
+      }
+    },
+    "oskar": {
+      "composed": {
+        "file": "faces/oskar/composed.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8924,
+        "alt": {
+          "en": "Portrait of Oskar Dahl, composed.",
+          "tr": "Oskar Dahl portresi, soğukkanlı."
+        }
+      },
+      "uneasy": {
+        "file": "faces/oskar/uneasy.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8596,
+        "alt": {
+          "en": "Portrait of Oskar Dahl, uneasy.",
+          "tr": "Oskar Dahl portresi, tedirgin."
+        }
+      },
+      "strained": {
+        "file": "faces/oskar/strained.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9078,
+        "alt": {
+          "en": "Portrait of Oskar Dahl, strained.",
+          "tr": "Oskar Dahl portresi, gergin."
+        }
+      },
+      "breaking": {
+        "file": "faces/oskar/breaking.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8792,
+        "alt": {
+          "en": "Portrait of Oskar Dahl, breaking.",
+          "tr": "Oskar Dahl portresi, çözülüyor."
+        }
+      }
+    },
+    "p-thomas": {
+      "portrait": {
+        "file": "faces/p-thomas/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9758,
+        "alt": {
+          "en": "Thomas Kessler, the victim, in life.",
+          "tr": "Maktul Thomas Kessler, hayattayken."
+        }
+      }
+    },
+    "p-varga": {
+      "portrait": {
+        "file": "faces/p-varga/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 10862,
+        "alt": {
+          "en": "Ilse Varga, the neighbour.",
+          "tr": "Komşu Ilse Varga."
+        }
+      }
+    },
+    "p-okafor": {
+      "portrait": {
+        "file": "faces/p-okafor/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 7434,
+        "alt": {
+          "en": "Ruben Okafor, bartender at The Anchor.",
+          "tr": "The Anchor'ın barmeni Ruben Okafor."
+        }
+      }
+    },
+    "p-lind": {
+      "portrait": {
+        "file": "faces/p-lind/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8892,
+        "alt": {
+          "en": "Dr Hanne Lind, forensic pathologist.",
+          "tr": "Adli tıp uzmanı Dr. Hanne Lind."
+        }
+      }
+    },
+    "p-saar": {
+      "portrait": {
+        "file": "faces/p-saar/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 10218,
+        "alt": {
+          "en": "Hendrik Saar, museum director.",
+          "tr": "Müze müdürü Hendrik Saar."
+        }
+      }
+    },
+    "p-agnes": {
+      "portrait": {
+        "file": "faces/p-agnes/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 11680,
+        "alt": {
+          "en": "Agnes Vos, the potter whose studio burned.",
+          "tr": "Atölyesi yanan seramikçi Agnes Vos."
+        }
+      }
+    },
+    "p-ruth": {
+      "portrait": {
+        "file": "faces/p-ruth/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 8338,
+        "alt": {
+          "en": "Ruth Ekdal, night baker in Unit 1.",
+          "tr": "1 numaradaki gece fırıncısı Ruth Ekdal."
+        }
+      }
+    },
+    "p-holm": {
+      "portrait": {
+        "file": "faces/p-holm/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 10740,
+        "alt": {
+          "en": "Ingvar Holm, fire investigator.",
+          "tr": "Yangın inceleme uzmanı Ingvar Holm."
+        }
+      }
+    },
+    "p-teo": {
+      "portrait": {
+        "file": "faces/p-teo/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 11126,
+        "alt": {
+          "en": "Teo Varela, doorman at the Harbour Club.",
+          "tr": "Harbour Club’ın kapı görevlisi Teo Varela."
+        }
+      }
+    },
+    "p-kranz": {
+      "portrait": {
+        "file": "faces/p-kranz/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 11180,
+        "alt": {
+          "en": "Emil Kranz, antiques dealer on Ostkai.",
+          "tr": "Ostkai’deki antikacı Emil Kranz."
+        }
+      }
+    },
+    "p-nyberg": {
+      "portrait": {
+        "file": "faces/p-nyberg/portrait.webp",
+        "width": 192,
+        "height": 192,
+        "bytes": 9280,
+        "alt": {
+          "en": "Karl Nyberg, property developer.",
+          "tr": "Gayrimenkul geliştiricisi Karl Nyberg."
+        }
       }
     }
   }
