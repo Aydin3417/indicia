@@ -6,6 +6,8 @@ import { usePrefs } from '../src/state/prefs';
 import { useSoundPrefs } from '../src/sound/prefs';
 import { api, resetIdentity } from '../src/api/client';
 import { useI18n, useT, type Locale } from '../src/i18n';
+import { useCreditsT } from '../src/i18n/credits';
+import { Icon } from '../src/components/Icon';
 import type { Profile } from '../shared/api';
 import { color, space } from '../src/theme/tokens';
 
@@ -13,6 +15,7 @@ type LangChoice = Locale | 'device';
 
 export default function Settings() {
   const t = useT();
+  const c = useCreditsT();
   const { haptics, idleAssist, set } = usePrefs();
   const choice = useI18n((s) => s.choice);
   const choose = useI18n((s) => s.choose);
@@ -85,6 +88,13 @@ export default function Settings() {
       </Section>
       <Section title={t('settings.content')}>
         <T v="bodyDim">{t('settings.contentText')}</T>
+        <Pressable style={[s.row, { marginTop: space.md }]} onPress={() => router.push('/credits')} accessibilityRole="button" testID="settings-credits">
+          <View style={{ flex: 1, paddingRight: space.md }}>
+            <T>{c('credits.open')}</T>
+            <T v="small" style={{ marginTop: 2 }}>{c('credits.openNote')}</T>
+          </View>
+          <Icon name="chevron" size={16} tint={color.textDim} />
+        </Pressable>
       </Section>
       <Section title={t('settings.data')}>
         <T v="bodyDim">{t('settings.dataText')}</T>

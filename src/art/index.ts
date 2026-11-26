@@ -44,6 +44,13 @@ const EVIDENCE_FALLBACK: Record<string, string> = {
   'ev-accesspanel': 'zone:z-reader', 'ev-tracks': 'zone:z-courtyard',
   // First Watch
   'ev-keyregister': 'doc:ledger', 'ev-email': 'doc:folder',
+  // Ash and Glaze (fennick-yard, wave 7, handoff S request 3) — generic drawings until its own art lands
+  'ev-gatelog': 'doc:access-log', 'ev-ostkai': 'lab:anpr', 'ev-dvrlog': 'doc:device',
+  'ev-contract': 'doc:contract', 'ev-lease': 'doc:contract', 'ev-codelist': 'doc:contract',
+  'ev-cloakbook': 'doc:ledger', 'ev-taxibook': 'doc:ledger', 'ev-loan': 'doc:bank-record',
+  'ev-ruth': 'doc:statement', 'ev-agnes': 'doc:statement', 'ev-teo': 'doc:statement', 'ev-kranz': 'doc:statement',
+  'ev-nyberg': 'doc:statement',
+  'ev-firereport': 'doc:folder', 'ev-notice': 'doc:folder', 'ev-warning': 'doc:folder', 'ev-salvage': 'doc:folder',
 };
 /** By evidence kind when the id is unknown (a new case before its art). Physical objects get nothing (icon box). */
 const KIND_FALLBACK: Record<string, string> = {
@@ -77,6 +84,9 @@ const ANALYSIS_LAB: Record<string, string> = {
   'a-cctv': 'lab:anpr', 'a-violin': 'lab:instrument', 'a-anchor': 'doc:statement', 'a-pawn': 'doc:pawn-ticket',
   'a-access': 'doc:access-log', 'a-phone': 'lab:digital', 'a-volvo': 'lab:serology', 'a-halberd': 'lab:financial',
   'a-brandl': 'doc:contract',
+  // Ash and Glaze (fennick-yard)
+  'a-ostkai': 'lab:anpr', 'a-dvr': 'lab:digital', 'a-debris': 'lab:fingerprints', 'a-heater': 'lab:fingerprints',
+  'a-kranz': 'doc:statement', 'a-teo': 'doc:statement', 'a-nyberg': 'doc:statement',
 };
 const DISCIPLINE_LAB: Record<string, string> = {
   autopsy: 'lab:autopsy', serology: 'lab:serology', fingerprints: 'lab:fingerprints', trace: 'lab:fingerprints',

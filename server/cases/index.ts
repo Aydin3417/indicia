@@ -2,9 +2,13 @@
 import type { CaseDefinition } from '../engine/types.ts';
 import { kessler } from './kessler.ts';
 import { FIRST_WATCH_ID, firstWatch } from './first-watch.ts';
+import { fennick } from './fennick.ts';
 
-/** Kessler stays first (the case list's default); the tutorial carries meta.tutorial (→ CaseSummary.tutorial). */
-export const ALL_CASES: CaseDefinition[] = [kessler, firstWatch];
+/**
+ * Kessler stays first (the case list's default); the tutorial carries meta.tutorial (→ CaseSummary.tutorial).
+ * Wave 7: "Ash and Glaze" (fennick-yard, arson) — the first Detective Plus case (meta.tier 'plus').
+ */
+export const ALL_CASES: CaseDefinition[] = [kessler, firstWatch, fennick];
 
 /** The tutorial ("İlk Nöbet / First Watch"); clients read CaseSummary.tutorial instead of this id. */
 export const TUTORIAL_CASE_ID = FIRST_WATCH_ID;

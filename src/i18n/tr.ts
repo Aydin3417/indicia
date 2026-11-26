@@ -308,6 +308,7 @@ export const tr: Record<ShellKey, string> = {
   'desk.costs.openTopic': 'Konu açmak',
   'desk.costs.wait': 'Bilerek beklemek',
   'desk.costs.waitValue': 'beklediğin kadar',
+  'desk.costs.waitValueCoop': 'yalnız senin saatin ilerler',
   'desk.costs.present': 'Bir iddiaya karşı kanıt göstermek',
   'desk.costs.freeQuestion': 'Kendi cümlenle sormak',
   'desk.costs.wrongDeduction': 'Tutmayan bir çıkarım dosyalamak',

@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { color } from '../../../../src/theme/tokens';
 import { Tabs } from 'expo-router';
 import { TabBar } from '../../../../src/components/TabBar';
+import { ToastGuard } from '../../../../src/components/Toasts';
 import { TopStrip } from '../../../../src/features/desk/TopStrip';
 import { CoachMark } from '../../../../src/features/desk/Coach';
 import { useDesk } from '../../../../src/state/desk';
@@ -20,9 +21,12 @@ export default function DeskTabs() {
   };
   return (
     <View style={{ flex: 1, backgroundColor: color.bg }}>
-      <TopStrip view={view} />
-      {/* tutorial only: one line of guidance, shown once per step */}
-      <CoachMark view={view} where="tabs" style={{ marginHorizontal: 12, marginTop: 8 }} />
+      {/* toasts land under the strip and the coach line, never over them (PLAYTEST_V4 §7.4) */}
+      <ToastGuard edge="top">
+        <TopStrip view={view} />
+        {/* tutorial only: one line of guidance, shown once per step */}
+        <CoachMark view={view} where="tabs" style={{ marginHorizontal: 12, marginTop: 8 }} />
+      </ToastGuard>
       <Tabs
         screenOptions={{ headerShown: false, sceneStyle: { backgroundColor: color.bg } }}
         tabBar={(p) => <TabBar {...p} icons={{ index: 'map', notebook: 'notebook', deductions: 'deduce', people: 'people' }} badges={badges} />}

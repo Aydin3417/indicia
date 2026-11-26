@@ -7,8 +7,9 @@
 Every source is a real recording from Wikimedia Commons (CC0 / CC BY; see assets/audio/CREDITS.md). Nothing here is
 an oscillator: the code only cuts, filters, mixes, crossfades the loop point and sets the level.
 
-Output: assets/audio/rooms/{workshop,interview,gallery}.wav, mono 22.05 kHz 16-bit (the sources hold almost nothing
-above 9 kHz, and WAV loops are gapless on every platform, unlike MP3/AAC which pad the ends).
+Output: the WAV masters assets/audio/master/rooms/{workshop,interview,gallery,quiet}.wav, mono 22.05 kHz 16-bit (the
+sources hold almost nothing above 9 kHz). The app ships AAC .m4a encoded from them by scripts/sound/encode.py (wave 7):
+MP4's edit list trims the AAC priming and padding, and encode.py checks the decoded loop is sample-exact and seamless.
 """
 import sys
 import time
@@ -19,7 +20,7 @@ import numpy as np
 import soundfile as sf
 from scipy.signal import butter, lfilter, resample_poly, sosfilt
 
-OUT = Path(__file__).resolve().parents[2] / "assets" / "audio" / "rooms"
+OUT = Path(__file__).resolve().parents[2] / "assets" / "audio" / "master" / "rooms"
 SR = 22050
 UA = "IndiciaAudioBuild/1.0 (sound licensing check)"
 

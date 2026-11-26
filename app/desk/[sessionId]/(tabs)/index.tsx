@@ -3,7 +3,7 @@ import { Image, Pressable, ScrollView, StyleSheet, Text, View, type ScrollViewIn
 import { router, useLocalSearchParams } from 'expo-router';
 import type { InvestigationView, LabOptionView } from '../../../../shared/api';
 import { Button, Card, Eyebrow, Section, T, Tag, tap } from '../../../../src/components/ui';
-import { FaceCrop, Textured } from '../../../../src/art/components';
+import { FaceCrop, Textured, useArtReady } from '../../../../src/art/components';
 import { labArt, sceneArt } from '../../../../src/art';
 import { ForkWaiting } from '../../../../src/features/night';
 import { Icon } from '../../../../src/components/Icon';
@@ -107,6 +107,8 @@ function ProsecutorBanner({ view, t }: { view: InvestigationView; t: Translate }
 function Where({ view, t }: { view: InvestigationView; t: Translate }) {
   const plate = sceneArt(view.scenes.find((sc) => sc.locationId === view.map.current)?.art);
   const place = view.map.places.find((p) => p.id === view.map.current);
+  // web: the plate (≈170 KB) loads only once the map is in front, not under the briefing (handoff R, request 2)
+  const ready = useArtReady();
   const caption = (
     <>
       <Eyebrow tint={plate ? color.textDim : undefined}>{view.case.caseNumber} · {view.case.title}</Eyebrow>
@@ -121,7 +123,7 @@ function Where({ view, t }: { view: InvestigationView; t: Translate }) {
   const open = () => { tap(); if (place?.hasScene && view.phase === 'investigating') router.push(`/desk/${view.sessionId}/scene/${place.id}`); };
   return (
     <Pressable onPress={open} accessibilityRole="button" accessibilityLabel={`${view.map.currentName}. ${t('desk.map.search')}`} style={s.whereCard} testID="map-where">
-      <Image source={plate.base.src} style={s.wherePlate} resizeMode="cover" />
+      {ready ? <Image source={plate.base.src} style={s.wherePlate} resizeMode="cover" /> : null}
       <View style={s.whereShade} />
       <View style={s.whereCaption}>{caption}</View>
     </Pressable>

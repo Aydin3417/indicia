@@ -12,7 +12,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2] / "assets" / "audio"
+# the WAV masters (wave 7); the shipped .m4a files are checked against them by scripts/sound/encode.py
+ROOT = Path(__file__).resolve().parents[2] / "assets" / "audio" / "master"
 
 PROFILE = {
     # everyday / quiet everyday

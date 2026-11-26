@@ -116,7 +116,8 @@ export default function DayEnd() {
           </View>
           <View style={[s.costRow, { borderBottomWidth: 0 }]}>
             <PaperText style={{ flex: 1 }}>{t('desk.costs.wait')}</PaperText>
-            <PaperText mono style={s.cost}>{t('desk.costs.waitValue')}</PaperText>
+            {/* co-op: waiting moves your own calendar, not the shared budget (PLAYTEST_V4 §2.9) */}
+            <PaperText mono style={s.cost}>{t(view.mode === 'coop' ? 'desk.costs.waitValueCoop' : 'desk.costs.waitValue')}</PaperText>
           </View>
         </Paper>
         <T v="small" style={{ marginTop: space.md }}>{t('desk.costs.note')}</T>

@@ -60,7 +60,7 @@ function DetailMark({ d, tool, size, selected, pending }: { d: DetailView; tool:
 }
 
 export function CloseUp({
-  zone, tool, tt, width, selectedDetail, pendingDetail, onDetail, onBack,
+  zone, tool, tt, width, selectedDetail, pendingDetail, onDetail,
 }: {
   zone: ZoneView;
   tool: SceneTool;
@@ -69,7 +69,6 @@ export function CloseUp({
   selectedDetail: string | null;
   pendingDetail: string | null;
   onDetail: (d: DetailView, at: { x: number; y: number }) => void;
-  onBack: () => void;
 }) {
   // the close-up fills the card's width (a square print with a thin paper border, ART_BIBLE §7)
   const plate = Math.max(120, Math.min(width - 38, 440));
@@ -131,9 +130,7 @@ export function CloseUp({
             ))}
           </View>
         ) : null}
-        <Pressable onPress={onBack} style={({ pressed }) => [st.back, pressed && { opacity: 0.7 }]} accessibilityRole="button" testID="closeup-back">
-          <Text style={st.backText}>{tt('scene.closeup.back')}</Text>
-        </Pressable>
+        {/* the way back is the dock's "Back to the room", always in thumb reach: one button, not two (PLAYTEST_V4 §2.2) */}
       </ScrollView>
     </Animated.View>
   );
@@ -154,6 +151,4 @@ const st = StyleSheet.create({
   itemOn: { borderLeftColor: color.amber, backgroundColor: 'rgba(184,154,98,0.08)' },
   itemLabel: { fontFamily: font.sansMedium, fontSize: 14, color: color.text },
   itemText: { fontFamily: font.sans, fontSize: 13, lineHeight: 18, color: color.textDim },
-  back: { marginTop: 18, borderWidth: 1, borderColor: color.border, paddingVertical: 10, paddingHorizontal: 18, borderRadius: 4 },
-  backText: { fontFamily: font.sansMedium, fontSize: 14, color: color.text },
 });

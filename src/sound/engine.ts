@@ -1,7 +1,8 @@
 // Playback for Indicia's sound (wave 4). One app-lifetime engine on top of expo-audio:
 //  - interface sounds: preloaded players (one per sound, more created on demand up to `voices`), a global voice
 //    limit with priorities, and a duck of the room tone while a cue plays;
-//  - room tones: seamless WAV loops, crossfaded when the room changes, faded by a 50 ms ticker;
+//  - room tones: seamless AAC loops (.m4a, sample-exact via the MP4 edit list; scripts/sound/encode.py), loaded on
+//    first use, crossfaded when the room changes, faded by a 50 ms ticker;
 //  - silent when the app is in the background (AppState), off-switches in Settings (src/sound/prefs.ts);
 //  - iOS: `playsInSilentMode: false`, so the ring/silent switch mutes the game like any other UI sound;
 //  - web: browsers refuse audio before the first user gesture, so nothing plays until one (pointer/key/touch)
@@ -68,7 +69,8 @@ class SoundEngine {
       }
       // preload one player per interface sound; the room tones load when first needed (they are larger).
       // Web (wave 6): not before the first gesture — nothing can play until then, and 22 WAVs (≈1.8 MB) used to be
-      // fetched on the very first screen, competing with the briefing's art on a phone connection.
+      // fetched on the very first screen, competing with the briefing's art on a phone connection. (Wave 7: the
+      // files are AAC now, 276 KB for all 22.)
       if (Platform.OS !== 'web') this.preload();
     } catch {
       // audio unavailable on this device: the game stays silent

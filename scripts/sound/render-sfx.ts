@@ -1,8 +1,9 @@
 /**
- * Renders Indicia's interface sounds to assets/audio/sfx/*.wav.
+ * Renders Indicia's interface sounds to the WAV masters, assets/audio/master/sfx/*.wav.
  *   npx tsx scripts/sound/render-sfx.ts            (all)
  *   npx tsx scripts/sound/render-sfx.ts fact star  (some)
- * Then measure: `python -m ear.sfx assets/audio/sfx --profile ui-tap -q` (see docs/handoff/L.md for the per-sound profile).
+ * Then measure: `python scripts/sound/measure.py` (see docs/handoff/L.md for the per-sound profile), and encode the
+ * shipped .m4a files: `python scripts/sound/encode.py` (wave 7, docs/handoff/R.md).
  *
  * Loudness tiers (integrated, BS.1770): everyday -24 LUFS · quiet everyday -26 · moment -20 · notification -18 · reward -15.
  * The gap between everyday and reward is deliberate (~9 LU): rewards are rare and should feel bigger.
@@ -11,7 +12,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { Buf, N, P, encodeWavMono, loudness, rng, truePeak, type Partial } from './modal';
 
-const OUT = join(__dirname, '..', '..', 'assets', 'audio', 'sfx');
+const OUT = join(__dirname, '..', '..', 'assets', 'audio', 'master', 'sfx');
 
 const TIER = { quiet: -26, everyday: -24, moment: -20, notify: -18, reward: -15 } as const;
 

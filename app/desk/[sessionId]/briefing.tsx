@@ -41,7 +41,7 @@ export default function Briefing() {
       </View>
       <Paper style={{ marginTop: space.md }}>
         <View style={s.head}>
-          <PaperText mono dim style={{ flex: 1 }}>{t(view.case.crime === 'theft' ? 'desk.briefing.reporter' : 'desk.briefing.victim')}</PaperText>
+          <PaperText mono dim style={{ flex: 1 }}>{t((view.case.offence ?? view.case.crime) === 'theft' ?'desk.briefing.reporter' : 'desk.briefing.victim')}</PaperText>
           <Stamp label={t('desk.briefing.stamp')} rotate={4} />
         </View>
         <View style={s.victim}>

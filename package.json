@@ -16,7 +16,8 @@
     "check": "npm run typecheck && npm run check:boundary && npm run validate:cases && npm test",
     "usage:report": "tsx scripts/usage-report.ts",
     "simulate:budget": "tsx scripts/simulate-budget.ts",
-    "art": "node scripts/gen-art.mjs"
+    "art": "node scripts/gen-art.mjs",
+    "fonts": "python scripts/subset-fonts.py"
   },
   "dependencies": {
     "@expo-google-fonts/ibm-plex-mono": "^0.4.1",

@@ -142,6 +142,11 @@ export const deductions: DeductionDef[] = [
     // the question opens once the books are on the table; the sale itself can come from the Geneva records or from
     // Clara’s own admission (wave 4: the Brandl letter or her Geneva receipt get her there without the warrant)
     requires: { evidence: ['ev-accounts'] },
+    // wave 7 (PLAYTEST_V4 §7.6): the card opens with the books and may wait a day for the sale and the deadline
+    notYet: L(
+      'Not yet. The books show a hole, not who filled it, and not why it had to stay hidden this month. Keep this card open and keep digging.',
+      'Henüz değil. Defterler bir açık gösteriyor; o açığı kimin kapattığını, bunun neden tam bu ay saklanması gerektiğini değil. Kartı açık tut, kazmaya devam et.',
+    ),
     effects: [{ type: 'unlock', target: 'topic:miriam:t-clara' }],
     confirmText: L(
       'Her father found the copy a month too early. Exposure meant fraud, ruin and prison.',

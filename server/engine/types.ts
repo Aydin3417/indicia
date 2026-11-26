@@ -50,8 +50,8 @@ export interface CaseDefinition {
     contentStatus?: 'draft' | 'final';
     /** the teaching case the app opens on first launch (CaseSummary.tutorial) */
     tutorial?: boolean;
-    /** what the case is about; verdict and debrief wording follow it (default 'murder') */
-    crime?: 'murder' | 'theft';
+    /** what the case is about; verdict and debrief wording follow it (default 'murder'). Wave 7: 'arson'. */
+    crime?: 'murder' | 'theft' | 'arson';
   };
   briefing: Briefing;
   truth: Truth;
@@ -534,6 +534,12 @@ export interface DeductionDef {
   effects?: DeductionEffect[];
   /** shown on the stamp when confirmed */
   confirmText: Text;
+  /**
+   * Wave 7: shown on the open card while the player cannot fill it yet (some fact/evidence/time blank has nothing in
+   * the notebook that would do). Says what kind of thing is still missing, never the answer. Without it the engine's
+   * generic line is used.
+   */
+  notYet?: Text;
 }
 
 export type FinaleRoundKind = 'opportunity' | 'lie' | 'motive' | 'means' | 'staging';

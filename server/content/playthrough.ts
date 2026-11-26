@@ -14,8 +14,15 @@ import { indexOf, shapeCenter } from '../engine/v2/state.ts';
 import type { CaseDefinition, Locale, PathStep } from '../engine/types.ts';
 import type { ApiError, InvestigationView, V2Response } from '../../shared/api.ts';
 
-const service = new GameService(new FileStore(mkdtempSync(path.join(tmpdir(), 'indicia-playthrough-'))), { provider: null, priceIn: 0, priceOut: 0 }, { perMinute: 10_000 });
+const store = new FileStore(mkdtempSync(path.join(tmpdir(), 'indicia-playthrough-')));
+const service = new GameService(store, { provider: null, priceIn: 0, priceOut: 0 }, { perMinute: 10_000 });
 const app = createApp(service, { allowDevAuth: true });
+
+/** wave 7: a Detective Plus case (meta.tier 'plus') is played by a test player who has Plus for a day. */
+async function grantPlus(user: string) {
+  // the HTTP layer turns the bearer "dev.<id>" into the user id "dev-<id>"
+  await store.saveProfile({ userId: `dev-${user}`, displayName: 'Investigator', plan: 'plus', plusUntil: Date.now() + 86_400_000, createdAt: Date.now() });
+}
 
 async function call<T>(user: string, method: string, url: string, locale: Locale, body?: unknown): Promise<{ status: number; json: T }> {
   const res = await app.request(url, {
@@ -98,6 +105,7 @@ for (const def of ALL_CASES) {
   for (const locale of ['en', 'tr'] as Locale[]) {
     const other: Locale = locale === 'en' ? 'tr' : 'en';
     const user = `play-${def.id}-${locale}`.slice(0, 40);
+    if (def.meta.tier === 'plus') await grantPlus(user);
     const start = await call<{ sessionId: string }>(user, 'POST', '/sessions', locale, { caseId: def.id });
     if (start.status !== 200) { fail(`${def.id}/${locale}: cannot start (${start.status})`); continue; }
     const sid = start.json.sessionId;
@@ -135,17 +143,21 @@ for (const def of ALL_CASES) {
       console.log(`    nights: ${view.reports.map((x) => [x.night?.title ?? '—', x.fork ? `fork “${x.fork.title}” → ${x.fork.chosen ?? 'open'}` : ''].filter(Boolean).join(' + ')).join(' / ')}`);
     }
     console.log(`    verdict: ${r?.title} — ${view.finale?.confession?.slice(0, 70)}…`);
-    // case-aware wording (wave 4): a theft never talks about a killer, in either language
-    if (def.meta.crime === 'theft') {
-      const words = JSON.stringify([r?.detail, view.case]).toLowerCase();
-      if (/killer|murder|katil|cinayet/.test(words)) fail(`${def.id}/${locale}: a theft's verdict talks about a killing: ${r?.detail}`);
+    // case-aware wording (wave 4; wave 7: every crime that is not a murder): never talk about a killing, in either language
+    const offence = def.meta.crime ?? 'murder';
+    if (offence !== 'murder') {
+      const { crime: _legacy, ...caseText } = view.case;
+      const words = JSON.stringify([r?.detail, caseText]).toLowerCase();
+      if (/killer|murder|katil|cinayet/.test(words)) fail(`${def.id}/${locale}: a ${offence}'s verdict talks about a killing: ${r?.detail}`);
     }
-    if (r?.crime !== (def.meta.crime ?? 'murder')) fail(`${def.id}/${locale}: result.crime is ${r?.crime}`);
+    if (r?.offence !== offence) fail(`${def.id}/${locale}: result.offence is ${r?.offence}`);
+    if (r?.crime !== (offence === 'theft' ? 'theft' : 'murder')) fail(`${def.id}/${locale}: result.crime (legacy) is ${r?.crime}`);
 
     // the newcomer's first day over HTTP: mistakes included, early win, no foreign text
     const nc = def.v2.newcomerPath;
     if (nc) {
       const u2 = `new-${def.id}-${locale}`.slice(0, 40);
+      if (def.meta.tier === 'plus') await grantPlus(u2);
       const s2 = (await call<{ sessionId: string }>(u2, 'POST', '/sessions', locale, { caseId: def.id })).json.sessionId;
       let firstWin = '';
       for (const step of nc.steps) {

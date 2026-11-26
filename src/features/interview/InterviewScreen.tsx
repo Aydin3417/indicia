@@ -427,7 +427,9 @@ function Move({ label, cost, icon, onPress, disabled, primary, note }: {
         <Icon name={icon} size={17} tint={color.text} />
         <Text style={s.moveLabel}>{label}</Text>
       </View>
-      <Text style={s.moveCost} numberOfLines={1}>{note ?? cost}</Text>
+      {/* the note's two halves on two lines ("bedava" / "yeni bilgi yok"): the Turkish ones do not fit half a
+          375 pt dock on one line and were cut (PLAYTEST_V4 §7.5) */}
+      <Text style={s.moveCost} numberOfLines={2}>{(note ?? cost).replace(' · ', '\n')}</Text>
     </Pressable>
   );
 }
@@ -507,7 +509,7 @@ const s = StyleSheet.create({
   },
   movePrimary: { backgroundColor: color.burgundy, borderColor: color.burgundy },
   moveLabel: { fontFamily: font.sansBold, fontSize: 15, color: color.text },
-  moveCost: { fontFamily: font.mono, fontSize: 11, color: 'rgba(232,229,222,0.7)' },
+  moveCost: { fontFamily: font.mono, fontSize: 11, lineHeight: 14, color: 'rgba(232,229,222,0.7)', textAlign: 'center', alignSelf: 'stretch' },
   askToggle: { width: 48, height: 48, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, alignItems: 'center', justifyContent: 'center' },
   askLink: { fontFamily: font.mono, fontSize: 11, letterSpacing: 0.6, color: color.textFaint },
   askRow: { flexDirection: 'row', gap: space.sm, alignItems: 'center' },

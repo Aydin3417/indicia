@@ -6,6 +6,7 @@ import { router, useLocalSearchParams } from 'expo-router';
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { Button, Eyebrow, Paper, PaperText, Screen, Section, Stamp, T, TopBar } from '../../../src/components/ui';
 import { Icon } from '../../../src/components/Icon';
+import { ToastGuard } from '../../../src/components/Toasts';
 import { useDesk } from '../../../src/state/desk';
 import { fmtMinutes, useT } from '../../../src/i18n';
 import { fmtGameTime } from '../../../src/features/desk/format';
@@ -50,13 +51,14 @@ export default function DayReport() {
 
   return (
     <Screen texture="desk" footer={
-      <View style={s.footer}>
+      // the report's top (the night, the fork card) is what the player is reading: toasts go above this footer
+      <ToastGuard edge="bottom" style={s.footer}>
         <Button
           label={!isFresh ? t('common.back') : waiting || view.phase !== 'investigating' ? t('desk.report.toProsecutor') : t('desk.report.nextMorning', { d: view.clock.day })}
           icon={isFresh && waiting ? 'gavel' : undefined}
           onPress={next}
         />
-      </View>
+      </ToastGuard>
     }>
       <TopBar onBack={isFresh ? false : undefined} eyebrow={view.case.caseNumber} title={t('desk.report.title', { d: report.day })} />
       <NightPlate art={dayArt} alt={altOf(dayArt, view.locale)} maxHeight={230} style={{ marginBottom: space.lg }} />

@@ -390,7 +390,9 @@ export const firstWatch: CaseDefinition = {
       { id: 'f-bag-heavy', text: L('Ada came in with her bag folded flat and left with it heavy on her shoulder.', 'Ada çantası katlanmış geldi, omzunda ağır bir çantayla çıktı.'), about: ['ada'] },
       { id: 'f-key-register', text: L('Key 2, for the chronometer case, was signed out to Ada Lund.', 'Kronometre vitrininin 2 numaralı anahtarını Ada Lund almış.'), about: ['ada'] },
       { id: 'f-glasses-left', text: L('Ada’s reading glasses are still on her bench.', 'Ada’nın okuma gözlüğü hâlâ tezgâhında.'), about: ['ada'] },
-      { id: 'f-polish', text: L('Fresh brass polish by the keyhole of the case — the same as on the conservator’s bench.', 'Vitrinin anahtar deliğinin yanında taze pirinç cilası — restoratör tezgâhındakinin aynısı.'), about: ['ada'] },
+      // wave 7 (PLAYTEST_V4 §7.6): no `about` — found on the case, it would file the polish under Ada before she is a
+      // suspect; the text already points at the bench, which is enough
+      { id: 'f-polish', text: L('Fresh brass polish by the keyhole of the case — the same as on the conservator’s bench.', 'Vitrinin anahtar deliğinin yanında taze pirinç cilası — restoratör tezgâhındakinin aynısı.') },
       { id: 'f-offer', text: L('A collector offered Ada €40,000 for the chronometer, no questions asked.', 'Bir koleksiyoncu Ada’ya kronometre için 40.000 € teklif etmiş, soru sorulmadan.'), about: ['ada'] },
     ],
     scenes: [

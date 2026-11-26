@@ -307,6 +307,7 @@ export const en = {
   'desk.costs.openTopic': 'Raise a topic',
   'desk.costs.wait': 'Wait on purpose',
   'desk.costs.waitValue': 'the minutes you wait',
+  'desk.costs.waitValueCoop': 'moves only your clock',
   'desk.costs.present': 'Put proof against a claim',
   'desk.costs.freeQuestion': 'Ask in your own words',
   'desk.costs.wrongDeduction': 'File a deduction that doesn’t hold',

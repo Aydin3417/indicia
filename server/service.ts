@@ -135,7 +135,7 @@ export class GameService {
         synopsis: L(def.meta.synopsis), setting: L(def.meta.setting), suspectCount: def.suspects.length, tier: def.meta.tier,
         locked: def.meta.tier === 'plus' && effectivePlan(profile) !== 'plus',
         ...(def.meta.tutorial ? { tutorial: true } : {}),
-        crime: def.meta.crime ?? 'murder',
+        crime: v2.legacyCrime(v2.crimeOf(def)), offence: v2.crimeOf(def),
         session: latest ? { id: latest.id, status: latest.state.status, score: latest.state.result?.score, stars: starsOf(latest) } : undefined,
         ...(best.length ? { bestStars: Math.max(...best) } : {}),
       };

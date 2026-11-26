@@ -182,7 +182,8 @@ function Row({ card, index, shift, total, locked, dragged, t, onUp, onDown, onAs
         <View style={s.handleZone} accessibilityLabel={t('deduction.timeline.drag')}>
           <Text style={s.pos}>{index + 1}</Text>
           <Text style={s.grip}>⋮⋮</Text>
-          <Text style={s.cardText} numberOfLines={2}>{card.text}</Text>
+          {/* three lines fit the 64 pt row (3 × 19): at 320 pt two cut the Turkish cards mid-phrase */}
+          <Text style={s.cardText} numberOfLines={3}>{card.text}</Text>
         </View>
       {!locked ? (
         <View style={s.tools}>
@@ -212,7 +213,7 @@ function OutlierCard({ card, locked, t, onBack, onDragStart, onDragMove, onDragE
     <Animated.View style={[s.row, s.rowOutlier, st]} {...handlers}>
         <View style={s.handleZone}>
           <Text style={[s.pos, { color: color.burgundyBright }]}>✕</Text>
-          <Text style={[s.cardText, { textDecorationLine: 'line-through', color: color.textDim }]} numberOfLines={2}>{card.text}</Text>
+          <Text style={[s.cardText, { textDecorationLine: 'line-through', color: color.textDim }]} numberOfLines={3}>{card.text}</Text>
         </View>
       {!locked ? (
         <Pressable onPress={onBack} hitSlop={4} accessibilityRole="button" accessibilityLabel={t('deduction.timeline.bringBack')} style={[s.tool, { width: 'auto', paddingHorizontal: 8 }]}>

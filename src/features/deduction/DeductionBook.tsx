@@ -10,6 +10,7 @@ import { Textured } from '../../art/components';
 import { Btn, Chip, Eyebrow, LandingStamp, LangRoot, MoreText, NewDot, Rise, duration, feel, fmt, useShake, type AnyChip } from './kit';
 import { chipIndex, chipsForBlank, labelFor, sentence, tokenize } from './chips';
 import { Timeline } from './Timeline';
+import { draftKey, hydrateSessionMemory, useSessionMemory, type Draft } from '../../state/session';
 import { failureText, isOk, type Act, type DeductionBookProps, type Translate } from './types';
 
 type ViewRef = ComponentRef<typeof View>;
@@ -94,6 +95,8 @@ function Book({ view, t, announced, onOpen }: { view: InvestigationView; t: Tran
               <Text style={s.qPrompt} numberOfLines={3}>
                 {d.kind === 'timeline' ? d.prompt : sentence(view, d, '＿＿＿', index)}
               </Text>
+              {/* wave 7 (CONTRACT_V2 §16): the notebook cannot complete this yet — a muted "not yet", filing stays open */}
+              {d.notYet ? <Text style={s.notYet} numberOfLines={3} testID={`not-yet-${d.id}`}>{d.notYet}</Text> : null}
               <View style={s.qFoot}>
                 <Text style={s.qMeta}>{d.kind === 'timeline' ? fmt(t('deduction.cards'), { n: d.cards?.length ?? 0 }) : fmt(t((d.blanks?.length ?? 0) === 1 ? 'deduction.blank1' : 'deduction.blanks'), { n: d.blanks?.length ?? 0 })}</Text>
                 {d.attempts ? <Text style={[s.qMeta, { color: color.burgundyBright }]}>{fmt(t(d.attempts === 1 ? 'deduction.attempt' : 'deduction.attempts'), { n: d.attempts })}</Text> : null}
@@ -179,6 +182,40 @@ function Question({ view, d, act, t, onBack, onOpen }: {
   const slotRefs = useRef<Record<string, ViewRef | null>>({});
   const [hoverSlot, setHoverSlot] = useState<string | null>(null);
   const scrollRef = useRef<ComponentRef<typeof ScrollView>>(null);
+
+  // an unfiled arrangement survives leaving the question and reloading the page (PLAYTEST_V4 §2.4): kept on the
+  // device per session and question, restored once storage answers unless the player already moved something
+  const touched = useRef(false);
+  const memReady = useSessionMemory((m) => m.ready);
+  useEffect(() => { void hydrateSessionMemory(); }, []);
+  useEffect(() => {
+    if (!memReady || touched.current || d.status === 'confirmed') return;
+    const draft = useSessionMemory.getState().drafts[draftKey(view.sessionId, d.id)];
+    if (!draft) return;
+    if (d.kind === 'timeline') {
+      const ids = new Set((d.cards ?? []).map((c) => c.id));
+      const out = d.hasOutlier && draft.outlier && ids.has(draft.outlier) ? draft.outlier : null;
+      const o = (draft.order ?? []).filter((id) => ids.has(id) && id !== out);
+      // only a full, clean arrangement of today's cards is restored; anything else starts as given
+      if (new Set(o).size === o.length && o.length + (out ? 1 : 0) === ids.size) { setOrder(o); setOutlier(out); }
+    } else if (draft.fills) {
+      const known = new Set(blanks.map((b) => b.id));
+      const f = Object.fromEntries(Object.entries(draft.fills).filter(([k, v]) => known.has(k) && typeof v === 'string' && v));
+      if (Object.keys(f).length) {
+        setFills(f);
+        setActive(blanks.find((b) => !f[b.id])?.id ?? blanks[0]?.id);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [memReady, d.id]);
+  const remember = (next: Omit<Draft, 'at'>) => {
+    touched.current = true;
+    useSessionMemory.getState().saveDraft(view.sessionId, d.id, next);
+  };
+  useEffect(() => {
+    if (d.status === 'confirmed') useSessionMemory.getState().clearDraft(view.sessionId, d.id);
+  }, [d.status, d.id, view.sessionId]);
+
   // the timeline's verdict sits below the cards: bring it into view
   useEffect(() => {
     if (outcome && d.kind === 'timeline') setTimeout(() => scrollRef.current?.scrollToEnd({ animated: true }), 60);
@@ -201,6 +238,7 @@ function Question({ view, d, act, t, onBack, onOpen }: {
     setConfirming(false);
     const next = { ...fills, [blankId]: value };
     setFills(next);
+    remember({ fills: next });
     feel('light');
     const nextEmpty = blanks.find((b) => !next[b.id]);
     setActive(nextEmpty?.id ?? blankId);
@@ -208,7 +246,9 @@ function Question({ view, d, act, t, onBack, onOpen }: {
   const clear = (blankId: string) => {
     setOutcome(null);
     setConfirming(false);
-    setFills(({ [blankId]: _drop, ...rest }) => rest);
+    const { [blankId]: _drop, ...rest } = fills;
+    setFills(rest);
+    remember({ fills: rest });
     setActive(blankId);
   };
 
@@ -293,7 +333,7 @@ function Question({ view, d, act, t, onBack, onOpen }: {
                   hasOutlier={!!d.hasOutlier}
                   locked={confirmed || busy}
                   t={t}
-                  onChange={(o, out) => { setOutcome(null); setConfirming(false); setOrder(o); setOutlier(out); }}
+                  onChange={(o, out) => { setOutcome(null); setConfirming(false); setOrder(o); setOutlier(out); remember({ order: o, outlier: out }); }}
                 />
               </Animated.View>
             )}
@@ -333,6 +373,7 @@ function Question({ view, d, act, t, onBack, onOpen }: {
                 </View>
               ) : null}
             </Animated.View>
+            {!confirmed && d.notYet && !outcome ? <Text style={[s.notYet, { marginTop: space.md }]} testID="question-not-yet">{d.notYet}</Text> : null}
             {outcome ? <OutcomePanel view={view} outcome={outcome} t={t} onOpen={onOpen} onBack={onBack} /> : null}
 
             {!confirmed && activeBlank ? (
@@ -579,6 +620,7 @@ const s = StyleSheet.create({
   confirmText: { fontFamily: font.sans, fontSize: 14, lineHeight: 20, color: color.text, textAlign: 'center' },
   outcome: { marginTop: space.xl, borderWidth: 1, borderRadius: radius.md, padding: space.lg, backgroundColor: color.surface },
   nudge: { fontFamily: font.sans, fontSize: 13, lineHeight: 18, color: color.amber, marginTop: 6 },
+  notYet: { fontFamily: font.serifItalic, fontSize: 13.5, lineHeight: 19, color: color.textFaint, marginTop: 6 },
   wrongTitle: { fontFamily: font.serif, fontSize: 21, color: color.burgundyBright, flex: 1 },
   penalty: { fontFamily: font.monoMedium, fontSize: 14, color: color.burgundyBright },
   outcomeBody: { fontFamily: font.sans, fontSize: 14, lineHeight: 20, color: color.textDim, marginTop: space.sm },

@@ -129,6 +129,11 @@ const S = {
   // case-aware wording (meta.crime): a theft has a thief, not a killer
   verdict_detail_weak_theft: { en: 'You named the thief, but the defence found room.', tr: 'Hırsızı doğru buldun ama savunma bir açık yakaladı.' },
   verdict_detail_wrongful_theft: { en: 'You accused the wrong person. The real thief walks free, and what was taken is still missing.', tr: 'Yanlış kişiyi suçladın. Asıl hırsız elini kolunu sallayarak dolaşıyor; çalınan da hâlâ kayıp.' },
+  // wave 7: an arson has someone who set the fire — nobody was killed
+  verdict_detail_weak_arson: { en: 'You named the one who set the fire, but the defence found room.', tr: 'Yangını çıkaranı doğru buldun ama savunma bir açık yakaladı.' },
+  verdict_detail_wrongful_arson: { en: 'You accused the wrong person. Whoever set the fire walks free, and the ashes keep their secret.', tr: 'Yanlış kişiyi suçladın. Yangını çıkaran elini kolunu sallayarak dolaşıyor; kül de sırrını saklıyor.' },
+  // wave 7: an open deduction card that the notebook cannot complete yet (PLAYTEST_V4 §7.6)
+  deduction_not_yet: { en: 'Not yet: something this question needs is not in your notebook. Keep investigating before you file.', tr: 'Henüz değil: bu sorunun istediği bir şey defterinde yok. Dosyalamadan önce araştırmaya devam et.' },
   // co-op (wave 5)
   private_first: { en: 'That is still only in your own notes. Read it out to the team first (it is free).', tr: 'Bu hâlâ yalnızca senin notlarında. Önce ekibe oku (ücretsiz).' },
   not_private: { en: 'Nothing like that in your private notes.', tr: 'Özel notlarında böyle bir şey yok.' },

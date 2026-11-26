@@ -17,7 +17,7 @@ import {
 } from './state.ts';
 import { asPlayer, isDone, leftFor, membersOf, notesOf, privateLocation, teamOf } from './coop.ts';
 import {
-  knownTimes, labMinutes, labStatus, LATE_WRONG_LIMIT, nudgeText, owns, pressState, resistText, resultView, suspectAvailableNow, topicAvailable,
+  crimeOf, knownTimes, labMinutes, labStatus, LATE_WRONG_LIMIT, legacyCrime, nudgeText, owns, pressState, resistText, resultView, suspectAvailableNow, topicAvailable,
   WAIT_MAX, WAIT_MIN, waitMinutes, type Ctx,
 } from './actions.ts';
 import { claimSpans } from './anchors.ts';
@@ -317,6 +317,14 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
   };
 
   // ── deductions
+  // wave 7: can every fact / evidence / time blank be filled from the shared notebook? (persons, places and choices
+  // always can.) Only a yes/no reaches the view — never which blank or which item.
+  const times = new Set(knownTimes(def, s));
+  const fillable = (d: (typeof v2.deductions)[number]) => (d.blanks ?? []).every((b) =>
+    b.type === 'fact' ? b.accept.some((a) => a in s.facts)
+      : b.type === 'evidence' ? b.accept.some((a) => a in st.evidence)
+        : b.type === 'time' ? b.accept.some((a) => times.has(a))
+          : true);
   const deductions: DeductionView[] = v2.deductions
     .filter((d) => deductionVisible(s, (r) => meets(r, st), d) || s.deductions[d.id]?.confirmed)
     .map((d) => {
@@ -339,6 +347,8 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
         confirmText: confirmed ? L(d.confirmText) : undefined,
         isNew: !confirmed && !rec && firstSeen,
         nudge: !confirmed && rec?.nudge ? nudgeText(d, rec.nudge, locale) : undefined,
+        // wave 7 (PLAYTEST_V4 §7.6): an open card the notebook cannot complete yet says so, instead of inviting guesses
+        notYet: !confirmed && !fillable(d) ? (d.notYet ? L(d.notYet) : sys('deduction_not_yet', locale)) : undefined,
         triesLeft: confirmed ? undefined
           : s.phase === 'awaiting_finale' ? Math.max(0, LATE_WRONG_LIMIT - (rec?.late ?? 0))
             // wave 6: less time left today than a miss costs → misses are capped per question until tomorrow
@@ -469,7 +479,7 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
     locale, startedAt: st.startedAt, phase: s.phase,
     case: {
       id: def.id, title: L(def.meta.title), caseNumber: def.meta.caseNumber, tagline: L(def.meta.tagline), difficulty: def.meta.difficulty, setting: L(def.meta.setting),
-      tutorial: !!def.meta.tutorial, crime: def.meta.crime ?? 'murder',
+      tutorial: !!def.meta.tutorial, crime: legacyCrime(crimeOf(def)), offence: crimeOf(def),
     },
     fork: pendingFork?.pending ? pendingFork : undefined,
     proofStar: {

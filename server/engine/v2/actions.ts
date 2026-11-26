@@ -1,6 +1,6 @@
 // SERVER-ONLY. v2 player actions: pure and deterministic. Each mutates the session state and returns
 // a V2Event. Time is charged only when an action succeeds; refusals (ActionError) cost nothing.
-import type { CaseResult, V2Event } from '../../../shared/api.ts';
+import type { CaseResult, CrimeKind, OffenceKind, V2Event } from '../../../shared/api.ts';
 import type { CaseDefinition, CaseV2, DeductionDef, Emotion, Locale, NightEventDef, NightOptionDef, Requirement, SuspectDef, TopicDef, ZoneDef } from '../types.ts';
 import { buildDebrief } from '../evaluate.ts';
 import type { SessionState } from '../state.ts';
@@ -1088,10 +1088,16 @@ function finish(ctx: Ctx): NonNullable<V2Event['result']> {
   return resultView(ctx, ctx.locale);
 }
 
-/** The kind of crime a case is about (verdict wording). */
-export const crimeOf = (def: CaseDefinition): 'murder' | 'theft' => def.meta.crime ?? 'murder';
+/** The kind of crime a case is about (verdict wording). Wave 7: 'arson' too. */
+export const crimeOf = (def: CaseDefinition): OffenceKind => def.meta.crime ?? 'murder';
 
-/** The verdict's one-line explanation, worded for the crime (a thief is not a killer). */
+/**
+ * The two-valued `crime` older clients understand (shared CrimeKind): a wording family, 'theft' for a theft and
+ * 'murder' for everything else (an arson has a victim, not a reporter). New clients read `offence`.
+ */
+export const legacyCrime = (o: OffenceKind): CrimeKind => (o === 'theft' ? 'theft' : 'murder');
+
+/** The verdict's one-line explanation, worded for the crime (a thief is not a killer, an arsonist neither). */
 export function verdictDetail(def: CaseDefinition, outcome: 'confession' | 'charged' | 'weak' | 'wrongful', locale: Locale): string {
   const crime = crimeOf(def);
   const key = `verdict_detail_${outcome}_${crime}` as SysKey;
@@ -1109,7 +1115,8 @@ export function resultView(ctx: Ctx, locale: Locale): NonNullable<V2Event['resul
     outcome: o,
     title: sys(`verdict_${o}` as SysKey, locale),
     detail: verdictDetail(ctx.def, o, locale),
-    crime,
+    crime: legacyCrime(crime),
+    offence: crime,
     proofNeeds: proofNeeds(v2),
     accusedId: f.accusedId,
     culpritCorrect: f.culprit,

@@ -1,14 +1,39 @@
 // Image components for the ink-and-watercolour art (docs/ART_BIBLE.md §7). Each one falls back to the
 // code-drawn version when a case has no image for that slot yet.
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { Image, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
+import { Image, Platform, Pressable, StyleSheet, Text, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { Easing, useAnimatedStyle, useSharedValue, withSequence, withTiming } from 'react-native-reanimated';
+import { useIsFocused } from 'expo-router';
 import type { Composure } from '../../shared/api';
 import { useLocale } from '../i18n';
 import { color, font } from '../theme/tokens';
 import { altOf, coverArt, faceCentre, portraitArt, textureArt, type ArtImage, type TextureName } from './index';
+import { faces } from './registry';
 
 const hidden = { accessibilityElementsHidden: true, importantForAccessibility: 'no-hide-descendants' as const };
+
+function useFocusedSafe(): boolean {
+  // outside a navigator (no focus context) the picture counts as in front
+  try { return useIsFocused(); } catch { return true; }
+}
+
+/**
+ * Lazy art (wave 7, web only): a picture starts downloading once its screen is in front, not while that screen sits
+ * under another one. On the first launch the map mounts under the briefing for a moment before the briefing is
+ * pushed, and its face crops (full 720×960 portraits, ~140 KB each) used to load on the first screen. The short
+ * delay lets that push land before anything is fetched; once a picture has started it stays. Native reads bundled
+ * files from disk, so nothing changes there.
+ */
+export function useArtReady(): boolean {
+  const focused = useFocusedSafe();
+  const [ready, setReady] = useState(Platform.OS !== 'web');
+  useEffect(() => {
+    if (ready || !focused) return;
+    const h = setTimeout(() => setReady(true), 120);
+    return () => clearTimeout(h);
+  }, [ready, focused]);
+  return ready;
+}
 
 /** Cover-crop an image of size (iw, ih) into (w, h), keeping the point (fx, fy) at (ax, ay) of the frame where possible. */
 export function coverBox(w: number, h: number, iw: number, ih: number, fx = 0.5, fy = 0.5, ax = 0.5, ay = 0.5) {
@@ -67,6 +92,7 @@ export function PortraitPrint({ id, stage = 'composed', width, height, reactKey,
 
   const topStyle = useAnimatedStyle(() => ({ opacity: fade.value }));
   const zoom = useAnimatedStyle(() => ({ transform: [{ scale: scale.value }] }));
+  const ready = useArtReady();
   if (!width || !height) return <View style={[{ width, height }, style]} />;
   if (!art) {
     return <View style={[{ width, height, overflow: 'hidden' }, style]}><Initials initials={initials ?? '?'} tone={tone ?? color.elevated} w={width} h={height} />{children}</View>;
@@ -77,9 +103,9 @@ export function PortraitPrint({ id, stage = 'composed', width, height, reactKey,
   return (
     <View style={[{ width, height, overflow: 'hidden', backgroundColor: color.surface }, style]} accessibilityRole="image" accessibilityLabel={altOf(art, locale)}>
       <Animated.View style={[StyleSheet.absoluteFill, zoom]}>
-        {prevArt ? <Image source={prevArt.src} style={[s.abs, box]} resizeMode="cover" {...hidden} /> : null}
+        {ready && prevArt ? <Image source={prevArt.src} style={[s.abs, box]} resizeMode="cover" {...hidden} /> : null}
         <Animated.View style={[StyleSheet.absoluteFill, topStyle]}>
-          <Image source={art.src} style={[s.abs, box]} resizeMode="cover" {...hidden} />
+          {ready ? <Image source={art.src} style={[s.abs, box]} resizeMode="cover" {...hidden} /> : null}
         </Animated.View>
       </Animated.View>
       {children}
@@ -92,9 +118,20 @@ export function FaceCrop({ id, size, stage, initials, tone, ring }: {
   id: string; size: number; stage?: Composure; initials?: string; tone?: string; ring?: string;
 }) {
   const art = portraitArt(id, stage);
+  const ready = useArtReady();
   const border = ring ? { borderWidth: 1.5, borderColor: ring } : { borderWidth: StyleSheet.hairlineWidth, borderColor: color.border };
   if (!art) {
     return <View style={[{ width: size, height: size, borderRadius: size / 2, overflow: 'hidden' }, border]}><Initials initials={initials ?? '?'} tone={tone ?? color.elevated} w={size} h={size} round /></View>;
+  }
+  // wave 7 (T): a 192 px face thumbnail (~8 KB) already cropped like the circle below, instead of the 720×960 portrait
+  const set = faces[id];
+  const thumb = set ? set[stage ?? 'composed'] ?? set.composed ?? set.portrait : undefined;
+  if (thumb && size <= 96) {
+    return (
+      <View style={[{ width: size, height: size, borderRadius: size / 2, overflow: 'hidden', backgroundColor: color.surface }, border]} {...hidden}>
+        {ready ? <Image source={thumb.src} style={{ width: size, height: size }} resizeMode="cover" /> : null}
+      </View>
+    );
   }
   const [fx, fy] = faceCentre(id);
   // the face is about 40 % of the portrait's width: scale so it fills the circle with a little air
@@ -104,7 +141,7 @@ export function FaceCrop({ id, size, stage, initials, tone, ring }: {
   const top = size / 2 - fy * H;
   return (
     <View style={[{ width: size, height: size, borderRadius: size / 2, overflow: 'hidden', backgroundColor: color.surface }, border]} {...hidden}>
-      <Image source={art.src} style={{ position: 'absolute', width: W, height: H, left, top }} resizeMode="cover" />
+      {ready ? <Image source={art.src} style={{ position: 'absolute', width: W, height: H, left, top }} resizeMode="cover" /> : null}
     </View>
   );
 }
@@ -116,10 +153,11 @@ export function PortraitCard({ id, width, height, initials, tone, stage }: { id:
 
 /** An image drawn to an exact box (close-ups, evidence, plates), or nothing. */
 export function ArtBox({ art, width, height, style, label }: { art?: ArtImage; width: number; height: number; style?: StyleProp<ViewStyle>; label?: string }) {
+  const ready = useArtReady();
   if (!art) return null;
   return (
     <View style={[{ width, height, overflow: 'hidden' }, style]} accessibilityRole="image" accessibilityLabel={label}>
-      <Image source={art.src} style={{ width, height }} resizeMode="cover" />
+      {ready ? <Image source={art.src} style={{ width, height }} resizeMode="cover" /> : null}
     </View>
   );
 }
@@ -152,11 +190,12 @@ export function CoverCard({ caseId, width, height, eyebrow, title, tagline, righ
 }) {
   const locale = useLocale();
   const art = coverArt(caseId);
+  const ready = useArtReady();
   const H = height ?? Math.round(width * 4 / 3);
   const imgH = width * (art ? art.h / art.w : 4 / 3);
   return (
     <View style={[{ width, height: H, overflow: 'hidden', borderRadius: 3, backgroundColor: '#0D0E0F' }, s.cover, style]} accessibilityLabel={altOf(art, locale)}>
-      {art ? <Image source={art.src} style={{ position: 'absolute', left: 0, top: 0, width, height: Math.max(imgH, H) }} resizeMode="cover" {...hidden} /> : null}
+      {art && ready ? <Image source={art.src} style={{ position: 'absolute', left: 0, top: 0, width, height: Math.max(imgH, H) }} resizeMode="cover" {...hidden} /> : null}
       {onPress ? <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel={title} style={StyleSheet.absoluteFill} /> : null}
       <View style={s.coverHead} pointerEvents="none">
         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>

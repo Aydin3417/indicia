@@ -207,7 +207,9 @@ export function SceneScreen(props: SceneScreenProps) {
     vw.value = width;
     vh.value = height;
     const cover = Math.max(width / CANVAS_W, height / CANVAS_H);
-    minSc.value = Math.min(cover, width / CANVAS_W); // zoomed all the way out the whole room width fits
+    // zoomed all the way out the whole painted room fits — both edges, never further (PLAYTEST_V4 §2.8): on a
+    // phone that is the width, on a wide window the height (the old width-only floor cropped the room there)
+    minSc.value = Math.min(width / CANVAS_W, height / CANVAS_H);
     maxSc.value = cover * MAX_ZOOM;
     if (sc.value === 0) {
       sc.value = cover;
@@ -544,6 +546,7 @@ export function SceneScreen(props: SceneScreenProps) {
 
   const zoomBy = (f: number) => {
     const s = sc.value;
+    if (!s) return; // not laid out yet
     const ns = Math.min(maxSc.value, Math.max(minSc.value, s * f));
     const cx = vw.value / 2;
     const cy = vh.value / 2;
@@ -699,7 +702,6 @@ export function SceneScreen(props: SceneScreenProps) {
             selectedDetail={selectedDetail}
             pendingDetail={pending?.kind === 'detail' ? pending.detailId : null}
             onDetail={onDetail}
-            onBack={() => { setOpenZoneId(null); setPending(null); setSelectedDetail(null); }}
           />
         ) : null}
       </View>
@@ -733,8 +735,8 @@ export function SceneScreen(props: SceneScreenProps) {
               </Pressable>
             </View>
           ) : openZone ? (
-            // the way back to the room, in thumb reach (the card's own button may be scrolled away)
-            <Pressable onPress={() => { setOpenZoneId(null); setSelectedDetail(null); }} style={[st.btn, st.btnGhost]} accessibilityRole="button" testID="bar-back">
+            // the one way back to the room, in thumb reach (the close-up card no longer repeats it)
+            <Pressable onPress={() => { setOpenZoneId(null); setPending(null); setSelectedDetail(null); }} style={[st.btn, st.btnGhost]} accessibilityRole="button" testID="bar-back">
               <Text style={st.btnGhostText}>{tt('scene.closeup.back')}</Text>
             </Pressable>
           ) : null}
@@ -758,7 +760,8 @@ const st = StyleSheet.create({
   place: { fontFamily: font.serif, fontSize: 17, lineHeight: 21, color: color.text },
   clock: { alignItems: 'flex-end', minWidth: 76 },
   clockLeft: { fontFamily: font.monoMedium, fontSize: 11, color: color.textDim },
-  subRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginTop: 1 },
+  // wraps instead of cutting both halves at 320 pt ("2 YER KALD…" / "3 sa 5 dk kal…")
+  subRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', columnGap: 8, marginTop: 1 },
   spent: { fontFamily: font.monoMedium, fontSize: 12, color: color.amber },
   book: { flexDirection: 'row', alignItems: 'center', gap: 3, borderWidth: 1, borderColor: color.border, borderRadius: 4, paddingHorizontal: 8, minHeight: 36 },
   bookCount: { fontFamily: font.monoMedium, fontSize: 12, color: color.text },

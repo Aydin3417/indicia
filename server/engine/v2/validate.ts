@@ -84,6 +84,7 @@ export function contentTexts(def: CaseDefinition): { path: string; value: Text }
     }
     for (const d of v2.deductions) {
       add(`deduction ${d.id}.title`, d.title); add(`deduction ${d.id}.prompt`, d.prompt); add(`deduction ${d.id}.confirmText`, d.confirmText);
+      add(`deduction ${d.id}.notYet`, d.notYet);
       for (const bl of d.blanks ?? []) { add(`deduction ${d.id}.${bl.id}.label`, bl.label); bl.options?.forEach((o) => add(`deduction ${d.id}.${bl.id}.${o.id}`, o.text)); }
       for (const c of d.cards ?? []) add(`deduction ${d.id}.card ${c.id}`, c.text);
     }

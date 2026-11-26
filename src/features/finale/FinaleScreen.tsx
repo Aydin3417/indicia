@@ -6,11 +6,12 @@ import { Image, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensio
 import { FaceCrop, PortraitPrint } from '../../art/components';
 import { coverArt, finaleStage, hasStages, portraitArt, preload, STAGES } from '../../art';
 import Animated, { Easing, cancelAnimation, useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
-import type { ChipView, Composure, FinaleRoundView, InvestigationView, SuspectV2View, V2Event } from '../../../shared/api';
+import type { ChipView, Composure, FinaleRoundView, InvestigationView, OffenceKind, SuspectV2View, V2Event } from '../../../shared/api';
 import { color, font, radius, space } from '../../theme/tokens';
 import { Btn, Chip, Eyebrow, LandingStamp, LangRoot, MoreText, Rise, duration, feel, fmt, useShake, type AnyChip } from '../deduction/kit';
 import { chipIndex } from '../deduction/chips';
 import { failureText, isOk, type Act, type Translate } from '../deduction/types';
+import { hydrateSessionMemory, useSessionMemory } from '../../state/session';
 import { Notebook } from '../notebook/Notebook';
 import { playSound } from '../../sound';
 
@@ -260,6 +261,13 @@ function Quote({ text, t, delay = 0, tint }: { text: string; t: Translate; delay
 function Intro({ view, t, onNext, onLater }: { view: InvestigationView; t: Translate; onNext: () => void; onLater?: () => void }) {
   const confirmed = view.deductions.filter((d) => d.status === 'confirmed').length;
   const left = view.clock.totalBudget - view.clock.elapsed;
+  // the prosecutor's paragraph is read once per case (PLAYTEST_V4 §2.3): coming back to the office later it
+  // folds to two lines with "More", and it is marked read as the player leaves this beat
+  const read = useSessionMemory((m) => m.introRead.includes(view.sessionId));
+  useEffect(() => {
+    void hydrateSessionMemory();
+    return () => useSessionMemory.getState().markIntroRead(view.sessionId);
+  }, [view.sessionId]);
   return (
     <Beat
       eyebrow={t('finale.intro.eyebrow')}
@@ -271,7 +279,11 @@ function Intro({ view, t, onNext, onLater }: { view: InvestigationView; t: Trans
       }
     >
       <Text style={s.h1}>{t('finale.intro.title')}</Text>
-      <Rise delay={120}><Text style={s.lead}>{view.finaleIntro}</Text></Rise>
+      <Rise delay={120}>
+        {read
+          ? <MoreText style={[s.lead, s.leadRead]} lines={2} moreLabel={t('finale.more')} lessLabel={t('finale.less')} tint={color.amber}>{view.finaleIntro}</MoreText>
+          : <Text style={s.lead}>{view.finaleIntro}</Text>}
+      </Rise>
       <Rise delay={260} style={s.ledger}>
         <Ledger k={t('finale.intro.deductions')} v={String(confirmed)} />
         <Ledger k={t('finale.intro.facts')} v={String(view.notebook.facts.length)} />
@@ -290,10 +302,16 @@ function Intro({ view, t, onNext, onLater }: { view: InvestigationView; t: Trans
   );
 }
 
-/** The case's crime (verdict wording): the result's, else the case's; murder when the server says nothing. */
-function crimeOf(view: InvestigationView): 'murder' | 'theft' {
-  return view.result?.crime ?? view.case.crime ?? 'murder';
+/**
+ * The case's offence (verdict wording): the result's, else the case's. Wave 7 (CONTRACT_V2 §16): `offence` is exact
+ * (murder | theft | arson); older servers send only the two-valued `crime`; murder when the server says nothing.
+ */
+function crimeOf(view: InvestigationView): OffenceKind {
+  return view.result?.offence ?? view.case.offence ?? view.result?.crime ?? view.case.crime ?? 'murder';
 }
+const TRUTH_PART: Record<OffenceKind, string> = {
+  murder: 'finale.star.truthPart', theft: 'finale.star.truthPart_theft', arson: 'finale.star.truthPart_arson',
+};
 
 /** After the last day: open questions with tries left, or results waiting to be collected. */
 function lateWork(view: InvestigationView): boolean {
@@ -400,10 +418,13 @@ function HoldButton({ label, onDone, busy, ms = 1200 }: { label: string; onDone:
 
 function Prelude({ view, t, suspect, onNext }: { view: InvestigationView; t: Translate; suspect?: SuspectV2View; onNext: () => void }) {
   const f = view.finale;
+  // the confrontation's opening is the same paragraph the prosecutor just read out: say it once, not twice
+  const read = useSessionMemory((m) => m.introRead.includes(view.sessionId));
+  const repeat = read && (f?.intro ?? '').trim() === (view.finaleIntro ?? '').trim();
   return (
     <Beat eyebrow={t('finale.prelude.eyebrow')} action={<Btn label={t('finale.prelude.begin')} onPress={onNext} />}>
       <Portrait s={suspect} name={f?.accusedName} />
-      <Rise delay={150}><Text style={s.lead}>{f?.intro}</Text></Rise>
+      {f?.intro && !repeat ? <Rise delay={150}><Text style={s.lead}>{f.intro}</Text></Rise> : null}
       <Rise delay={300}><Text style={s.dim}>{fmt(t('finale.prelude.rules'), { n: f?.rounds.length ?? 0 })}</Text></Rise>
     </Beat>
   );
@@ -567,7 +588,7 @@ function Verdict({ view, t, onNext }: { view: InvestigationView; t: Translate; o
   const stamp = t(`finale.stamp.${r.outcome}`);
   const tint = r.outcome === 'confession' ? color.greenBright : r.outcome === 'charged' ? color.amber : color.burgundyBright;
   const stars: { key: 'truth' | 'proof' | 'clock'; on: boolean; why: string }[] = [
-    { key: 'truth', on: r.stars.truth, why: r.stars.truth ? t('finale.star.truthYes') : r.culpritCorrect ? t(crimeOf(view) === 'theft' ? 'finale.star.truthPart_theft' : 'finale.star.truthPart') : t('finale.star.truthNo') },
+    { key: 'truth', on: r.stars.truth, why: r.stars.truth ? t('finale.star.truthYes') : r.culpritCorrect ? t(TRUTH_PART[crimeOf(view)] ?? 'finale.star.truthPart') : t('finale.star.truthNo') },
     { key: 'proof', on: r.stars.proof, why: !r.culpritCorrect ? t('finale.star.void') : r.proofNeeds
       ? fmt(t('finale.star.proofNeed'), { first: r.firstTry, needFirst: r.proofNeeds.firstTry, d: r.deductionsConfirmed, need: r.proofNeeds.deductions, dt: r.deductionsTotal })
       : fmt(t('finale.star.proofWhy'), { first: r.firstTry, rounds: r.roundsTotal, d: r.deductionsConfirmed, dt: r.deductionsTotal }) },
@@ -669,6 +690,7 @@ const s = StyleSheet.create({
   },
   h1: { fontFamily: font.serif, fontSize: 26, lineHeight: 32, color: color.text, marginTop: space.md },
   lead: { fontFamily: font.serif, fontSize: 18, lineHeight: 27, color: color.text, marginTop: space.lg },
+  leadRead: { color: color.textDim },
   big: { fontFamily: font.serif, fontSize: 22, lineHeight: 31, color: color.text, marginTop: space.xl },
   dim: { fontFamily: font.sans, fontSize: 13.5, lineHeight: 19, color: color.textDim, marginTop: 2 },
   ledger: { flexDirection: 'row', marginTop: space.xl, borderTopWidth: 1, borderTopColor: color.border, paddingTop: space.lg },

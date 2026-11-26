@@ -7,6 +7,11 @@ export type Emotion = 'calm' | 'guarded' | 'irritated' | 'anxious' | 'distressed
 export type Composure = 'composed' | 'uneasy' | 'strained' | 'breaking';
 /** wave 4: the kind of crime a case is about (default 'murder') */
 export type CrimeKind = 'murder' | 'theft';
+/**
+ * wave 7: the exact kind of offence. `crime` above stays two-valued for older clients (a wording family: 'theft'
+ * only for a theft, 'murder' for everything else); new clients should prefer `offence` where it is sent.
+ */
+export type OffenceKind = 'murder' | 'theft' | 'arson';
 
 export interface CaseSummary {
   id: string;
@@ -25,6 +30,8 @@ export interface CaseSummary {
   tutorial?: boolean;
   /** what kind of case this is (wave 4): pick case-fitting words ("thief" vs "killer", "the key" vs "the weapon") */
   crime?: CrimeKind;
+  /** wave 7: the exact offence ('arson' etc.); prefer it over `crime` */
+  offence?: OffenceKind;
   /** player's latest session on this case, if any (stars once a v2 case is closed) */
   session?: { id: string; status: SessionStatus; score?: number; stars?: number };
   /** best star count over all closed sessions of this case (0â€“3) */
@@ -475,6 +482,11 @@ export interface DeductionView {
   isNew: boolean;
   /** after two wrong filings: which blank to look at again (never the answer) */
   nudge?: string;
+  /**
+   * wave 7: while open and not fillable yet (a fact/evidence/time blank has nothing in the notebook that would do):
+   * a short line saying the question has to wait ("not yet …"). Absent once every blank could be filled.
+   */
+  notYet?: string;
   /** after the last day: wrong filings still allowed for this question */
   triesLeft?: number;
   /** wave 5, co-op: the team's pencilled-in answer (not filed) and teammates' suggestions */
@@ -575,6 +587,8 @@ export interface V2Result {
   proofNeeds?: { firstTry: number; deductions: number };
   /** wave 4: the case's crime (verdict and debrief wording) */
   crime?: CrimeKind;
+  /** wave 7: the exact offence ('arson' etc.); prefer it over `crime` */
+  offence?: OffenceKind;
   debrief: CaseResult['debrief'];
 }
 
@@ -606,7 +620,7 @@ export interface InvestigationView {
    * finale: the confrontation is running Â· closed: result available
    */
   phase: 'investigating' | 'awaiting_finale' | 'finale' | 'closed';
-  case: { id: string; title: string; caseNumber: string; tagline: string; difficulty: Difficulty; setting: string; tutorial?: boolean; crime?: CrimeKind };
+  case: { id: string; title: string; caseNumber: string; tagline: string; difficulty: Difficulty; setting: string; tutorial?: boolean; crime?: CrimeKind; offence?: OffenceKind };
   /** wave 4: the night fork waiting for an answer (only while pending) */
   fork?: NightForkView;
   /** wave 4: the Proof star made legible — how many deductions and first-try rounds it needs */

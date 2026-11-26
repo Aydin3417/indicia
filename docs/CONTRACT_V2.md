@@ -609,3 +609,43 @@ running confrontation with the culprit.
   the last of them had pressed done (`act_day_all`, analytics `day_ended {auto: true}`).
 * **Errors.** `ServiceError` sets `name = 'ServiceError'`; the HTTP layer maps any error with that name and a code
   (`isServiceError`), so a second module copy can no longer turn a 409 into a 500.
+
+## 16. Wave 7 — a third case, an arson, and "not yet" on open cards (Agent S). Additive.
+
+### `offence` next to `crime`
+
+* New `OffenceKind = 'murder' | 'theft' | 'arson'` in `shared/api.ts`, sent as `CaseSummary.offence`,
+  `InvestigationView.case.offence` and `V2Result.offence`. **New clients should read `offence`.**
+* `crime` (`CrimeKind`) stays two-valued for clients built against wave 4: it is a *wording family* — `'theft'` only for
+  a theft, `'murder'` for everything else (an arson has a victim, not a reporter; nobody was killed). Widening
+  `CrimeKind` itself would break the client's `crimeOf(): 'murder' | 'theft'` at compile time, hence the new field.
+* The server's verdict line is worded per offence: `verdict_detail_weak_arson` "You named the one who set the fire, but
+  the defence found room." / "Yangını çıkaranı doğru buldun ama savunma bir açık yakaladı.";
+  `verdict_detail_wrongful_arson` "…Whoever set the fire walks free, and the ashes keep their secret." / "…Yangını çıkaran
+  elini kolunu sallayarak dolaşıyor; kül de sırrını saklıyor." (confession and charged lines are shared).
+* Client requests (docs/handoff/S.md): `finale.star.truthPart` needs an arson variant ("…the motive or how the fire was
+  set never landed" / "…saik ya da yangının nasıl çıkarıldığı ispatlanamadı"); the briefing's victim label can stay
+  "THE VICTIM / MAĞDUR" for an arson (the owner whose work burned).
+
+### `DeductionView.notYet`
+
+* While a question is open and the notebook cannot complete it yet — some fact / evidence / time blank has no
+  accepted value among the team's findings — the view carries `notYet: string`: the case's own line
+  (`DeductionDef.notYet`) or the engine's ("Not yet: something this question needs is not in your notebook. Keep
+  investigating before you file." / "Henüz değil: bu sorunun istediği bir şey defterinde yok. Dosyalamadan önce
+  araştırmaya devam et."). It is absent once every blank could be filled, and on confirmed cards. It never names the
+  blank or the item. Persons, places and choices count as always fillable; timelines never carry it.
+* Suggested UI: a muted line under the prompt instead of the "File" call to action (filing stays allowed — a guess
+  still costs 30 min). Kessler's motive card (opens with the accounts binder, PLAYTEST_V4 §7.6) has an authored line.
+
+### The third case: "Ash and Glaze" / "Kül ve Sır" (`fennick-yard`)
+
+* `meta.tier: 'plus'` (PLAN_V2 §4: new cases come with Detective Plus), `meta.crime: 'arson'`, 3 days × 420 min
+  (09:00–16:00), 3 suspects (`selma`, `bram`, `oskar`), 6 places (`loc-studio`, `loc-yard`, `loc-office`, `loc-club`
+  travel 45, `loc-kranz` travel 45 — opens once Bram names the dealer, `loc-house` travel 45 — locked until the warrant),
+  12 deductions (one timeline, 7 cards with one set aside), two night forks (`n1-teo`, `n2-salvage`).
+* Art keys (none exist yet; every lookup falls back): scenes `fennick/<room>` (studio, yard, office, club, kranz,
+  house), close-ups by zone id (`z-fy-*`, `z-ho-*`, `z-hc-*`, `z-kr-*`, `z-hh-*`), portraits `selma`, `bram`, `oskar`,
+  witnesses `p-agnes`, `p-ruth`, `p-holm`, `p-teo`, `p-kranz`, `p-nyberg`, cover `fennick-yard`, reports `fennick/1..3`,
+  nights `fennick/<night id>`. Full list with prompts: `docs/handoff/S-art.md`.
+* No new endpoints, event kinds or reasons.
