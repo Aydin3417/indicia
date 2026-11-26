@@ -1,0 +1,1569 @@
+{
+  "version": 1,
+  "style": "ink + watercolour wash, graphic-novel / crime-poster; see docs/ART_BIBLE.md",
+  "portraits": {
+    "clara": {
+      "caseId": "kessler-workshop",
+      "personId": "clara",
+      "stages": {
+        "composed": {
+          "file": "portraits/clara/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 124448,
+          "alt": {
+            "en": "Portrait of Clara Kessler, composed.",
+            "tr": "Clara Kessler portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/clara/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 110594,
+          "alt": {
+            "en": "Portrait of Clara Kessler, uneasy.",
+            "tr": "Clara Kessler portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/clara/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 105768,
+          "alt": {
+            "en": "Portrait of Clara Kessler, strained.",
+            "tr": "Clara Kessler portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/clara/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 104516,
+          "alt": {
+            "en": "Portrait of Clara Kessler, breaking.",
+            "tr": "Clara Kessler portresi, çözülüyor."
+          }
+        }
+      }
+    },
+    "jonas": {
+      "caseId": "kessler-workshop",
+      "personId": "jonas",
+      "stages": {
+        "composed": {
+          "file": "portraits/jonas/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 157432,
+          "alt": {
+            "en": "Portrait of Jonas Feld, composed.",
+            "tr": "Jonas Feld portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/jonas/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 145238,
+          "alt": {
+            "en": "Portrait of Jonas Feld, uneasy.",
+            "tr": "Jonas Feld portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/jonas/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 136102,
+          "alt": {
+            "en": "Portrait of Jonas Feld, strained.",
+            "tr": "Jonas Feld portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/jonas/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 144904,
+          "alt": {
+            "en": "Portrait of Jonas Feld, breaking.",
+            "tr": "Jonas Feld portresi, çözülüyor."
+          }
+        }
+      }
+    },
+    "miriam": {
+      "caseId": "kessler-workshop",
+      "personId": "miriam",
+      "stages": {
+        "composed": {
+          "file": "portraits/miriam/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 132694,
+          "alt": {
+            "en": "Portrait of Miriam Achterberg, composed.",
+            "tr": "Miriam Achterberg portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/miriam/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 123568,
+          "alt": {
+            "en": "Portrait of Miriam Achterberg, uneasy.",
+            "tr": "Miriam Achterberg portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/miriam/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 116954,
+          "alt": {
+            "en": "Portrait of Miriam Achterberg, strained.",
+            "tr": "Miriam Achterberg portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/miriam/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 116132,
+          "alt": {
+            "en": "Portrait of Miriam Achterberg, breaking.",
+            "tr": "Miriam Achterberg portresi, çözülüyor."
+          }
+        }
+      }
+    },
+    "leo": {
+      "caseId": "kessler-workshop",
+      "personId": "leo",
+      "stages": {
+        "composed": {
+          "file": "portraits/leo/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 182566,
+          "alt": {
+            "en": "Portrait of Leo Brandt, composed.",
+            "tr": "Leo Brandt portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/leo/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 171052,
+          "alt": {
+            "en": "Portrait of Leo Brandt, uneasy.",
+            "tr": "Leo Brandt portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/leo/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 159874,
+          "alt": {
+            "en": "Portrait of Leo Brandt, strained.",
+            "tr": "Leo Brandt portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/leo/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 164792,
+          "alt": {
+            "en": "Portrait of Leo Brandt, breaking.",
+            "tr": "Leo Brandt portresi, çözülüyor."
+          }
+        }
+      }
+    },
+    "ada": {
+      "caseId": "first-watch",
+      "personId": "ada",
+      "stages": {
+        "composed": {
+          "file": "portraits/ada/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 141330,
+          "alt": {
+            "en": "Portrait of Ada Lund, composed.",
+            "tr": "Ada Lund portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/ada/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 129030,
+          "alt": {
+            "en": "Portrait of Ada Lund, uneasy.",
+            "tr": "Ada Lund portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/ada/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 121952,
+          "alt": {
+            "en": "Portrait of Ada Lund, strained.",
+            "tr": "Ada Lund portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/ada/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 120620,
+          "alt": {
+            "en": "Portrait of Ada Lund, breaking.",
+            "tr": "Ada Lund portresi, çözülüyor."
+          }
+        }
+      }
+    },
+    "nils": {
+      "caseId": "first-watch",
+      "personId": "nils",
+      "stages": {
+        "composed": {
+          "file": "portraits/nils/composed.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 152808,
+          "alt": {
+            "en": "Portrait of Nils Brekke, composed.",
+            "tr": "Nils Brekke portresi, soğukkanlı."
+          }
+        },
+        "uneasy": {
+          "file": "portraits/nils/uneasy.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 142534,
+          "alt": {
+            "en": "Portrait of Nils Brekke, uneasy.",
+            "tr": "Nils Brekke portresi, tedirgin."
+          }
+        },
+        "strained": {
+          "file": "portraits/nils/strained.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 135494,
+          "alt": {
+            "en": "Portrait of Nils Brekke, strained.",
+            "tr": "Nils Brekke portresi, gergin."
+          }
+        },
+        "breaking": {
+          "file": "portraits/nils/breaking.webp",
+          "width": 720,
+          "height": 960,
+          "bytes": 131082,
+          "alt": {
+            "en": "Portrait of Nils Brekke, breaking.",
+            "tr": "Nils Brekke portresi, çözülüyor."
+          }
+        }
+      }
+    }
+  },
+  "witnessPortraits": {
+    "p-thomas": {
+      "caseId": "kessler-workshop",
+      "personId": "p-thomas",
+      "file": "portraits/p-thomas/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 158262,
+      "alt": {
+        "en": "Thomas Kessler, the victim, in life.",
+        "tr": "Maktul Thomas Kessler, hayattayken."
+      }
+    },
+    "p-varga": {
+      "caseId": "kessler-workshop",
+      "personId": "p-varga",
+      "file": "portraits/p-varga/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 170388,
+      "alt": {
+        "en": "Ilse Varga, the neighbour.",
+        "tr": "Komşu Ilse Varga."
+      }
+    },
+    "p-okafor": {
+      "caseId": "kessler-workshop",
+      "personId": "p-okafor",
+      "file": "portraits/p-okafor/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 113322,
+      "alt": {
+        "en": "Ruben Okafor, bartender at The Anchor.",
+        "tr": "The Anchor'ın barmeni Ruben Okafor."
+      }
+    },
+    "p-lind": {
+      "caseId": "kessler-workshop",
+      "personId": "p-lind",
+      "file": "portraits/p-lind/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 149758,
+      "alt": {
+        "en": "Dr Hanne Lind, forensic pathologist.",
+        "tr": "Adli tıp uzmanı Dr. Hanne Lind."
+      }
+    },
+    "p-saar": {
+      "caseId": "first-watch",
+      "personId": "p-saar",
+      "file": "portraits/p-saar/portrait.webp",
+      "width": 720,
+      "height": 960,
+      "bytes": 166194,
+      "alt": {
+        "en": "Hendrik Saar, museum director.",
+        "tr": "Müze müdürü Hendrik Saar."
+      }
+    }
+  },
+  "scenes": {
+    "kessler/workshop": {
+      "locationId": "loc-workshop",
+      "art": "kessler/workshop",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/kessler/workshop.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 295052,
+        "alt": {
+          "en": "Top-down view of the violin workshop at night, the body on the floor by the bench.",
+          "tr": "Gece keman atölyesinin kuşbakışı görünümü; tezgâhın yanında yerde yatan ceset."
+        }
+      },
+      "uv": {
+        "file": "scenes/kessler/workshop-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 134122,
+        "alt": {
+          "en": "The same room under ultraviolet light; only the switched-on UV lamp glows.",
+          "tr": "Aynı oda morötesi ışık altında; yalnızca açık kalan UV lambası parlıyor."
+        }
+      }
+    },
+    "kessler/office": {
+      "locationId": "loc-office",
+      "art": "kessler/office",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/kessler/office.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 301176,
+        "alt": {
+          "en": "Top-down view of the front office: desk, filing cabinet, client sofa.",
+          "tr": "Ön ofisin kuşbakışı görünümü: masa, dosya dolabı, müşteri kanepesi."
+        }
+      },
+      "uv": {
+        "file": "scenes/kessler/office-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 131274,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "kessler/vault": {
+      "locationId": "loc-vault",
+      "art": "kessler/vault",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/kessler/vault.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 218544,
+        "alt": {
+          "en": "Top-down view of the vault: consignment shelves and the sign-out lectern.",
+          "tr": "Kasa odasının kuşbakışı görünümü: konsinye rafları ve çıkış defteri kürsüsü."
+        }
+      },
+      "uv": {
+        "file": "scenes/kessler/vault-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 70988,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "kessler/back": {
+      "locationId": "loc-back",
+      "art": "kessler/back",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/kessler/back.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 298112,
+        "alt": {
+          "en": "Top-down view of the back corridor and the frosty courtyard.",
+          "tr": "Arka koridorun ve kırağılı avlunun kuşbakışı görünümü."
+        }
+      },
+      "uv": {
+        "file": "scenes/kessler/back-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 100278,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "first-watch/gallery": {
+      "locationId": "loc-gallery",
+      "art": "first-watch/gallery",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/first-watch/gallery.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 173592,
+        "alt": {
+          "en": "Top-down view of Gallery 2 with the empty chronometer case.",
+          "tr": "Boş kronometre vitriniyle 2 numaralı salonun kuşbakışı görünümü."
+        }
+      },
+      "uv": {
+        "file": "scenes/first-watch/gallery-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 58054,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "kessler/varga": {
+      "locationId": "loc-varga",
+      "art": "kessler/varga",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/kessler/varga.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 169482,
+        "alt": {
+          "en": "Top-down view of Ilse Varga’s kitchen: the window over the courtyard, the exercise book on the sill, a letter on the table.",
+          "tr": "Ilse Varga’nın mutfağının kuşbakışı görünümü: avluya bakan pencere, pervazda defter, masada bir mektup."
+        }
+      },
+      "uv": {
+        "file": "scenes/kessler/varga-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 73508,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "kessler/clara-flat": {
+      "locationId": "loc-clara",
+      "art": "kessler/clara-flat",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/kessler/clara-flat.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 133662,
+        "alt": {
+          "en": "Top-down view of Clara’s flat: desk by the window, bedside table with a china dish, a camel coat in the hall.",
+          "tr": "Clara’nın dairesinin kuşbakışı görünümü: penceredeki çalışma masası, porselen tabaklı komodin, antrede deve tüyü palto."
+        }
+      },
+      "uv": {
+        "file": "scenes/kessler/clara-flat-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 57302,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "kessler/bank": {
+      "locationId": "loc-bank",
+      "art": "kessler/bank",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/kessler/bank.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 133048,
+        "alt": {
+          "en": "Top-down view of the bank’s business desk after hours: an open loan file, an archive box on the side table.",
+          "tr": "Kapanıştan sonra bankanın ticari kredi masasının kuşbakışı görünümü: açık bir kredi dosyası, yan masada bir arşiv kutusu."
+        }
+      },
+      "uv": {
+        "file": "scenes/kessler/bank-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 58378,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    },
+    "kessler/pawn": {
+      "locationId": "loc-pawn",
+      "art": "kessler/pawn",
+      "projection": "top-down, aligned to scene.plan / zone coordinates (0..1 of the full image)",
+      "base": {
+        "file": "scenes/kessler/pawn.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 268406,
+        "alt": {
+          "en": "Top-down view of the pawnshop: shelves of pledged goods, the pledge book open on the glass counter.",
+          "tr": "Rehincinin kuşbakışı görünümü: rehin eşya dolu raflar, cam tezgâhta açık rehin defteri."
+        }
+      },
+      "uv": {
+        "file": "scenes/kessler/pawn-uv.webp",
+        "width": 2000,
+        "height": 1640,
+        "bytes": 96968,
+        "alt": {
+          "en": "The same room under ultraviolet light.",
+          "tr": "Aynı oda morötesi ışık altında."
+        }
+      }
+    }
+  },
+  "closeUps": {
+    "z-body": {
+      "zoneId": "z-body",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-body.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 254808,
+        "alt": {
+          "en": "The victim on his side between bench and ladder, face turned away.",
+          "tr": "Maktul, tezgâhla merdiven arasında yan yatmış, yüzü öteye dönük."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-ladder": {
+      "zoneId": "z-ladder",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-ladder.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 200208,
+        "alt": {
+          "en": "The library ladder on its side below dusty top shelves.",
+          "tr": "Tozlu üst rafların altında yan yatmış kütüphane merdiveni."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-rungs": {
+      "zoneId": "z-rungs",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-rungs.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 231224,
+        "alt": {
+          "en": "Upper ladder rungs under fingerprint powder: no prints.",
+          "tr": "Parmak izi tozu altında üst basamaklar: iz yok."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-toolwall": {
+      "zoneId": "z-toolwall",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-toolwall.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 192228,
+        "alt": {
+          "en": "Pegboard with six mallets; one hangs crooked.",
+          "tr": "Altı tokmaklı delikli pano; biri yamuk asılı."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-peg": {
+      "zoneId": "z-peg",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-peg.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 195774,
+        "alt": {
+          "en": "Powdered pegboard; one peg wiped clean.",
+          "tr": "Tozlanmış pano; bir askı silinmiş."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-bench": {
+      "zoneId": "z-bench",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-bench.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 199094,
+        "alt": {
+          "en": "Thomas's bench: UV lamp on, empty cradle, inspection mirror.",
+          "tr": "Thomas'ın tezgâhı: açık UV lambası, boş beşik, inceleme aynası."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-papers": {
+      "zoneId": "z-papers",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-papers.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 172636,
+        "alt": {
+          "en": "Papers under a tuning fork, a torn pencil note beneath.",
+          "tr": "Diyapazonun altında kâğıtlar, altlarında koparılmış kurşun kalem not."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-floor": {
+      "zoneId": "z-floor",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-floor.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 223740,
+        "alt": {
+          "en": "Shavings under the bench and a gold earring back.",
+          "tr": "Tezgâh altındaki talaşlar ve altın küpe arkalığı."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-sink": {
+      "zoneId": "z-sink",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-sink.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 210176,
+        "alt": {
+          "en": "Sink, naphtha can and a damp rag in the bin.",
+          "tr": "Lavabo, neft bidonu ve kovada nemli bez."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-bows": {
+      "zoneId": "z-bows",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-bows.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 178092,
+        "alt": {
+          "en": "Glazed bow cabinet with one empty slot.",
+          "tr": "Bir yuvası boş camlı yay vitrini."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-desk": {
+      "zoneId": "z-desk",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-desk.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 176554,
+        "alt": {
+          "en": "The desk diary open at Thursday.",
+          "tr": "Perşembe sayfasında açık masa ajandası."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-drawer": {
+      "zoneId": "z-drawer",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-drawer.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 204416,
+        "alt": {
+          "en": "Open desk drawer with a contract folder.",
+          "tr": "Sözleşme dosyalı açık masa çekmecesi."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-files": {
+      "zoneId": "z-files",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-files.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 207518,
+        "alt": {
+          "en": "Filing cabinet with the accounts binders.",
+          "tr": "Hesap klasörleriyle dosya dolabı."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-frontdoor": {
+      "zoneId": "z-frontdoor",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-frontdoor.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 112880,
+        "alt": {
+          "en": "Front door: intact frame, inside thumb-turn.",
+          "tr": "Ön kapı: sağlam kasa, içeriden mandal."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-violincase": {
+      "zoneId": "z-violincase",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-violincase.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 193090,
+        "alt": {
+          "en": "The Guadagnini in its open case.",
+          "tr": "Açık kutusunda Guadagnini."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)",
+      "uv": {
+        "file": "closeups/kessler/z-violincase-uv.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 79150,
+        "alt": {
+          "en": "Under UV the varnish glows flat and even.",
+          "tr": "UV altında vernik düz ve tekdüze ışıyor."
+        }
+      }
+    },
+    "z-ledger": {
+      "zoneId": "z-ledger",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-ledger.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 240774,
+        "alt": {
+          "en": "The vault sign-out ledger.",
+          "tr": "Kasa çıkış defteri."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-reader": {
+      "zoneId": "z-reader",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-reader.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 162756,
+        "alt": {
+          "en": "The back-door access-control reader.",
+          "tr": "Arka kapının geçiş kontrol okuyucusu."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-courtyard": {
+      "zoneId": "z-courtyard",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-courtyard.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 290450,
+        "alt": {
+          "en": "Cobbles with a single bicycle track.",
+          "tr": "Tek bisiklet izli arnavutkaldırımı."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-fw-case": {
+      "zoneId": "z-fw-case",
+      "caseFolder": "first-watch",
+      "base": {
+        "file": "closeups/first-watch/z-fw-case.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 161860,
+        "alt": {
+          "en": "The locked, empty chronometer case.",
+          "tr": "Kilitli, boş kronometre vitrini."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-fw-desk": {
+      "zoneId": "z-fw-desk",
+      "caseFolder": "first-watch",
+      "base": {
+        "file": "closeups/first-watch/z-fw-desk.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 205572,
+        "alt": {
+          "en": "The guard's desk with thermos, radio and log.",
+          "tr": "Termos, telsiz ve defterle bekçi masası."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-fw-keys": {
+      "zoneId": "z-fw-keys",
+      "caseFolder": "first-watch",
+      "base": {
+        "file": "closeups/first-watch/z-fw-keys.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 213774,
+        "alt": {
+          "en": "Key cabinet with one empty hook.",
+          "tr": "Bir kancası boş anahtar dolabı."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-fw-bench": {
+      "zoneId": "z-fw-bench",
+      "caseFolder": "first-watch",
+      "base": {
+        "file": "closeups/first-watch/z-fw-bench.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 210216,
+        "alt": {
+          "en": "Conservator's bench: polish, gloves, spectacle case, email.",
+          "tr": "Restoratör tezgâhı: cila, eldiven, gözlük kutusu, e-posta."
+        }
+      },
+      "detailsNote": "details[].x/y were authored before the art; positions are approximate (see H.md)"
+    },
+    "z-tray": {
+      "zoneId": "z-tray",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-tray.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 146744,
+        "alt": {
+          "en": "Office letter tray: opened post, a lawyer’s letter with a crest on top, a brass letter opener.",
+          "tr": "Ofisteki mektup sepeti: açılmış posta, en üstte armalı bir avukat mektubu, pirinç bir mektup açacağı."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-va-window": {
+      "zoneId": "z-va-window",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-va-window.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 150278,
+        "alt": {
+          "en": "A kitchen windowsill at night: an exercise book with a pencil on a string; below, the lit back door.",
+          "tr": "Gece bir mutfak penceresinin pervazı: ipe bağlı kalemli bir defter; aşağıda ışığı yanan arka kapı."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-va-letter": {
+      "zoneId": "z-va-letter",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-va-letter.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 234994,
+        "alt": {
+          "en": "A handwritten letter draft on a checked tablecloth, crumpled earlier drafts beside it.",
+          "tr": "Kareli masa örtüsünde el yazısı bir mektup taslağı; yanında buruşturulmuş eski taslaklar."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-cl-dish": {
+      "zoneId": "z-cl-dish",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-cl-dish.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 161664,
+        "alt": {
+          "en": "A china dish on a bedside table: a watch, a hair tie and two pearl studs with different backs.",
+          "tr": "Komodinde porselen bir tabak: bir saat, bir toka ve arkalıkları farklı iki inci küpe."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-cl-coat": {
+      "zoneId": "z-cl-coat",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-cl-coat.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 117686,
+        "alt": {
+          "en": "A camel coat on a hall stand, its left cuff turned to the torch.",
+          "tr": "Portmantoda deve tüyü bir palto; sol kol ağzı fenere dönük."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate",
+      "uv": {
+        "file": "closeups/kessler/z-cl-coat-uv.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 31978,
+        "alt": {
+          "en": "Under UV the left cuff shows a dull, wiped smear.",
+          "tr": "UV altında sol kol ağzında mat, silinmiş bir leke."
+        }
+      }
+    },
+    "z-cl-desk": {
+      "zoneId": "z-cl-desk",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-cl-desk.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 118608,
+        "alt": {
+          "en": "A tidy home desk: ring binders, a closed laptop, a tray of receipts sorted by month.",
+          "tr": "Derli toplu bir çalışma masası: klasörler, kapalı bir dizüstü, aylara göre dizilmiş fişler."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-pw-book": {
+      "zoneId": "z-pw-book",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-pw-book.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 236666,
+        "alt": {
+          "en": "The pawnbroker’s pledge book open on the glass counter, a bell and a loupe beside it.",
+          "tr": "Cam tezgâhta açık rehin defteri; yanında bir zil ve bir büyüteç."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-bk-file": {
+      "zoneId": "z-bk-file",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-bk-file.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 129672,
+        "alt": {
+          "en": "An open loan file on the adviser’s desk, every page initialled in the corner.",
+          "tr": "Uzmanın masasında açık bir kredi dosyası; her sayfanın köşesinde paraf."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    },
+    "z-bk-ledger": {
+      "zoneId": "z-bk-ledger",
+      "caseFolder": "kessler",
+      "base": {
+        "file": "closeups/kessler/z-bk-ledger.webp",
+        "width": 1024,
+        "height": 1024,
+        "bytes": 141216,
+        "alt": {
+          "en": "An archive box from the back office, a ledger with a settlement slip clipped to it.",
+          "tr": "Arka ofisten gelen bir arşiv kutusu; üstünde kapatma dekontu iliştirilmiş bir defter."
+        }
+      },
+      "detailsNote": "wave 5 (P): details[].x/y were authored before the art; positions are approximate"
+    }
+  },
+  "evidence": {
+    "ev-mallet": {
+      "evidenceId": "ev-mallet",
+      "file": "evidence/kessler/ev-mallet.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 38178,
+      "alt": {
+        "en": "Lignum vitae mallet.",
+        "tr": "Gayak ağacı tokmak."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-note": {
+      "evidenceId": "ev-note",
+      "file": "evidence/kessler/ev-note.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 46962,
+      "alt": {
+        "en": "Torn pencil note.",
+        "tr": "Koparılmış kurşun kalem not."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-earring": {
+      "evidenceId": "ev-earring",
+      "file": "evidence/kessler/ev-earring.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 33042,
+      "alt": {
+        "en": "Gold butterfly earring back.",
+        "tr": "Altın kelebek küpe arkalığı."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-uvlamp": {
+      "evidenceId": "ev-uvlamp",
+      "file": "evidence/kessler/ev-uvlamp.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 30538,
+      "alt": {
+        "en": "UV inspection lamp.",
+        "tr": "UV inceleme lambası."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-violin": {
+      "evidenceId": "ev-violin",
+      "file": "evidence/kessler/ev-violin.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 21440,
+      "alt": {
+        "en": "The Guadagnini, back view.",
+        "tr": "Guadagnini, sırt görünümü."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-rag": {
+      "evidenceId": "ev-rag",
+      "file": "evidence/kessler/ev-rag.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 50918,
+      "alt": {
+        "en": "Damp rag and naphtha can.",
+        "tr": "Nemli bez ve neft bidonu."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-ledger": {
+      "evidenceId": "ev-ledger",
+      "file": "evidence/kessler/ev-ledger.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 70106,
+      "alt": {
+        "en": "Vault sign-out ledger.",
+        "tr": "Kasa çıkış defteri."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-case": {
+      "evidenceId": "ev-case",
+      "file": "evidence/first-watch/ev-case.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 38454,
+      "alt": {
+        "en": "The empty chronometer case.",
+        "tr": "Boş kronometre vitrini."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-glasses": {
+      "evidenceId": "ev-glasses",
+      "file": "evidence/first-watch/ev-glasses.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 44016,
+      "alt": {
+        "en": "Spectacle case with reading glasses.",
+        "tr": "Okuma gözlüklü gözlük kutusu."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    },
+    "ev-logbook": {
+      "evidenceId": "ev-logbook",
+      "file": "evidence/first-watch/ev-logbook.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 54720,
+      "alt": {
+        "en": "Night visitor log.",
+        "tr": "Gece ziyaretçi defteri."
+      },
+      "background": "flat off-white paper (#F2EEE4-ish), no alpha"
+    }
+  },
+  "covers": {
+    "kessler-workshop": {
+      "file": "covers/kessler.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 180998,
+      "alt": {
+        "en": "Key art: a dark violin workshop, fallen ladder, UV lamp and a torch beam.",
+        "tr": "Kapak: karanlık keman atölyesi, devrilmiş merdiven, UV lambası ve fener ışığı."
+      },
+      "titleSafeArea": "top 30% is dark and empty"
+    },
+    "first-watch": {
+      "file": "covers/first-watch.webp",
+      "width": 900,
+      "height": 1200,
+      "bytes": 63530,
+      "alt": {
+        "en": "Key art: an empty museum case in torchlight and a guard's shadow.",
+        "tr": "Kapak: fener ışığında boş müze vitrini ve bekçinin gölgesi."
+      },
+      "titleSafeArea": "top 30% is dark and empty"
+    }
+  },
+  "icon": {
+    "1024": {
+      "file": "icon/icon-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1299813,
+      "alt": {
+        "en": "App icon: torch beam lighting a burgundy fingerprint.",
+        "tr": "Uygulama ikonu: bordo bir parmak izini aydınlatan fener ışığı."
+      }
+    },
+    "512": {
+      "file": "icon/icon-512.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 382107,
+      "alt": {
+        "en": "App icon (512).",
+        "tr": "Uygulama ikonu (512)."
+      }
+    },
+    "288": {
+      "file": "icon/icon-288.webp",
+      "width": 288,
+      "height": 288,
+      "bytes": 17372,
+      "alt": {
+        "en": "App icon (in-app, 288).",
+        "tr": "Uygulama ikonu (uygulama içi, 288)."
+      }
+    }
+  },
+  "textures": {
+    "paper": {
+      "file": "textures/paper.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 7104,
+      "alt": {
+        "en": "Off-white watercolour paper texture.",
+        "tr": "Kırık beyaz suluboya kâğıdı dokusu."
+      },
+      "tile": "repeat; low contrast"
+    },
+    "desk": {
+      "file": "textures/desk.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 18462,
+      "alt": {
+        "en": "Dark wooden desk texture.",
+        "tr": "Koyu ahşap masa dokusu."
+      },
+      "tile": "repeat; low contrast"
+    },
+    "charcoal": {
+      "file": "textures/charcoal.webp",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 25568,
+      "alt": {
+        "en": "Charcoal wash paper texture.",
+        "tr": "Kömür tonlu yıkama kâğıdı dokusu."
+      },
+      "tile": "repeat; low contrast"
+    }
+  },
+  "documents": {
+    "statement": {
+      "file": "documents/statement.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 51214,
+      "alt": {
+        "en": "A typed witness statement, two stapled pages and a pen.",
+        "tr": "Daktiloyla yazılmış bir tanık ifadesi: zımbalı iki sayfa ve bir kalem."
+      }
+    },
+    "phone-records": {
+      "file": "documents/phone-records.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 59354,
+      "alt": {
+        "en": "A fan-folded printout of telephone records, one row ticked.",
+        "tr": "Akordeon katlı telefon kayıtları dökümü; bir satır işaretli."
+      }
+    },
+    "bank-record": {
+      "file": "documents/bank-record.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 59658,
+      "alt": {
+        "en": "A bank statement half out of its window envelope, one line circled.",
+        "tr": "Pencereli zarfından yarı çıkmış bir banka ekstresi; bir satır daire içinde."
+      }
+    },
+    "access-log": {
+      "file": "documents/access-log.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 51274,
+      "alt": {
+        "en": "A curling strip from a door-access printer beside a key fob.",
+        "tr": "Kapı kartı yazıcısından çıkmış kıvrık bir şerit ve yanında bir kart anahtarı."
+      }
+    },
+    "workbook": {
+      "file": "documents/workbook.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 64968,
+      "alt": {
+        "en": "An open luthier's workbook with a violin outline in pencil.",
+        "tr": "Kurşun kalemle keman taslağı çizilmiş açık bir kemancı iş defteri."
+      }
+    },
+    "ledger": {
+      "file": "documents/ledger.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 74208,
+      "alt": {
+        "en": "An open bound ledger with a ribbon marker.",
+        "tr": "Kurdele ayraçlı, açık, ciltli bir kayıt defteri."
+      }
+    },
+    "contract": {
+      "file": "documents/contract.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 52806,
+      "alt": {
+        "en": "A signed agreement with a covering letter clipped to it.",
+        "tr": "Üstüne ön yazı iliştirilmiş, imzalı bir sözleşme."
+      }
+    },
+    "diary": {
+      "file": "documents/diary.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 74234,
+      "alt": {
+        "en": "A week-to-view desk diary lying open, a fountain pen in the fold.",
+        "tr": "Haftalık bir masa ajandası açık duruyor; ortasında dolma kalem."
+      }
+    },
+    "pawn-ticket": {
+      "file": "documents/pawn-ticket.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 32172,
+      "alt": {
+        "en": "A pawnbroker's ticket on a string, stamped in faded burgundy.",
+        "tr": "İpli bir rehin fişi; soluk bordo bir mühür basılmış."
+      }
+    },
+    "device": {
+      "file": "documents/device.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 34244,
+      "alt": {
+        "en": "A mobile phone sealed in a clear evidence bag.",
+        "tr": "Şeffaf bir delil torbasında mühürlenmiş cep telefonu."
+      }
+    },
+    "folder": {
+      "file": "documents/folder.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 42766,
+      "alt": {
+        "en": "A worn case-file folder held shut with a band.",
+        "tr": "Lastikle kapalı tutulan yıpranmış bir dosya klasörü."
+      }
+    }
+  },
+  "labs": {
+    "autopsy": {
+      "file": "labs/autopsy.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 60252,
+      "alt": {
+        "en": "A post-mortem report on a clipboard: a body chart with one mark at the head.",
+        "tr": "Klipsli panoda otopsi raporu: başta tek bir işaret olan vücut şeması."
+      }
+    },
+    "serology": {
+      "file": "labs/serology.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 63706,
+      "alt": {
+        "en": "A serology report with DNA peaks, swab tubes and gloves.",
+        "tr": "DNA tepeleri çizilmiş seroloji raporu, sürüntü tüpleri ve eldivenler."
+      }
+    },
+    "digital": {
+      "file": "labs/digital.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 48690,
+      "alt": {
+        "en": "A phone wired to an extraction box beside a highlighted call list.",
+        "tr": "Döküm cihazına bağlı bir telefon ve işaretlenmiş arama listesi."
+      }
+    },
+    "anpr": {
+      "file": "labs/anpr.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 63604,
+      "alt": {
+        "en": "Two night prints from a traffic camera: a car at a wet junction.",
+        "tr": "Trafik kamerasından iki gece karesi: ıslak bir kavşakta bir araba."
+      }
+    },
+    "instrument": {
+      "file": "labs/instrument.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 61644,
+      "alt": {
+        "en": "A violin face up on a cloth, with calipers, a loupe and an inspection mirror.",
+        "tr": "Bez üstünde yüzü yukarı bakan bir keman; kumpas, büyüteç ve inceleme aynası."
+      }
+    },
+    "financial": {
+      "file": "labs/financial.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 50116,
+      "alt": {
+        "en": "Bank statements with one line highlighted and an arrow to another sheet.",
+        "tr": "Bir satırı işaretlenmiş, başka bir sayfaya okla bağlanmış banka ekstreleri."
+      }
+    },
+    "fingerprints": {
+      "file": "labs/fingerprints.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 49128,
+      "alt": {
+        "en": "Lifted fingerprints on cards, a powder brush and a magnifier.",
+        "tr": "Kartlara alınmış parmak izleri, toz fırçası ve büyüteç."
+      }
+    },
+    "document": {
+      "file": "labs/document.webp",
+      "width": 768,
+      "height": 768,
+      "bytes": 37848,
+      "alt": {
+        "en": "A handwritten note under a magnifying glass.",
+        "tr": "Büyütecin altında el yazısı bir not."
+      }
+    }
+  },
+  "reports": {
+    "kessler/1": {
+      "file": "reports/kessler-day1.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 150652,
+      "alt": {
+        "en": "The workshop door at dusk, taped off, frost on the courtyard.",
+        "tr": "Akşam karanlığında şeritle kapatılmış atölye kapısı; avluda kırağı."
+      }
+    },
+    "kessler/2": {
+      "file": "reports/kessler-day2.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 125650,
+      "alt": {
+        "en": "A detective’s desk late at night, the case file open, rain on the window.",
+        "tr": "Gece geç saatte bir komiserin masası; dosya açık, camda yağmur."
+      }
+    },
+    "kessler/3": {
+      "file": "reports/kessler-day3.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 101074,
+      "alt": {
+        "en": "An empty corridor at first light outside the prosecutor’s door.",
+        "tr": "Şafakta savcının kapısının önündeki boş koridor."
+      }
+    },
+    "first-watch/1": {
+      "file": "reports/first-watch-day1.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 96240,
+      "alt": {
+        "en": "The maritime museum on the quay at dawn, one window still lit.",
+        "tr": "Şafakta rıhtımdaki denizcilik müzesi; tek bir pencere hâlâ yanıyor."
+      }
+    }
+  },
+  "nights": {
+    "kessler/n1-pawn": {
+      "file": "nights/kessler/n1-pawn.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 105566,
+      "alt": {
+        "en": "A registry printout under the night desk lamp, one word underlined.",
+        "tr": "Gece masasının lambası altında bir kayıt dökümü; tek kelimenin altı çizili."
+      }
+    },
+    "kessler/n1-pawn-known": {
+      "file": "nights/kessler/n1-pawn-known.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 118282,
+      "alt": {
+        "en": "A pawnshop window at night with a violin bow on burgundy velvet.",
+        "tr": "Gece bir rehinci vitrini; bordo kadife üstünde bir keman yayı."
+      }
+    },
+    "kessler/n1-lawyer": {
+      "file": "nights/kessler/n1-lawyer.webp",
+      "width": 1080,
+      "height": 737,
+      "bytes": 83856,
+      "alt": {
+        "en": "A desk telephone just put down beside a lawyer’s card.",
+        "tr": "Az önce kapatılmış bir masa telefonu ve yanında bir avukat kartı."
+      }
+    },
+    "kessler/n-day1": {
+      "file": "nights/kessler/n-day1.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 109798,
+      "alt": {
+        "en": "A note against a mug on an empty desk; the lab’s windows still lit outside.",
+        "tr": "Boş bir masada kupaya yaslanmış bir not; dışarıda laboratuvarın pencereleri hâlâ yanıyor."
+      }
+    },
+    "kessler/n2-ruben": {
+      "file": "nights/kessler/n2-ruben.webp",
+      "width": 1080,
+      "height": 784,
+      "bytes": 74314,
+      "alt": {
+        "en": "A bartender in his apron hands a till receipt across the night desk.",
+        "tr": "Önlüklü bir barmen gece bankosunda bir kasa fişi uzatıyor."
+      }
+    },
+    "kessler/n-day2": {
+      "file": "nights/kessler/n-day2.webp",
+      "width": 1080,
+      "height": 783,
+      "bytes": 129200,
+      "alt": {
+        "en": "The prosecutor’s office at night, three case files and a receiver off the hook.",
+        "tr": "Gece savcının odası: üç dosya ve kaldırılmış bir telefon ahizesi."
+      }
+    }
+  }
+}

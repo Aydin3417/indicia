@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "Indicia",
+    "slug": "indicia",
+    "scheme": "indicia",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#111315",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.hellocotidie.indicia",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.hellocotidie.indicia",
+      "edgeToEdgeEnabled": true,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/art/icon/icon-1024.png",
+        "backgroundColor": "#111315"
+      }
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "single",
+      "favicon": "./assets/art/icon/icon-512.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/art/icon/icon-512.png",
+          "imageWidth": 168,
+          "resizeMode": "contain",
+          "backgroundColor": "#111315"
+        }
+      ],
+      [
+        "expo-audio",
+        { "microphonePermission": false, "recordAudioAndroid": false, "enableBackgroundPlayback": false }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": false
+    },
+    "icon": "./assets/art/icon/icon-1024.png"
+  }
+}
