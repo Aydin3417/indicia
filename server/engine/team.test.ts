@@ -132,7 +132,7 @@ test('co-op: intents show on the map, the people list and the team; arriving cle
   assert.deepEqual(g.suspects.find((x) => x.id === 'jonas')?.team, [{ id: HOST, name: 'Aksoy', status: 'heading' }]);
   assert.ok(g.room!.activity.some((a) => a.text === 'is heading to Workshop' && a.actor === 'Demir'));
   const tr = await s.viewV2(HOST, sessionId, 'tr');
-  assert.ok(tr.room!.activity.some((a) => a.text === 'şuraya gidiyor: Atölye'), JSON.stringify(tr.room!.activity));
+  assert.ok(tr.room!.activity.some((a) => a.text === 'Atölye yolunda'), JSON.stringify(tr.room!.activity));
   await s.travel(GUEST, sessionId, 'loc-workshop');
   const h2 = await s.viewV2(HOST, sessionId);
   assert.equal(h2.team!.members.find((m) => m.name === 'Demir')?.intent, undefined, 'arrived');

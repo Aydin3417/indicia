@@ -52,7 +52,9 @@ export default function PeopleTab() {
 function Suspect({ p, view, t }: { p: SuspectV2View; view: InvestigationView; t: Translate }) {
   const { run, pending } = useAction();
   const a = availabilityLine(t, p, view.clock);
-  const cost = p.interview.open ? 0 : view.clock.costs.startInterview;
+  // wave 9: stepped out a moment ago (no game time since) → back in for free
+  const back = p.interview.open || !!p.interview.resumeFree;
+  const cost = back ? 0 : view.clock.costs.startInterview;
   const affordable = fits(view.clock, cost);
   const playing = view.phase === 'investigating';
   const canStart = playing && (p.interview.open || (a.now && !p.interview.refusedToday && affordable));
@@ -61,7 +63,7 @@ function Suspect({ p, view, t }: { p: SuspectV2View; view: InvestigationView; t:
     const r = await run(`interview:${p.id}`, 'interview', { suspectId: p.id });
     if (r) router.push(`/desk/${view.sessionId}/interview/${p.id}`);
   };
-  const label = p.interview.open ? t('desk.people.resume')
+  const label = back && (p.interview.open || (a.now && !p.interview.refusedToday)) ? t('desk.people.resume')
     : !a.now || p.interview.refusedToday ? t('desk.people.notNow')
     : !affordable ? t('desk.noTime')
     : t('desk.people.interview', { cost: fmtCost(t, cost) });

@@ -649,3 +649,50 @@ running confrontation with the culprit.
   witnesses `p-agnes`, `p-ruth`, `p-holm`, `p-teo`, `p-kranz`, `p-nyberg`, cover `fennick-yard`, reports `fennick/1..3`,
   nights `fennick/<night id>`. Full list with prompts: `docs/handoff/S-art.md`.
 * No new endpoints, event kinds or reasons.
+
+## 17. Wave 9 — the interview notebook, a finale that asks for a choice (Agent V). Additive.
+
+### Stepping out of an interview
+
+* `POST …/v2/interview/leave` now remembers when (game minute) and by whom the interview was left. `POST …/v2/interview`
+  for that suspect re-opens it **for free** while no game time has passed since — the same day, the same investigator
+  (co-op), patience not run out. Only free moves fit in between: reading, collecting a marked line, a right filing, the
+  lab bench, sharing. The event is `{ kind: 'interview_start', cost: 0, outcome: 'resumed', patience }` with no `line`
+  (no second greeting); the log gets the start marker only. Patience is never refilled by this.
+* `SuspectV2View.interview.resumeFree?: true` — shown while that holds (People tab: "Back into the room · free").
+* **Collecting inside an interview is allowed** (it always was server-side: `collect` is free and never touched the
+  interview). The client now opens the notebook inside the room (facts, documents with their marked lines, "use this"
+  for present). Why allow it: a line in a document the player already holds is something the detective could read
+  across the table; noticing it is the thinking, and it costs no time anywhere else either. What still needs the desk
+  — scenes, travel, waiting, a wrong filing — costs time, and so ends the free return.
+
+### The finale's suggested shelf
+
+* `FinaleRoundView.suggested` changed meaning (same type). It used to list every accepted piece the player held once a
+  linked deduction was confirmed — i.e. only right answers, the right one first. Now, for the current round, once a
+  deduction in the round's `assist` is confirmed: **exactly one** piece that answers this round (the confirmed assist
+  deduction when there is one) among up to `FINALE_DECOYS` (3) pieces that each answer a **different** round and are
+  not accepted here (a confirmed deduction of that round first, else a held accepted fact/evidence). Order and the choice
+  of the others are a stable hash of session id, round id and item id, so the position carries no information and does
+  not change between requests. Empty for rounds without a confirmed assist, as before.
+* Client label: "The strongest pieces of your file — one of them answers this" / "Dosyanın en güçlü parçaları — içlerinden
+  biri bu savunmayı çürütür". Two tries per round and the Proof star are unchanged: first-try wins now measure a real
+  choice (before, a full book made "first try" free).
+
+### Lab list, cast list, day report
+
+* `EvidenceV2View.analyses` drops a **locked** analysis that only a night fork's option can start (nothing else unlocks
+  it) once every fork offering it is settled — answered either way, or its night passed without it being offered
+  (`forkRoadClosed`). Running/ready/done jobs are never dropped.
+* `Person.hiddenUntilMet` (authoring): the person is left out of `InvestigationView.people` and `chips.people` until a
+  held fact has them in `about` or a held evidence item in `relatedPeople`. Ash and Glaze: `p-kranz`, `p-nyberg`
+  (**case hash of `fennick-yard` changed**). Kessler and First Watch list everyone from the start as before.
+* `DayReportView.deductionsOpened` no longer repeats questions that were also confirmed that day (they are listed once,
+  under `deductionsConfirmed`); applies to stored reports too.
+* Turkish activity lines: `act_travel` "{0} yolunu tuttu", `act_intent_go` "{0} yolunda" (were "şuraya gitti: {0}").
+
+### Client only (no API change)
+
+* Map: the "When you are ready — Go to the prosecutor" card shows once confirmed deductions reach
+  `proofStar.deductionsNeeded`, or on the last day; before that a quiet row near the bottom of the map ("Go to the
+  prosecutor — the file is still thin: n of the m deductions the Proof star wants"). The strip's gavel is unchanged.

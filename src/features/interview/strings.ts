@@ -64,6 +64,11 @@ const en = {
   'interview.present.empty': 'Nothing here yet.',
   'interview.present.warn': 'A wrong pick costs their patience.',
   'interview.present.tried': 'Tried',
+  'interview.present.triedNote': 'You already showed this against this claim.',
+  'interview.notebook.open': 'Open the notebook',
+  'interview.notebook.back': 'Back to {name}',
+  'interview.notebook.hint': 'The interview stays open while you read. Reading a document and noting a line costs no time.',
+  'interview.start.resume': 'Back into the room · free',
   'interview.present.pick': 'Pick one',
 
   'interview.start': 'Start the interview',
@@ -192,6 +197,11 @@ const tr: Record<InterviewStringKey, string> = {
   'interview.present.empty': 'Burada henüz bir şey yok.',
   'interview.present.warn': 'Yanlış seçim karşındakinin sabrını tüketir.',
   'interview.present.tried': 'Denendi',
+  'interview.present.triedNote': 'Bunu bu söze karşı zaten gösterdin.',
+  'interview.notebook.open': 'Defteri aç',
+  'interview.notebook.back': 'Sorguya dön',
+  'interview.notebook.hint': 'Sen okurken sorgu açık kalır. Bir belgeyi okumak ya da bir satırı deftere almak zaman harcatmaz.',
+  'interview.start.resume': 'Sorguya dön · bedava',
   'interview.present.pick': 'Birini seç',
 
   'interview.start': 'Görüşmeyi başlat',

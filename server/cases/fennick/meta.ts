@@ -162,12 +162,15 @@ export const people: CaseDefinition['people'] = [
     description: L('Keeps the door and the taxi book at the Harbour Club on Ostkai. Flies home to Lisbon early on Sunday.', 'Ostkai’deki Harbour Club’ın kapısında durur, taksi defterini tutar. Pazar sabahı erkenden Lizbon’a, memleketine uçuyor.'),
   },
   {
-    id: 'p-kranz', name: 'Emil Kranz', role: L('Antiques dealer, Ostkai', 'Antikacı, Ostkai'),
+    // listed once Bram names him (or his card / door camera reaches the notebook): on the list from the start he
+    // pointed at Bram's crate before the player found the gap (PLAYTEST_V5 §3)
+    id: 'p-kranz', name: 'Emil Kranz', role: L('Antiques dealer, Ostkai', 'Antikacı, Ostkai'), hiddenUntilMet: true,
     description: L('Buys anything with a famous name stamped on the bottom — preferably for cash, preferably late.', 'Altında ünlü bir isim damgası olan her şeyi alır — tercihen nakit, tercihen geç saatte.'),
   },
   {
-    // the cast list is shown from the start: it names the trade, not the company or the deal
-    id: 'p-nyberg', name: 'Karl Nyberg', role: L('Property developer', 'Gayrimenkul geliştiricisi'),
+    // listed once the notebook names him (the dinner seating, the cloakroom, the Norrhavn papers): a developer on the
+    // cast list from day 1 hinted at a property motive before any clue did (PLAYTEST_V5 §3)
+    id: 'p-nyberg', name: 'Karl Nyberg', role: L('Property developer', 'Gayrimenkul geliştiricisi'), hiddenUntilMet: true,
     description: L('Builds flats along the old harbour. Dined at the Harbour Club on Friday night.', 'Eski liman boyunca konut yapıyor. Cuma akşamı Harbour Club’daki yemekteydi.'),
   },
 ];

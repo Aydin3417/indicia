@@ -1,8 +1,10 @@
-import { useMemo, useState, type ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import type { ClaimView, InvestigationView, TopicV2View } from '../../../shared/api';
-import { Button, Eyebrow, Segmented, tap } from '../../components/ui';
+import type { ChipView, ClaimView, InvestigationView, TopicV2View } from '../../../shared/api';
+import { Button, Eyebrow, tap } from '../../components/ui';
+import { Notebook } from '../notebook/Notebook';
+import type { Act } from '../act';
 import { Icon } from '../../components/Icon';
 import { color, font, radius, space } from '../../theme/tokens';
 import { minutes, type Say } from './useStrings';
@@ -26,70 +28,60 @@ function Sheet({ visible, onClose, title, children, footer }: { visible: boolean
   );
 }
 
-/** Notebook picker: one fact or evidence to present against the selected claim. */
-export function PresentSheet({ visible, onClose, claim, view, tried, cost, say, onPresent }: {
-  visible: boolean; onClose: () => void; claim: ClaimView | undefined; view: InvestigationView; tried: Set<string>;
-  cost: number; say: Say; onPresent: (itemId: string) => void;
+/**
+ * The notebook, inside the interview room (wave 9, PLAYTEST_V5 §5.2). The interview stays open underneath: the player
+ * can read every fact and document and note a marked line (free, as everywhere) without leaving the room. With a claim
+ * selected it is the picker for "present": a fact, an evidence row, or a document's "use this evidence" — then one
+ * confirm with the cost. Scene work, travel and the lab still need the desk; they cost time and the room is a room.
+ */
+export function NotebookSheet({ visible, onClose, claim, view, act, t, tried, cost, say, onPresent, suspectName }: {
+  visible: boolean; onClose: () => void; claim: ClaimView | undefined; view: InvestigationView; act: Act; t: (key: string) => string;
+  tried: Set<string>; cost: number; say: Say; onPresent: (itemId: string) => void; suspectName: string;
 }) {
-  const [tab, setTab] = useState<'facts' | 'evidence'>('facts');
-  const [picked, setPicked] = useState<string | null>(null);
-  const facts = useMemo(() => [...view.notebook.facts].reverse(), [view.notebook.facts]);
-  const evidence = useMemo(() => [...view.notebook.evidence].reverse(), [view.notebook.evidence]);
+  const inset = useSafeAreaInsets();
+  const [picked, setPicked] = useState<ChipView | null>(null);
   const close = () => { setPicked(null); onClose(); };
-  const rows = tab === 'facts'
-    ? facts.map((f) => ({ id: f.id, title: f.text, meta: [f.time, f.source.label].filter(Boolean).join(' · '), isNew: f.isNew }))
-    : evidence.map((e) => ({ id: e.id, title: `${e.code} · ${e.name}`, meta: e.locationName ?? e.foundAt, isNew: e.isNew }));
+  const picking = !!claim;
   return (
-    <Sheet
-      visible={visible}
-      onClose={close}
-      title={say('interview.present.title')}
-      footer={(
-        <View style={{ marginTop: space.md }}>
-          <Text style={s.warn}>{say('interview.present.warn')}</Text>
-          <Button
-            label={picked ? `${say('interview.present')} · ${minutes(say, cost)}` : say('interview.present.pick')}
-            disabled={!picked || !claim}
-            onPress={() => { if (picked) { const id = picked; setPicked(null); onPresent(id); } }}
-            icon="evidence"
+    <Modal visible={visible} animationType="slide" onRequestClose={close}>
+      <View style={[s.full, { paddingTop: inset.top }]} testID="interview-notebook">
+        <View style={s.fullHead}>
+          <Pressable hitSlop={12} onPress={close} accessibilityRole="button" style={s.backRow} testID="interview-notebook-close">
+            <Icon name="back" size={18} tint={color.text} />
+            <Text style={s.backLabel} numberOfLines={1}>{say('interview.notebook.back', { name: suspectName })}</Text>
+          </Pressable>
+          {claim ? (
+            <>
+              <Eyebrow style={{ marginTop: space.sm }}>{say('interview.present.title')}</Eyebrow>
+              <Text style={s.claim} numberOfLines={3}>“{claim.text}”</Text>
+            </>
+          ) : <Text style={s.fullHint}>{say('interview.notebook.hint')}</Text>}
+        </View>
+        <View style={{ flex: 1 }}>
+          <Notebook
+            view={view} act={act} t={t}
+            mode={picking ? 'pick' : 'browse'} accept={['fact', 'evidence']}
+            onPick={picking ? (c: ChipView) => { tap(); setPicked(c); } : undefined}
           />
         </View>
-      )}
-    >
-      {claim ? <Text style={s.claim} numberOfLines={3}>“{claim.text}”</Text> : null}
-      <Segmented
-        value={tab}
-        onChange={(v) => { setTab(v); }}
-        options={[
-          { value: 'facts', label: `${say('interview.present.facts')} ${view.notebook.facts.length}` },
-          { value: 'evidence', label: `${say('interview.present.evidence')} ${view.notebook.evidence.length}` },
-        ]}
-      />
-      <ScrollView style={{ maxHeight: 380, marginTop: space.md }} contentContainerStyle={{ gap: space.sm }} keyboardShouldPersistTaps="handled">
-        {rows.length === 0 ? <Text style={s.empty}>{say('interview.present.empty')}</Text> : null}
-        {rows.map((r) => {
-          const on = picked === r.id;
-          return (
-            <Pressable
-              key={r.id}
-              onPress={() => { tap(); setPicked(on ? null : r.id); }}
-              style={[s.row, on && s.rowOn]}
-              accessibilityRole="button"
-              accessibilityState={{ selected: on }}
-            >
-              <View style={[s.radio, on && s.radioOn]} />
-              <View style={{ flex: 1 }}>
-                <Text style={s.rowTitle} numberOfLines={3}>{r.title}</Text>
-                <View style={{ flexDirection: 'row', gap: space.sm, marginTop: 3 }}>
-                  {r.meta ? <Text style={s.rowMeta} numberOfLines={1}>{r.meta}</Text> : null}
-                  {tried.has(r.id) ? <Text style={[s.rowMeta, { color: color.burgundyBright }]}>{say('interview.present.tried')}</Text> : null}
-                </View>
-              </View>
-            </Pressable>
-          );
-        })}
-      </ScrollView>
-    </Sheet>
+        {picking ? (
+          <View style={[s.fullFoot, { paddingBottom: Math.max(inset.bottom, space.md) }]}>
+            {picked ? (
+              <>
+                <Text style={s.pickedLabel} numberOfLines={2}>{picked.label}</Text>
+                {tried.has(picked.id) ? <Text style={[s.warn, { color: color.burgundyBright }]}>{say('interview.present.triedNote')}</Text> : null}
+              </>
+            ) : <Text style={s.warn}>{say('interview.present.warn')}</Text>}
+            <Button
+              label={picked ? `${say('interview.present')} · ${minutes(say, cost)}` : say('interview.present.pick')}
+              disabled={!picked}
+              onPress={() => { if (picked) { const id = picked.id; setPicked(null); onPresent(id); } }}
+              icon="evidence"
+            />
+          </View>
+        ) : null}
+      </View>
+    </Modal>
   );
 }
 
@@ -139,14 +131,15 @@ const s = StyleSheet.create({
   grip: { alignSelf: 'center', width: 36, height: 4, borderRadius: 2, backgroundColor: color.border, marginBottom: space.md },
   head: { flexDirection: 'row', alignItems: 'center', marginBottom: space.md },
   claim: { fontFamily: font.serif, fontSize: 16, lineHeight: 22, color: color.text, marginBottom: space.md },
+  full: { flex: 1, backgroundColor: color.bg, width: '100%', maxWidth: 760, alignSelf: 'center' },
+  fullHead: { paddingHorizontal: space.lg, paddingTop: space.md, paddingBottom: space.sm, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: color.border },
+  backRow: { flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 36 },
+  backLabel: { fontFamily: font.sansMedium, fontSize: 14, color: color.text, flexShrink: 1 },
+  fullHint: { fontFamily: font.sans, fontSize: 12.5, lineHeight: 18, color: color.textDim, marginTop: space.xs },
+  fullFoot: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: color.border, paddingHorizontal: space.lg, paddingTop: space.md, backgroundColor: color.bg, gap: space.sm },
+  pickedLabel: { fontFamily: font.sansMedium, fontSize: 14, lineHeight: 20, color: color.amber },
   warn: { fontFamily: font.sans, fontSize: 12, color: color.textFaint, textAlign: 'center', marginBottom: space.sm },
   empty: { fontFamily: font.sans, fontSize: 14, lineHeight: 20, color: color.textDim, paddingVertical: space.md },
-  row: { flexDirection: 'row', gap: space.md, alignItems: 'flex-start', borderWidth: 1, borderColor: color.borderSoft, borderRadius: radius.md, padding: space.md, backgroundColor: color.surface },
-  rowOn: { borderColor: color.amber, backgroundColor: color.elevated },
-  radio: { width: 16, height: 16, borderRadius: 8, borderWidth: 1.5, borderColor: color.border, marginTop: 2 },
-  radioOn: { borderColor: color.amber, backgroundColor: color.amber },
-  rowTitle: { fontFamily: font.sans, fontSize: 14, lineHeight: 20, color: color.text },
-  rowMeta: { fontFamily: font.mono, fontSize: 10.5, color: color.textFaint, letterSpacing: 0.3, flexShrink: 1 },
   chips: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
   chip: {
     flexDirection: 'row', alignItems: 'center', gap: 6, minHeight: 44, paddingHorizontal: space.md, borderRadius: radius.md,

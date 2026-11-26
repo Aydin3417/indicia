@@ -426,6 +426,17 @@ function reachTier(ctx: Ctx, suspect: SuspectDef, topic: TopicDef, target: numbe
   return { newEvidence, newFacts, newClaims, line: spoken(ctx, suspect, tx(tier.line, ctx.locale), tier.emotion) };
 }
 
+/**
+ * Wave 9 (PLAYTEST_V5 §5.2): stepping out of an interview and straight back in is not a new interview. If no game time
+ * has passed since you left it (only free moves: reading, collecting, a right filing, the lab bench), the same day,
+ * by the same investigator, and the suspect has not shut you out, re-opening it costs nothing.
+ */
+export function resumesFree(v2: CaseV2, s: V2State, iv: V2State['interviews'][string], actorId: string | undefined): boolean {
+  if (iv.open || !iv.left || iv.refusedDay === s.day || iv.patienceDay !== s.day) return false;
+  if (iv.left.at !== absNow(v2, s)) return false;
+  return !s.team || iv.left.by === actorId;
+}
+
 export function interviewStart(ctx: Ctx, suspectId: string): V2Event {
   const { v2, s } = need(ctx);
   assertInvestigating(ctx, s);
@@ -440,7 +451,9 @@ export function interviewStart(ctx: Ctx, suspectId: string): V2Event {
   }
   if (iv.refusedDay === s.day) fail(ctx, 'refused', 'conflict', 'refused');
   if (!suspectAvailableNow(v2, s, suspectId)) fail(ctx, 'unavailable', 'conflict', 'unavailable');
-  const cost = spend(ctx, v2, s, costsOf(v2).startInterview);
+  const resumed = resumesFree(v2, s, iv, ctx.actorId);
+  const cost = resumed ? 0 : spend(ctx, v2, s, costsOf(v2).startInterview);
+  delete iv.left;
   if (coop) {
     // one interview at a time per investigator: starting another leaves the one you held
     for (const [id, other] of Object.entries(s.interviews)) {
@@ -458,18 +471,21 @@ export function interviewStart(ctx: Ctx, suspectId: string): V2Event {
   }
   iv.open = true;
   log(s, { suspectId, from: 'player', ref: { k: 'player' }, action: 'start', actorId: ctx.actorId });
+  // back in the room after a moment at the notebook: no new greeting, the duel goes on where it stood
+  if (resumed) return { kind: 'interview_start', ok: true, cost: 0, outcome: 'resumed', patience: iv.patience };
   log(s, { suspectId, from: 'suspect', ref: { k: 'opening' } });
   return { kind: 'interview_start', ok: true, cost, patience: iv.patience, line: spoken(ctx, suspect, tx(suspect.opening, ctx.locale), 'guarded') };
 }
 
 export function interviewLeave(ctx: Ctx, suspectId: string): V2Event {
-  const { s } = need(ctx);
+  const { v2, s } = need(ctx);
   suspectOf(ctx, suspectId);
   const iv = s.interviews[suspectId];
   assertNotHeld(ctx, suspectId);
   if (iv.open) {
     iv.open = false;
     delete iv.by;
+    iv.left = { at: absNow(v2, s), by: ctx.actorId };
     log(s, { suspectId, from: 'player', ref: { k: 'player' }, action: 'leave', actorId: ctx.actorId });
   }
   return { kind: 'interview_leave', ok: true, cost: 0 };

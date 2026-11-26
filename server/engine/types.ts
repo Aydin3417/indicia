@@ -107,6 +107,11 @@ export interface Person {
   name: string;
   role: Text; // "Victim", "Neighbour", "Bartender"
   description: Text;
+  /**
+   * Wave 9: left off the cast list (and the person chips) until the notebook names them — a held fact `about` them or a
+   * held evidence item with them in `relatedPeople`. For people whose mere presence on the list would point somewhere.
+   */
+  hiddenUntilMet?: boolean;
 }
 
 export interface TierDef {

@@ -17,7 +17,7 @@ import {
 } from './state.ts';
 import { asPlayer, isDone, leftFor, membersOf, notesOf, privateLocation, teamOf } from './coop.ts';
 import {
-  crimeOf, knownTimes, labMinutes, labStatus, LATE_WRONG_LIMIT, legacyCrime, nudgeText, owns, pressState, resistText, resultView, suspectAvailableNow, topicAvailable,
+  crimeOf, knownTimes, labMinutes, labStatus, LATE_WRONG_LIMIT, legacyCrime, nudgeText, owns, pressState, resistText, resultView, resumesFree, suspectAvailableNow, topicAvailable,
   WAIT_MAX, WAIT_MIN, waitMinutes, type Ctx,
 } from './actions.ts';
 import { claimSpans } from './anchors.ts';
@@ -146,15 +146,17 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
       };
     });
 
-  const analysesOf = (evidenceId: string): LabOptionView[] => def.analyses.filter((a) => a.evidenceId === evidenceId).map((a) => {
+  const analysesOf = (evidenceId: string): LabOptionView[] => def.analyses.filter((a) => a.evidenceId === evidenceId).flatMap((a) => {
     const status = labStatus(ctx, a.id);
+    // wave 9 (PLAYTEST_V5 §5.5): a job only a night fork could start, once that night is behind you, is no longer a lead
+    if (status === 'locked' && forkRoadClosed(def, s, a.id)) return [];
     const job = s.lab.find((j) => j.analysisId === a.id);
-    return {
+    return [{
       id: a.id, name: L(a.name), discipline: a.discipline, minutes: labMinutes(a), status,
       lockedReason: status === 'locked' && a.lockedReason ? L(a.lockedReason) : undefined,
       readyAt: job ? gameTime(v2, job.readyAt) : undefined,
       ...(status === 'done' ? { result: txs(a.result, locale), conclusion: L(a.conclusion) } : {}),
-    };
+    }];
   });
 
   const segmentsOf = (evidenceId: string, line: Text, i: number): Segment[] =>
@@ -273,6 +275,7 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
         patience: iv.patienceDay === s.day ? iv.patience : patienceOf(sus),
         maxPatience: patienceOf(sus),
         refusedToday: iv.refusedDay === s.day,
+        ...(resumesFree(v2, s, iv, viewerId) ? { resumeFree: true } : {}),
         ...(team && iv.open && iv.by && iv.by in st.players ? { heldBy: who(iv.by) } : {}),
       },
       ...(team ? {
@@ -360,11 +363,18 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
       };
     });
 
+  // ── people on the cast list: everyone, except those kept back until the notebook names them (wave 9)
+  const named = new Set<string>([
+    ...facts.flatMap((f) => f.about),
+    ...evidence.flatMap((e) => e.relatedPeople.map((p) => p.id)),
+  ]);
+  const cast = def.people.filter((p) => !p.hiddenUntilMet || named.has(p.id));
+
   // ── chips
   const chips: InvestigationView['chips'] = {
     facts: facts.filter((f) => !f.private).map((f): ChipView => ({ type: 'fact', id: f.id, label: f.text })),
     evidence: evidence.filter((e) => !e.private).map((e): ChipView => ({ type: 'evidence', id: e.id, label: `${e.code} ${e.name}` })),
-    people: [...def.suspects.map((x) => ({ type: 'person' as const, id: x.id, label: x.name })), ...def.people.map((p) => ({ type: 'person' as const, id: p.id, label: p.name }))],
+    people: [...def.suspects.map((x) => ({ type: 'person' as const, id: x.id, label: x.name })), ...cast.map((p) => ({ type: 'person' as const, id: p.id, label: p.name }))],
     times: knownTimes(def, s).map((t) => ({ type: 'time' as const, id: t, label: t })),
     places: places.map((p) => ({ type: 'place' as const, id: p.id, label: p.name })),
     deductions: deductions.filter((d) => d.status === 'confirmed').map((d) => ({ type: 'fact' as const, id: d.id, label: d.title })),
@@ -396,7 +406,9 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
       facts: r.facts.map((id) => ({ id, text: L(v2.facts.find((f) => f.id === id)?.text) })),
       evidence: r.evidence.map((id) => ({ id, name: L(def.evidence.find((e) => e.id === id)?.name) })),
       deductionsConfirmed: r.deductionsConfirmed.map((id) => ({ id, title: L(indexOf(def).deductions.get(id)?.title) })),
-      deductionsOpened: r.deductionsOpened.map((id) => ({ id, title: L(indexOf(def).deductions.get(id)?.title) })),
+      // a question that opened and was confirmed the same day is reported once, as confirmed (PLAYTEST_V5 §5.7)
+      deductionsOpened: r.deductionsOpened.filter((id) => !r.deductionsConfirmed.includes(id))
+        .map((id) => ({ id, title: L(indexOf(def).deductions.get(id)?.title) })),
       labsReady: r.labsReady.map((id) => ({ analysisId: id, name: L(def.analyses.find((a) => a.id === id)?.name) })),
       labsRunning: r.labsRunning.map((id) => {
         const job = s.lab.find((j) => j.analysisId === id)!;
@@ -411,6 +423,33 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
   const needs = proofNeeds(v2);
 
   // ── finale
+  /**
+   * Wave 9 (PLAYTEST_V5 §5.3). The suggested shelf of round `ri`: once a deduction linked to the round is confirmed,
+   * ONE piece that answers it (the confirmed deduction itself when there is one) among up to three that answer OTHER
+   * rounds (one per round, never one this round would also accept), in an order fixed per session and round by a
+   * hash — so its place says nothing. It narrows a full notebook to a choice that still has to be made: which of the
+   * strongest pieces answers *this* defence.
+   */
+  const shortlist = (ri: number): string[] => {
+    const rounds = v2.finale.rounds;
+    const r = rounds[ri];
+    const confirmed = (id: string) => !!s.deductions[id]?.confirmed;
+    const assists = (r.assist ?? []).filter(confirmed);
+    if (!assists.length) return [];
+    const best = (x: typeof r) => [...(x.assist ?? []).filter(confirmed), ...x.accept.filter((id) => owns(ctx, id, true))];
+    const right = best(r)[0];
+    if (!right) return [];
+    const here = new Set(r.accept);
+    const decoys: string[] = [];
+    for (let j = 0; j < rounds.length; j++) {
+      if (j === ri) continue;
+      const d = best(rounds[j]).find((id) => !here.has(id) && !decoys.includes(id));
+      if (d) decoys.push(d);
+    }
+    const key = (id: string) => hash(`${sessionId}|${r.id}|${id}`);
+    const picked = decoys.sort((a, b) => key(a) - key(b)).slice(0, FINALE_DECOYS);
+    return [right, ...picked].sort((a, b) => hash(`${sessionId}|${r.id}|order|${a}`) - hash(`${sessionId}|${r.id}|order|${b}`));
+  };
   let finale: FinaleView | undefined;
   if (s.finale) {
     const f = s.finale;
@@ -421,12 +460,11 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
       rounds: f.culprit ? v2.finale.rounds.map((r, i) => {
         const rs = f.rounds[i];
         const status = rs.result ?? (i === f.index && f.status === 'running' ? 'current' : 'pending');
-        const assisted = (r.assist ?? []).some((d) => s.deductions[d]?.confirmed);
         return {
           id: r.id, kind: r.kind, defence: i <= f.index ? L(r.defence) : '', prompt: i <= f.index ? L(r.prompt) : '',
           status, triesLeft: status === 'current' ? f.tries : rs.result ? 0 : 2, firstTry: rs.result ? rs.firstTry : undefined,
-          // earned help: accepted chips the player holds, only for rounds linked to a confirmed deduction
-          suggested: status === 'current' && assisted ? r.accept.filter((id) => owns(ctx, id, true)) : [],
+          // earned help, for rounds linked to a confirmed deduction: a short list of the file's strongest pieces
+          suggested: status === 'current' ? shortlist(i) : [],
           reaction: rs.result === 'won' ? L(r.win) : rs.result === 'lost' ? L(r.lose) : undefined,
         };
       }) : [],
@@ -515,7 +553,7 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
       nextReady: next ? { ...next.readyAt, minutesLeft: next.minutesLeft, name: next.name } : undefined,
       jobs,
     },
-    people: def.people.map((p) => ({ id: p.id, name: p.name, role: L(p.role), description: L(p.description) })),
+    people: cast.map((p) => ({ id: p.id, name: p.name, role: L(p.role), description: L(p.description) })),
     suspects,
     deductions,
     deductionsTotal: v2.deductions.length,
@@ -529,6 +567,28 @@ function project(def: CaseDefinition, st: SessionState, sessionId: string, viewe
     ...(teamView ? { team: teamView } : {}),
   };
 }
+
+/**
+ * A locked analysis that only a night fork's option can start (no deduction, fork or night event unlocks it) whose
+ * every fork is settled — answered either way, or its night passed without it — can never run any more.
+ */
+export function forkRoadClosed(def: CaseDefinition, s: V2State, analysisId: string): boolean {
+  const v2 = def.v2!;
+  const target = `analysis:${analysisId}`;
+  const unlockedElsewhere = v2.deductions.some((d) => d.effects?.some((e) => e.type === 'unlock' && e.target === target))
+    || (v2.nightEvents ?? []).some((ev) => ev.unlock?.includes(target) || ev.choice?.options.some((o) => o.unlock?.includes(target)));
+  if (unlockedElsewhere) return false;
+  const forks = (v2.nightEvents ?? []).filter((ev) => ev.choice?.options.some((o) => o.lab === analysisId));
+  if (!forks.length) return false;
+  return forks.every((ev) => {
+    const rec = s.reports.find((r) => r.fork?.id === ev.id)?.fork;
+    if (rec) return !!rec.chosen;
+    return s.phase !== 'investigating' || s.day > ev.afterDay;
+  });
+}
+
+/** How many pieces that answer other rounds stand beside the right one on a finale round's suggested shelf. */
+export const FINALE_DECOYS = 3;
 
 /** Small stable string hash (FNV-1a), for orders that must look random but never change between requests. */
 function hash(text: string): number {

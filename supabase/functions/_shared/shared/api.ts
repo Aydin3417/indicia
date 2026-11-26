@@ -446,6 +446,8 @@ export interface SuspectV2View {
     refusedToday: boolean;
     /** wave 5, co-op: who holds the open interview (only they can ask; the others follow the log) */
     heldBy?: { id: string; name: string; you: boolean };
+    /** wave 9: closed, but you only just stepped out (no game time since): re-opening costs nothing (`outcome: 'resumed'`) */
+    resumeFree?: boolean;
   };
   /** wave 5, co-op: teammates questioning or about to question this person (never you) */
   team?: TeammateMark[];

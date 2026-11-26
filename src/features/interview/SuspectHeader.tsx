@@ -18,8 +18,10 @@ export const composureTint: Record<Composure, string> = {
  * expression with their composure. Name, composure and patience sit on a charcoal band across its foot; the clock
  * and the way out sit in its top corners. Tap the print to fold it to a strip (more room for the transcript).
  */
-export function SuspectHeader({ suspect, clock, notebookCount, say, onLeave, reactKey, costFlash, emotion, width, height, compact, onToggle }: {
+export function SuspectHeader({ suspect, clock, notebookCount, say, onLeave, onNotebook, reactKey, costFlash, emotion, width, height, compact, onToggle }: {
   suspect: SuspectV2View; clock: ClockView; notebookCount: number; say: Say; onLeave: () => void;
+  /** wave 9: the notebook counter opens the notebook inside the room */
+  onNotebook?: () => void;
   /** bump to make the portrait react (a break) */
   reactKey: number;
   costFlash: { n: number; key: number } | null;
@@ -87,12 +89,14 @@ export function SuspectHeader({ suspect, clock, notebookCount, say, onLeave, rea
       </View>
 
       <View style={s.band} pointerEvents="box-none">
-        <View style={s.bandRow} pointerEvents="none">
-          <View style={{ flex: 1, minWidth: 0 }}>
+        <View style={s.bandRow} pointerEvents="box-none">
+          <View style={{ flex: 1, minWidth: 0 }} pointerEvents="none">
             <Text style={s.name} numberOfLines={1}>{suspect.name}</Text>
             {!compact ? <Text style={s.sub} numberOfLines={1}>{sub}</Text> : null}
           </View>
-          <NotebookCounter count={notebookCount} say={say} />
+          <Pressable onPress={onNotebook} disabled={!onNotebook} hitSlop={10} accessibilityRole="button" accessibilityLabel={say('interview.notebook.open')} testID="interview-notebook-counter">
+            <NotebookCounter count={notebookCount} say={say} />
+          </Pressable>
         </View>
         <View style={[s.bandRow, { marginTop: compact ? 4 : space.sm }]} pointerEvents="none">
           <ComposureMeter value={suspect.composure} say={say} />

@@ -12,6 +12,14 @@ import { isOk, type Act, type Translate } from '../deduction/types';
 import { playSound } from '../../sound';
 
 export type NotebookTab = 'facts' | 'evidence' | 'people';
+
+/**
+ * Documents opened on this device since their NEW flag was set. The server clears `isNew` on the next view or action;
+ * opening a document is neither, so its badge used to linger after it had been read (PLAYTEST_V5 §5.7).
+ */
+const opened = new Set<string>();
+const readKey = (view: InvestigationView, id: string) => `${view.sessionId}:${id}`;
+const unread = (view: InvestigationView, e: EvidenceV2View) => e.isNew && !opened.has(readKey(view, e.id));
 type GroupBy = 'person' | 'time' | 'source';
 
 export interface NotebookProps {
@@ -36,6 +44,7 @@ export function Notebook({ view, act, t, onPick, mode = 'browse', accept = ['fac
   const [doc, setDoc] = useState<string | null>(null);
 
   const evidence = doc ? view.notebook.evidence.find((e) => e.id === doc) : undefined;
+  if (evidence) opened.add(readKey(view, evidence.id));
   if (evidence) {
     return <LangRoot lang={view.locale}><DocumentReader view={view} ev={evidence} act={act} t={t} onBack={() => setDoc(null)} onPick={picking && accept.includes('evidence') ? onPick : undefined} /></LangRoot>;
   }
@@ -47,7 +56,7 @@ export function Notebook({ view, act, t, onPick, mode = 'browse', accept = ['fac
   };
   const newCounts: Record<NotebookTab, number> = {
     facts: view.notebook.facts.filter((f) => f.isNew).length,
-    evidence: view.notebook.evidence.filter((e) => e.isNew).length,
+    evidence: view.notebook.evidence.filter((e) => unread(view, e)).length,
     people: 0,
   };
 
@@ -186,7 +195,7 @@ function Pill({ label, on, onPress }: { label: string; on: boolean; onPress: () 
 // ─────────────────────────────────────────────────────────── evidence
 
 function EvidenceList({ view, act, t, onOpen, onPick }: { view: InvestigationView; act: Act; t: Translate; onOpen: (id: string) => void; onPick?: (c: ChipView) => void }) {
-  const list = [...view.notebook.evidence].sort((a, b) => Number(b.isNew) - Number(a.isNew));
+  const list = [...view.notebook.evidence].sort((a, b) => Number(unread(view, b)) - Number(unread(view, a)));
   if (!list.length) return <Text style={s.empty}>{t('notebook.noEvidence')}</Text>;
   return (
     <View style={{ gap: 6, marginTop: space.md }}>
@@ -202,7 +211,7 @@ function EvidenceList({ view, act, t, onOpen, onPick }: { view: InvestigationVie
                 <Text style={s.evCode}>{e.code}</Text>
                 <View style={{ flexDirection: 'row', gap: space.sm, alignItems: 'center' }}>
                   <Text style={s.evName} numberOfLines={2}>{e.name}</Text>
-                  {e.isNew ? <NewDot label={t('notebook.new')} /> : null}
+                  {unread(view, e) ? <NewDot label={t('notebook.new')} /> : null}
                 </View>
                 <Text style={s.factMeta}>
                   {t(`notebook.kind.${e.kind}`)}
@@ -279,7 +288,9 @@ function DocumentReader({ view, ev, act, t, onBack, onPick }: {
                     key={j}
                     style={[style, busyKey === seg.key && { opacity: 0.5 }]}
                     onPress={seg.collected ? undefined : () => collect(seg)}
-                    accessibilityRole={seg.collected ? undefined : 'button'}
+                    // 'link', not 'button': on the web a button is an inline-block, so the full stop after an
+                    // underlined phrase could wrap onto a line of its own (PLAYTEST_V5 §5.7)
+                    accessibilityRole={seg.collected ? undefined : 'link'}
                     suppressHighlighting
                   >
                     {seg.text}

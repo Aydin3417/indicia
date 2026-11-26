@@ -45,7 +45,7 @@ test('a friend joins by code and sees the same investigation, activity in their 
   assert.ok(en.includes('Demir: joined the investigation'), en.join('\n'));
 
   const tr = (await s.viewV2(GUEST, sessionId, 'tr')).room!.activity.map((a) => `${a.actor}: ${a.text}`);
-  assert.ok(tr.includes('Aksoy: şuraya gitti: Atölye'), tr.join('\n'));
+  assert.ok(tr.includes('Aksoy: Atölye yolunu tuttu'), tr.join('\n'));
   assert.ok(tr.includes('Aksoy: inceledi: Maktul'), tr.join('\n'));
   assert.ok(tr.includes('Aksoy: odayı açtı'), tr.join('\n'));
 });

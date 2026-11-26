@@ -9,7 +9,7 @@ import { color, font, radius, space } from '../../theme/tokens';
 import type { CardFx } from './ClaimCard';
 import { CoachMark } from '../desk/Coach';
 import { feel } from './feel';
-import { PresentSheet, TopicSheet } from './Sheets';
+import { NotebookSheet, TopicSheet } from './Sheets';
 import { SuspectHeader } from './SuspectHeader';
 import { Transcript } from './Transcript';
 import { isFailure, type InterviewScreenProps } from './types';
@@ -30,10 +30,10 @@ export function InterviewScreen({ view, suspectId, act, onExit, t }: InterviewSc
       </View>
     );
   }
-  return <Duel view={view} suspect={suspect} act={act} onExit={onExit} say={say} />;
+  return <Duel view={view} suspect={suspect} act={act} onExit={onExit} say={say} t={t} />;
 }
 
-function Duel({ view, suspect, act, onExit, say }: Omit<InterviewScreenProps, 'suspectId' | 't'> & { suspect: SuspectV2View; say: Say }) {
+function Duel({ view, suspect, act, onExit, say, t }: Omit<InterviewScreenProps, 'suspectId'> & { suspect: SuspectV2View; say: Say }) {
   const inset = useSafeAreaInsets();
   const { clock } = view;
   const costs = clock.costs;
@@ -42,7 +42,8 @@ function Duel({ view, suspect, act, onExit, say }: Omit<InterviewScreenProps, 's
 
   const [selected, setSelected] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
-  const [sheet, setSheet] = useState<'present' | 'topic' | null>(null);
+  // 'notebook': the notebook inside the room (wave 9) — the picker for "present" when a claim is selected
+  const [sheet, setSheet] = useState<'notebook' | 'topic' | null>(null);
   const [askOpen, setAskOpen] = useState(false);
   const [askText, setAskText] = useState('');
   const [fx, setFx] = useState<Record<string, CardFx>>({});
@@ -205,6 +206,7 @@ function Duel({ view, suspect, act, onExit, say }: Omit<InterviewScreenProps, 's
         <View onLayout={(e) => { const h = e.nativeEvent.layout.height; setFrame((f) => ({ ...f, header: h + inset.top })); }}>
           <SuspectHeader
             suspect={suspect} clock={clock} notebookCount={notebookCount} say={say} onLeave={leave}
+            onNotebook={() => { feel('light'); setSheet('notebook'); }}
             reactKey={reactKey} costFlash={costFlash} emotion={emotion}
             width={frame.w} height={heroH} compact={compact} onToggle={() => { feel('light'); setFolded(!compact); }}
           />
@@ -240,7 +242,8 @@ function Duel({ view, suspect, act, onExit, say }: Omit<InterviewScreenProps, 's
             onStart={() => run('interview', {})}
             onRaise={() => setSheet('topic')}
             onPress={press}
-            onPresent={() => setSheet('present')}
+            onPresent={() => setSheet('notebook')}
+            onNotebook={() => { feel('light'); setSheet('notebook'); }}
             onDeselect={() => setSelected(null)}
             onAskToggle={() => setAskOpen((o) => !o)}
             onAskText={setAskText}
@@ -252,9 +255,9 @@ function Duel({ view, suspect, act, onExit, say }: Omit<InterviewScreenProps, 's
         <FlyChip fly={fly} frame={frame} say={say} />
       </View>
 
-      <PresentSheet
-        visible={sheet === 'present'} onClose={() => setSheet(null)} claim={selectedClaim} view={view} tried={tried}
-        cost={costs.present} say={say} onPresent={present}
+      <NotebookSheet
+        visible={sheet === 'notebook'} onClose={() => setSheet(null)} claim={iv.open && investigating ? selectedClaim : undefined} view={view} act={act} t={t}
+        tried={tried} cost={costs.present} say={say} onPresent={present} suspectName={suspect.name.split(' ')[0]}
       />
       <TopicSheet visible={sheet === 'topic'} onClose={() => setSheet(null)} topics={suspect.topics} cost={costs.openTopic} say={say} onRaise={raise} />
     </KeyboardAvoidingView>
@@ -284,12 +287,12 @@ function pressNote(say: Say, c: ClaimView, cost: string): string {
 
 function Dock({
   view, suspect, say, busy, selectedClaim, hasClaims, openCount, availableTopics, askOpen, askText,
-  onStart, onRaise, onPress, onPresent, onDeselect, onCycle, onAskToggle, onAskText, onAsk, onExit,
+  onStart, onRaise, onPress, onPresent, onDeselect, onCycle, onAskToggle, onAskText, onAsk, onExit, onNotebook,
 }: {
   view: InterviewScreenProps['view']; suspect: SuspectV2View; say: Say; busy: boolean; selectedClaim?: ClaimView; hasClaims: boolean;
   openCount: number; availableTopics: number; askOpen: boolean; askText: string;
   onStart: () => void; onRaise: () => void; onPress: () => void; onPresent: () => void; onDeselect: () => void; onCycle: () => void;
-  onAskToggle: () => void; onAskText: (v: string) => void; onAsk: () => void; onExit: () => void;
+  onAskToggle: () => void; onAskText: (v: string) => void; onAsk: () => void; onExit: () => void; onNotebook: () => void;
 }) {
   const { clock } = view;
   const costs = clock.costs;
@@ -328,8 +331,11 @@ function Dock({
     return (
       <>
         {suspect.log.length === 0 ? <Note text={say('interview.start.lead', { name: first })} /> : null}
-        <LowTime say={say} left={clock.remainingToday} need={costs.startInterview} />
-        <Button label={`${say('interview.start')} · ${minutes(say, costs.startInterview)}`} onPress={onStart} busy={busy} icon="people" />
+        {iv.resumeFree ? null : <LowTime say={say} left={clock.remainingToday} need={costs.startInterview} />}
+        <Button
+          label={iv.resumeFree ? say('interview.start.resume') : `${say('interview.start')} · ${minutes(say, costs.startInterview)}`}
+          onPress={onStart} busy={busy} icon="people"
+        />
       </>
     );
   }
@@ -394,6 +400,16 @@ function Dock({
           onPress={onRaise} icon="bulb" style={{ flex: 1 }} disabled={busy}
           kind={availableTopics ? 'primary' : 'secondary'}
         />
+        <Pressable
+          onPress={onNotebook}
+          style={s.askToggle}
+          accessibilityRole="button"
+          accessibilityLabel={say('interview.notebook.open')}
+          testID="interview-notebook-open"
+        >
+          {/* the notebook inside the room (wave 9); the header's notebook counter opens it too */}
+          <Icon name="notebook" size={19} tint={color.textDim} />
+        </Pressable>
         <Pressable
           onPress={onAskToggle}
           style={[s.askToggle, askOpen && { borderColor: color.amber }]}

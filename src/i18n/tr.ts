@@ -241,6 +241,9 @@ export const tr: Record<ShellKey, string> = {
   'desk.map.toProsecutor': 'Savcıya git',
   'desk.map.readyEyebrow': 'Hazır olduğunda',
   'desk.map.readyText': '{n} çıkarım doğrulandı. Sanığın karşısına istediğin an çıkabilirsin — yüzleşme soruşturmayı bitirir.',
+  'desk.map.lastDayEyebrow': 'Son gün',
+  'desk.map.lastDayText': '{n} çıkarım doğrulandı (Kanıt yıldızı {need} istiyor). Sanığın karşısına istediğin an çıkabilirsin — yüzleşme soruşturmayı bitirir.',
+  'desk.map.earlyText': 'Dosya henüz zayıf: Kanıt yıldızı {need} çıkarım istiyor, {n} tanesi doğrulandı. Yüzleşme soruşturmayı bitirir.',
   'desk.map.toVerdict': 'Kararı oku',
 
   'desk.lab.title': 'Laboratuvar',

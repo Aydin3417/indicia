@@ -146,7 +146,7 @@ const S = {
   act_handover: { en: 'is now the lead investigator', tr: 'artık baş müfettiş' },
   act_done: { en: 'is done for today', tr: 'bugünlük işini bitirdi' },
   act_day_all: { en: 'everyone is done: day {0} is over', tr: 'herkes işini bitirdi: {0}. gün kapandı' },
-  act_intent_go: { en: 'is heading to {0}', tr: 'şuraya gidiyor: {0}' },
+  act_intent_go: { en: 'is heading to {0}', tr: '{0} yolunda' },
   act_intent_interview: { en: 'will question {0}', tr: 'sorgulayacak: {0}' },
   act_intent_lab: { en: 'is waiting for the lab: {0}', tr: 'laboratuvarı bekliyor: {0}' },
   act_draft: { en: 'pencilled in a deduction: {0}', tr: 'bir çıkarımı karaladı: {0}' },
@@ -155,7 +155,7 @@ const S = {
   // night forks
   no_fork: { en: 'No decision is waiting from last night.', tr: 'Dün geceden bekleyen bir karar yok.' },
   // activity (shared investigations)
-  act_travel: { en: 'went to {0}', tr: 'şuraya gitti: {0}' },
+  act_travel: { en: 'went to {0}', tr: '{0} yolunu tuttu' },
   act_inspect: { en: 'inspected {0}', tr: 'inceledi: {0}' },
   act_detail: { en: 'found a detail: {0}', tr: 'bir ayrıntı buldu: {0}' },
   act_fact: { en: 'noted a finding', tr: 'bir bulgu not etti' },

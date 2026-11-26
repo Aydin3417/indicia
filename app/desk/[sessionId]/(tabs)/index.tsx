@@ -53,6 +53,7 @@ export default function MapTab() {
       <WaitCard view={view} compact />
       <Sergeant view={view} t={t} />
       <Diary view={view} t={t} />
+      <EarlyProsecutor view={view} t={t} />
       <Pressable onPress={() => { tap(); router.push(`/desk/${view.sessionId}/briefing`); }} style={s.linkRow} accessibilityRole="button">
         <Icon name="file" size={18} tint={color.textDim} />
         <T v="bodyDim" style={{ flex: 1 }}>{t('desk.map.briefing')}</T>
@@ -80,16 +81,46 @@ export default function MapTab() {
   );
 }
 
-/** Once something is proven, say plainly where the case ends: the confrontation (the strip's gavel is easy to miss). */
-function ReadyBanner({ view, t }: { view: InvestigationView; t: Translate }) {
+/**
+ * When going to the prosecutor is a reasonable move, say so plainly at the top of the map (the strip's gavel is easy to
+ * miss): once the file carries the Proof star's share of deductions, or on the last day. Before that (PLAYTEST_V5 §5.4:
+ * it invited a charge after the first confirmed question of a three-day case) the way stays open, but quietly — a row
+ * near the bottom that says how thin the file still is (`EarlyProsecutor`).
+ */
+function finaleAdvice(view: InvestigationView): { confirmed: number; need: number; ready: boolean; lastDay: boolean } {
   const confirmed = view.deductions.filter((d) => d.status === 'confirmed').length;
-  if (!confirmed) return null;
+  const need = view.proofStar?.deductionsNeeded ?? Math.max(1, view.deductionsTotal);
+  const lastDay = view.clock.day >= view.clock.days;
+  return { confirmed, need, ready: confirmed >= need, lastDay };
+}
+
+function ReadyBanner({ view, t }: { view: InvestigationView; t: Translate }) {
+  const a = finaleAdvice(view);
+  if (!a.confirmed || (!a.ready && !a.lastDay)) return null;
   return (
-    <Card accent={color.border} style={{ marginTop: space.lg }}>
-      <Eyebrow>{t('desk.map.readyEyebrow')}</Eyebrow>
-      <T v="small" style={{ marginTop: space.sm }}>{t('desk.map.readyText', { n: confirmed, total: view.deductions.length })}</T>
+    <Card accent={a.ready ? color.amber : color.border} style={{ marginTop: space.lg }}>
+      <Eyebrow tint={a.ready ? color.amber : undefined}>{t(a.ready ? 'desk.map.readyEyebrow' : 'desk.map.lastDayEyebrow')}</Eyebrow>
+      <T v="small" style={{ marginTop: space.sm }}>
+        {a.ready ? t('desk.map.readyText', { n: a.confirmed, total: view.deductions.length }) : t('desk.map.lastDayText', { n: a.confirmed, need: a.need })}
+      </T>
       <Button label={t('desk.map.toProsecutor')} kind="secondary" compact onPress={() => router.push(`/desk/${view.sessionId}/finale`)} style={{ marginTop: space.md, alignSelf: 'flex-start' }} />
     </Card>
+  );
+}
+
+/** The confrontation is always possible; before the file is ready it is a quiet row, not a banner. */
+function EarlyProsecutor({ view, t }: { view: InvestigationView; t: Translate }) {
+  const a = finaleAdvice(view);
+  if (view.phase !== 'investigating' || !a.confirmed || a.ready || a.lastDay) return null;
+  return (
+    <Pressable onPress={() => { tap(); router.push(`/desk/${view.sessionId}/finale`); }} style={s.linkRow} accessibilityRole="button" testID="early-prosecutor">
+      <Icon name="gavel" size={18} tint={color.textDim} />
+      <View style={{ flex: 1 }}>
+        <T v="bodyDim">{t('desk.map.toProsecutor')}</T>
+        <T v="small" style={{ color: color.textFaint }}>{t('desk.map.earlyText', { n: a.confirmed, need: a.need })}</T>
+      </View>
+      <Icon name="chevron" size={16} tint={color.textFaint} />
+    </Pressable>
   );
 }
 

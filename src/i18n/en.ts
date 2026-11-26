@@ -240,6 +240,9 @@ export const en = {
   'desk.map.toProsecutor': 'Go to the prosecutor',
   'desk.map.readyEyebrow': 'When you are ready',
   'desk.map.readyText': 'Deductions confirmed: {n}. You can face the accused at any time — the confrontation ends the investigation.',
+  'desk.map.lastDayEyebrow': 'Last day',
+  'desk.map.lastDayText': 'Deductions confirmed: {n} (the Proof star wants {need}). You can face the accused at any time — the confrontation ends the investigation.',
+  'desk.map.earlyText': 'The file is still thin: {n} of the {need} deductions the Proof star wants. The confrontation ends the investigation.',
   'desk.map.toVerdict': 'Read the verdict',
 
   'desk.lab.title': 'Lab bench',

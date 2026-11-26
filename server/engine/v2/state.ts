@@ -30,6 +30,11 @@ export interface InterviewState {
   refusedDay?: number;
   /** co-op: the investigator holding the interview (the others follow it but cannot ask) */
   by?: string;
+  /**
+   * Wave 9: when (absolute game minute) and by whom the interview was last left. Re-opening it while no game time has
+   * passed since — a look at the notebook, a deduction filed right, a lab job sent — costs nothing (`resumesFree`).
+   */
+  left?: { at: number; by?: string };
 }
 
 export type LineRef =

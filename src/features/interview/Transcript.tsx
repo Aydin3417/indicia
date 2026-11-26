@@ -25,9 +25,18 @@ export function Transcript({ log, say, itemLabel, coop, you, hooks }: {
 }) {
   const firstSeq = useRef<number | null>(null);
   if (firstSeq.current === null) firstSeq.current = log.length ? log[log.length - 1].seq : -1;
+  // a step out to the desk and straight back (same minute: a free return, wave 9) is not a new interview: drop the
+  // "closed · 12:00 / opened · 12:00" pair
+  const shown = log.filter((m, i) => {
+    const marker = (x: InterviewLineView | undefined, a: string) => x?.from === 'player' && x.action === a;
+    const same = (a: InterviewLineView, b: InterviewLineView) => a.at.day === b.at.day && a.at.minute === b.at.minute;
+    if (marker(m, 'leave') && marker(log[i + 1], 'start') && same(m, log[i + 1])) return false;
+    if (marker(m, 'start') && marker(log[i - 1], 'leave') && same(m, log[i - 1])) return false;
+    return true;
+  });
   return (
     <View style={{ gap: space.lg }}>
-      {log.map((m) => <Line key={m.seq} m={m} say={say} itemLabel={itemLabel} animate={m.seq > (firstSeq.current ?? -1)} coop={coop} you={you} hooks={hooks} />)}
+      {shown.map((m) => <Line key={m.seq} m={m} say={say} itemLabel={itemLabel} animate={m.seq > (firstSeq.current ?? -1)} coop={coop} you={you} hooks={hooks} />)}
     </View>
   );
 }
@@ -102,7 +111,9 @@ function Answer({ m, hooks, say }: { m: InterviewLineView; hooks: ClaimHooks; sa
             <Text
               key={i}
               onPress={active ? () => hooks.onSelect(c.id) : undefined}
-              accessibilityRole={active ? 'button' : undefined}
+              // inline claim: 'link' keeps it inline on the web ('button' is an inline-block and let the full stop
+              // after it wrap alone)
+              accessibilityRole={active ? 'link' : undefined}
               accessibilityState={active ? { selected: on } : undefined}
               testID={`claim-${c.id}`}
               style={[

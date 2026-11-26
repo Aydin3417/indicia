@@ -69,7 +69,9 @@ v2 is the only game. Both cases have painted art (128 images), sound (22 interfa
 ([docs/PLAYTEST_V4.md](docs/PLAYTEST_V4.md), [docs/handoff/O.md](docs/handoff/O.md)) played First Watch and Kessler
 end to end in English and Turkish at 375×812 — confession, wrong-culprit collapse, forced finale, both night forks
 both ways, all four side places — and co-op with three separate clients including a guest arriving by invite link from
-first launch. `npm run check`: 106/106 tests, both cases valid.
+first launch. Wave 9 ([docs/handoff/V.md](docs/handoff/V.md)) closed PLAYTEST_V5's gameplay list: the notebook opens
+inside an interview, the finale's suggestions are a shuffled short list instead of the answer, the prosecutor banner
+waits until the file is ready. `npm run check`: 129/129 tests, three cases valid.
 
 Not verified / not built: a native device run (no Android SDK here; gestures, haptics, audio and memory on a phone),
 listening to the sound, Supabase Auth in the app, a live Supabase deploy, the real store / RevenueCat path, in-app
